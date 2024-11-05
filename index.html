@@ -176,18 +176,19 @@
     <script>
         // 모든 section 요소를 가져옵니다
         const sections = document.querySelectorAll("section");
-        
+    
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
             (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
-                        observer.unobserve(entry.target); // 애니메이션이 한 번만 실행되도록 관찰 해제
+                    } else {
+                        entry.target.classList.remove("visible"); // 시야에서 사라지면 visible 클래스 제거
                     }
                 });
             },
-            { rootMargin: "0px 0px 200px 0px" } // 하단 기준 100px 남았을 때 애니메이션 실행
+            { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
         );
     
         // 각 section에 observer 적용
@@ -196,7 +197,7 @@
             observer.observe(section); // 관찰 시작
         });
     
-        // 처음 로드 시 화면에 보이는 섹션에 대한 애니메이션 실행
+        // 페이지 로드 시, 보이는 섹션 애니메이션 실행
         window.addEventListener("load", () => {
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
