@@ -99,6 +99,7 @@ section ul li {
     line-height: 1.6; /* 각 줄의 높이를 늘려 가독성 향상 */
 }
 
+
 .club {
     display: flex;
     align-items: center; /* 전체 클럽 섹션을 상단에 맞춰 정렬 */
@@ -145,6 +146,20 @@ section ul li {
 
 .club-links {
     margin-top: 10px;
+}
+
+.flex-row-left {
+    display: flex;
+    flex-direction: row; /* 로고 - 설명 순서 */
+    align-items: center;
+    gap: 20px;
+}
+
+.flex-row-right {
+    display: flex;
+    flex-direction: row-reverse; /* 설명 - 로고 순서 */
+    align-items: center;
+    gap: 20px;
 }
 
 footer {
