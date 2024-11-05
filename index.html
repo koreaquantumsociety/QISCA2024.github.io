@@ -174,8 +174,9 @@
     
     
     <script>
-        // 모든 section 요소를 가져옵니다
+        // 모든 section과 각 club 요소를 가져옵니다
         const sections = document.querySelectorAll("section");
+        const clubs = document.querySelectorAll(".club");
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
@@ -188,25 +189,31 @@
                     }
                 });
             },
-            { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
+            { rootMargin: "-400px 0px -200px 0px" } // 위아래 200픽셀 설정
         );
     
-        // 각 section에 observer 적용
+        // 각 section과 club에 observer 적용
         sections.forEach(section => {
             section.classList.add("transition-section"); // 초기 상태 설정
             observer.observe(section); // 관찰 시작
         });
     
-        // 페이지 로드 시, 보이는 섹션 애니메이션 실행
+        clubs.forEach(club => {
+            club.classList.add("transition-section"); // 초기 상태 설정
+            observer.observe(club); // 관찰 시작
+        });
+    
+        // 페이지 로드 시, 보이는 섹션 및 클럽 애니메이션 실행
         window.addEventListener("load", () => {
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
+            [...sections, ...clubs].forEach(element => {
+                const rect = element.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    section.classList.add("visible");
+                    element.classList.add("visible");
                 }
             });
         });
     </script>
+
 
     
 </body>
