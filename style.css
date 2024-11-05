@@ -71,14 +71,13 @@ section h2 {
 
 .club {
     display: flex;
-    flex-direction: row; /* 요소들이 수평으로 정렬되도록 설정 */
-    align-items: center; /* 요소들을 수직 가운데 정렬 */
+    align-items: flex-start; /* 전체 클럽 섹션을 상단에 맞춰 정렬 */
+    gap: 20px; /* 이미지와 콘텐츠 사이 간격 */
     padding: 20px;
     border-radius: 10px;
     background-color: var(--background-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    gap: 20px; /* 이미지와 텍스트 사이 간격 */
 }
 
 .club img {
@@ -86,23 +85,36 @@ section h2 {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0; /* 이미지 크기 고정 */
+    flex-shrink: 0;
 }
 
 .club-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 텍스트를 이미지 중앙에 맞춤 */
-    flex: 1; /* 텍스트 부분이 남은 공간을 차지하도록 설정 */
+    gap: 10px; /* 각 섹션 사이 간격 */
 }
 
-.club-content h3, .club-content p, .club-content a {
+.club-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.club-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.club-info p {
+    display: flex;
+    gap: 10px;
     margin: 0;
 }
 
-.club-content p {
-    display: flex;
-    gap: 20px; /* 설립과 회장 정보 사이의 간격 */
+.club-links {
+    margin-top: 10px;
 }
 
 footer {
