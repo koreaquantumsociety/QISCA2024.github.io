@@ -66,40 +66,78 @@
     <section id="members">
         <h2 data-lang-ko>회원 동아리</h2>
         <h2 data-lang-en style="display:none;">Member Clubs</h2>
-
-        <!-- 동아리 정보는 반복되는 부분을 템플릿화하여 간결하게 표현 -->
-        <div class="club">
-            <img src="images/QUIK.png" alt="QUICK Logo" style="width: 100px;">
-            <h3 data-lang-ko>QUICK (Korea University)</h3>
-            <h3 data-lang-en style="display:none;">QUICK (Korea University)</h3>
-            <p><strong data-lang-ko>설립:</strong> <span data-lang-ko>2023년 3월</span><span data-lang-en style="display:none;">March 2023</span> | <strong data-lang-ko>회장:</strong> <span data-lang-ko>Seonggeun Park</span></p>
-            <a href="https://quick.oopy.io/" target="_blank">Website</a> | <a href="mailto:kuquickofficial@gmail.com">Email</a>
-        </div>
-
-        <div class="club">
-            <img src="images/SQRT.png" alt="SQRT Logo" style="width: 100px;">
-            <h3 data-lang-ko>SQRT (Seoul National University)</h3>
-            <h3 data-lang-en style="display:none;">SQRT (Seoul National University)</h3>
-            <p><strong data-lang-ko>설립:</strong> <span data-lang-ko>2022년 9월</span><span data-lang-en style="display:none;">September 2022</span> | <strong data-lang-ko>회장:</strong> <span data-lang-ko>Yoonjin Bae</span></p>
-            <a href="https://sites.google.com/view/sqrt-quantum" target="_blank">Website</a> | <a href="mailto:snuquantums@gmail.com">Email</a>
-        </div>
-
-        <div class="club">
-            <img src="images/QIYA.png" alt="QIYA Logo" style="width: 100px;">
-            <h3 data-lang-ko>QIYA (Yonsei University)</h3>
-            <h3 data-lang-en style="display:none;">QIYA (Yonsei University)</h3>
-            <p><strong data-lang-ko>설립:</strong> <span data-lang-ko>2024년 9월</span><span data-lang-en style="display:none;">September 2024</span> | <strong data-lang-ko>회장:</strong> <span data-lang-ko>Hyeongmin Lim</span></p>
-            <a href="https://qiya-yonsei.github.io/" target="_blank">Website</a> | <a href="mailto:qiyayonsei@gmail.com">Email</a>
-        </div>
-
-        <div class="club">
-            <img src="images/EQS.png" alt="EQS Logo" style="width: 100px;">
-            <h3 data-lang-ko>EQS (KAIST)</h3>
-            <h3 data-lang-en style="display:none;">EQS (KAIST)</h3>
-            <p><strong data-lang-ko>설립:</strong> <span data-lang-ko>2022년 9월</span><span data-lang-en style="display:none;">September 2022</span> | <strong data-lang-ko>회장:</strong> <span data-lang-ko>Hyeongu Kang</span></p>
-            <a href="https://sites.google.com/view/eqs-kaist" target="_blank">Website</a> | <a href="mailto:eqskaist2022@gmail.com">Email</a>
-        </div>
+    
+        <!-- JavaScript로 생성될 동아리 정보가 들어갈 빈 컨테이너 -->
+        <div id="club-list"></div>
     </section>
+    
+    <script>
+        // 동아리 데이터 배열
+        const clubs = [
+            {
+                logo: "images/QUIK.png",
+                name_ko: "QUICK (Korea University)",
+                name_en: "QUICK (Korea University)",
+                established_ko: "2023년 3월",
+                established_en: "March 2023",
+                president: "Seonggeun Park",
+                website: "https://quick.oopy.io/",
+                email: "kuquickofficial@gmail.com"
+            },
+            {
+                logo: "images/SQRT.png",
+                name_ko: "SQRT (Seoul National University)",
+                name_en: "SQRT (Seoul National University)",
+                established_ko: "2022년 9월",
+                established_en: "September 2022",
+                president: "Yoonjin Bae",
+                website: "https://sites.google.com/view/sqrt-quantum",
+                email: "snuquantums@gmail.com"
+            },
+            {
+                logo: "images/QIYA.png",
+                name_ko: "QIYA (Yonsei University)",
+                name_en: "QIYA (Yonsei University)",
+                established_ko: "2024년 9월",
+                established_en: "September 2024",
+                president: "Hyeongmin Lim",
+                website: "https://qiya-yonsei.github.io/",
+                email: "qiyayonsei@gmail.com"
+            },
+            {
+                logo: "images/EQS.png",
+                name_ko: "EQS (KAIST)",
+                name_en: "EQS (KAIST)",
+                established_ko: "2022년 9월",
+                established_en: "September 2022",
+                president: "Hyeongu Kang",
+                website: "https://sites.google.com/view/eqs-kaist",
+                email: "eqskaist2022@gmail.com"
+            }
+        ];
+    
+        // HTML 요소에 동아리 정보 추가
+        const clubList = document.getElementById("club-list");
+    
+        clubs.forEach(club => {
+            const clubElement = document.createElement("div");
+            clubElement.classList.add("club");
+    
+            clubElement.innerHTML = `
+                <img src="${club.logo}" alt="${club.name_ko} Logo" style="width: 100px;">
+                <h3 data-lang-ko>${club.name_ko}</h3>
+                <h3 data-lang-en style="display:none;">${club.name_en}</h3>
+                <p>
+                    <strong data-lang-ko>설립:</strong> <span data-lang-ko>${club.established_ko}</span>
+                    <span data-lang-en style="display:none;">${club.established_en}</span><br>
+                    <strong data-lang-ko>회장:</strong> <span>${club.president}</span>
+                </p>
+                <a href="${club.website}" target="_blank">Website</a> | <a href="mailto:${club.email}">Email</a>
+            `;
+    
+            clubList.appendChild(clubElement);
+        });
+    </script>
 
     <section id="contact">
         <h2 data-lang-ko>연락처</h2>
