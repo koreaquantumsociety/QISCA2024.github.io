@@ -1,4 +1,3 @@
-/* 기본 스타일 초기화 */
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +5,15 @@
 }
 
 :root {
-    --primary-color: #2c3e50; /* 진한 네이비 색 */
-    --secondary-color: #2980b9; /* 포인트 파란색 */
-    --background-color: #F4F7F4
+    --primary-color: #2c3e50;
+    --secondary-color: #2980b9;
+    --background-color: #F4F7F4;
     --text-color: #333;
-    --header-color: #ffffff;
+    --header-bg-color: #4CAF50;
     --footer-bg-color: #34495e;
     --footer-text-color: #bdc3c7;
 }
 
-/* 전체 배경 및 글꼴 */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-color);
@@ -24,31 +22,22 @@ body {
 }
 
 header {
-    background-color: #4CAF50; /* 초록색 계열 배경 */
+    background-color: var(--header-bg-color);
     padding: 40px;
     color: white;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* 텍스트와 콘텐츠를 가운데 정렬 */
 }
 
 header img {
-    display: inline-block; /* 이미지를 중앙 정렬 */
-    vertical-align: middle; /* 이미지의 수직 정렬 */
-    margin: 0 10px; /* 이미지 간의 간격 */
-}
-
-header h1, header p, header nav {
     display: inline-block;
-    width: 100%;
-}
-
-header nav {
-    margin-top: 10px;
+    vertical-align: middle;
+    margin: 0 10px;
 }
 
 button {
     background-color: transparent;
-    color: #2980b9; /* 버튼 텍스트는 로고와 어울리는 파란색 */
+    color: var(--secondary-color);
     padding: 5px 15px;
     font-size: 1em;
     cursor: pointer;
@@ -57,39 +46,29 @@ button {
 }
 
 button:hover {
-    background-color: rgba(41, 128, 185, 0.1); /* 살짝 파란색 배경 */
-    color: #2980b9;
+    background-color: rgba(41, 128, 185, 0.1);
 }
 
-/* 섹션 스타일 */
 section {
     background-color: white;
     padding: 30px;
     margin: 20px auto;
     max-width: 800px;
     border-radius: 10px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
 }
 
 section h2 {
-    color: #2E8B57;
+    color: var(--primary-color);
     font-size: 1.8em;
     margin-bottom: 10px;
-    border-bottom: 2px solid #2980b9;
+    border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 5px;
 }
 
-section p, section ul {
-    margin-top: 15px;
-    color: #555;
-}
-
-section:hover {
-    transform: scale(1.02);
-}
-
-/* 클럽 소개 스타일 */
 .club {
     display: flex;
     align-items: center;
@@ -97,12 +76,8 @@ section:hover {
     padding: 20px;
     border-radius: 10px;
     background-color: var(--background-color);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-}
-
-.club:hover {
-    transform: scale(1.03);
 }
 
 .club img {
@@ -122,14 +97,12 @@ section:hover {
     margin-left: 10px;
 }
 
-.club a:hover {
-    text-decoration: underline;
-}
-
-section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.8s forwards;
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    font-size: 0.9em;
 }
 
 @keyframes fadeIn {
@@ -137,13 +110,4 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* 푸터 스타일 */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--footer-bg-color);
-    color: var(--footer-text-color);
-    font-size: 0.9em;
 }
