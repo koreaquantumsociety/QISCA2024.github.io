@@ -5,52 +5,79 @@
     box-sizing: border-box;
 }
 
-/* Body 스타일 */
+:root {
+    --primary-color: #2c3e50; /* 진한 네이비 색 */
+    --secondary-color: #2980b9; /* 포인트 파란색 */
+    --background-color: #ecf0f1; /* 밝은 배경색 */
+    --text-color: #333;
+    --header-color: #ffffff;
+    --footer-bg-color: #34495e;
+    --footer-text-color: #bdc3c7;
+}
+
+/* 전체 배경 및 글꼴 */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f9;
-    padding: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.8;
 }
 
 /* 헤더 스타일 */
 header {
     text-align: center;
-    padding: 20px;
-    background-color: #4CAF50;
-    color: white;
+    padding: 40px;
+    background-color: var(--primary-color);
+    color: var(--header-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 2em;
-    margin: 10px 0;
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
 header nav a {
-    color: white;
+    color: var(--header-color);
     text-decoration: none;
-    padding: 5px 10px;
-    margin: 0 5px;
+    padding: 10px 15px;
+    margin: 0 10px;
+    transition: color 0.3s;
 }
 
 header nav a:hover {
-    background-color: #3e8e41;
+    color: var(--secondary-color);
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #1c6392;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* 섹션 스타일 */
 section {
-    padding: 20px;
-    margin: 10px 0;
     background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
-    color: #4CAF50;
-    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 
 section p, section ul {
@@ -60,24 +87,33 @@ section p, section ul {
 
 /* 클럽 소개 스타일 */
 .club {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.club:hover {
+    transform: scale(1.03);
 }
 
 .club img {
     width: 80px;
+    border-radius: 50%;
     margin-right: 20px;
 }
 
 .club h3 {
-    color: #333;
+    color: var(--primary-color);
+    font-size: 1.2em;
 }
 
 .club a {
-    color: #4CAF50;
+    color: var(--secondary-color);
     text-decoration: none;
     margin-left: 10px;
 }
@@ -86,12 +122,24 @@ section p, section ul {
     text-decoration: underline;
 }
 
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* 푸터 스타일 */
 footer {
     text-align: center;
     padding: 20px;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
     font-size: 0.9em;
-    color: #666;
-    background-color: #333;
-    color: white;
 }
