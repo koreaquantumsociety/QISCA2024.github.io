@@ -184,12 +184,14 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
-                    } else {
-                        entry.target.classList.remove("visible"); // 시야에서 사라지면 visible 클래스 제거
+                        observer.unobserve(entry.target); // 한번 실행된 후 다시 관찰하지 않음
                     }
                 });
             },
-            { rootMargin: "-200px 0px 0px 0px" } // 위쪽 200픽셀에서 보일 때 애니메이션 실행
+            {
+                rootMargin: "-200px 0px 0px 0px", // 위쪽 200px에 진입하면 실행
+                threshold: 0 // 요소의 일부만 보이더라도 실행
+            }
         );
     
         // 각 section과 club에 observer 적용
@@ -213,6 +215,7 @@
             });
         });
     </script>
+
 
 
 
