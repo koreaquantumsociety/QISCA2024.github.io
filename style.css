@@ -126,7 +126,7 @@ section ul li {
     max-width: 100px; /* 최대 너비를 제한하여 이미지 크기를 조정 */
     height: auto; /* 높이를 자동으로 맞춤 */
     border-radius: 0;
-    object-fit: cover; /* contain 대신 cover를 사용하여 이미지 비율을 맞춤 */
+    object-fit: contain;
     flex-shrink: 0;
 }
 
@@ -159,19 +159,15 @@ section ul li {
     margin-top: 10px;
 }
 
-.flex-row-left {
-    display: flex;
+/* .club 스타일을 유지하면서 방향을 설정 */
+.club.flex-row-left {
     flex-direction: row; /* 로고 - 설명 순서 */
-    align-items: center;
-    gap: 20px;
 }
 
-.flex-row-right {
-    display: flex;
+.club.flex-row-right {
     flex-direction: row-reverse; /* 설명 - 로고 순서 */
-    align-items: center;
-    gap: 20px;
 }
+
 
 footer {
     text-align: center;
