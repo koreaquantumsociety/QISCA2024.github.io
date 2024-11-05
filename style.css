@@ -184,10 +184,3 @@ footer {
     color: var(--footer-text-color);
     font-size: 0.9em;
 }
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
