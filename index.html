@@ -127,10 +127,15 @@
                 <img src="${club.logo}" alt="${club.name_ko} Logo" style="width: 100px;">
                 <h3 data-lang-ko>${club.name_ko}</h3>
                 <h3 data-lang-en style="display:none;">${club.name_en}</h3>
-                <p>
-                    <strong data-lang-ko>설립:</strong> <span data-lang-ko>${club.established_ko}</span>
-                    <span data-lang-en style="display:none;">${club.established_en}</span><br>
-                    <strong data-lang-ko>회장:</strong> <span>${club.president}</span>
+                <p style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: inline-block;">
+                        <strong data-lang-ko>설립:</strong> 
+                        <span data-lang-ko>${club.established_ko}</span>
+                        <span data-lang-en style="display:none;">${club.established_en}</span>
+                    </div>
+                    <div style="display: inline-block; margin-left: 20px;">
+                        <strong data-lang-ko>회장:</strong> <span>${club.president}</span>
+                    </div>
                 </p>
                 <a href="${club.website}" target="_blank">Website</a> | <a href="mailto:${club.email}">Email</a>
             `;
