@@ -71,7 +71,8 @@ section h2 {
 
 .club {
     display: flex;
-    align-items: center; /* 모든 요소를 수평으로 가운데 정렬 */
+    flex-direction: row; /* 요소들이 수평으로 정렬되도록 설정 */
+    align-items: center; /* 요소들을 수직 가운데 정렬 */
     padding: 20px;
     border-radius: 10px;
     background-color: var(--background-color);
@@ -88,10 +89,6 @@ section h2 {
     flex-shrink: 0; /* 이미지 크기 고정 */
 }
 
-.club h3, .club p, .club a {
-    margin: 0;
-}
-
 .club-content {
     display: flex;
     flex-direction: column;
@@ -99,7 +96,11 @@ section h2 {
     flex: 1; /* 텍스트 부분이 남은 공간을 차지하도록 설정 */
 }
 
-.club p {
+.club-content h3, .club-content p, .club-content a {
+    margin: 0;
+}
+
+.club-content p {
     display: flex;
     gap: 20px; /* 설립과 회장 정보 사이의 간격 */
 }
