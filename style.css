@@ -133,13 +133,13 @@ section ul li {
 /* 왼쪽 정렬: 로고 - 설명 순서 */
 .club.flex-row-left {
     flex-direction: row;
-    text-align: left; /* 텍스트 좌측 정렬 */
+    text-align: left;
 }
 
 /* 오른쪽 정렬: 설명 - 로고 순서 */
 .club.flex-row-right {
     flex-direction: row-reverse;
-    text-align: right; /* 텍스트 우측 정렬 */
+    text-align: right;
 }
 
 /* 내부 콘텐츠 스타일 */
@@ -148,6 +148,13 @@ section ul li {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+/* 오른쪽 정렬일 때 .club-info와 .club-links도 오른쪽 정렬 */
+.club.flex-row-right .club-content,
+.club.flex-row-right .club-info,
+.club.flex-row-right .club-links {
+    align-items: flex-end;
 }
 
 .club-info {
@@ -165,7 +172,6 @@ section ul li {
 .club-links {
     margin-top: 10px;
     display: flex;
-    flex-direction: row;
     gap: 10px;
     justify-content: flex-start;
 }
