@@ -71,7 +71,7 @@ section h2 {
 
 .club {
     display: flex;
-    align-items: flex-start; /* 전체 클럽 섹션을 상단에 맞춰 정렬 */
+    align-items: center; /* 전체 클럽 섹션을 상단에 맞춰 정렬 */
     gap: 20px; /* 이미지와 콘텐츠 사이 간격 */
     padding: 20px;
     border-radius: 10px;
