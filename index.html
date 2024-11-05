@@ -21,8 +21,7 @@
         <button onclick="changeLanguage('en')">English</button>
     </div>
 
-    <header>
-<!--         <img src="images/QISCA.png" alt="QISCA Logo" style="height: 200px;"> -->
+    <header class="transition-section">
         <img src="images/QISCA_2.png" alt="QISCA Second Logo" style="height: 250px;">
         <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
         <h1 data-lang-en style="display:none;">Quantum Information Science Club Association (QISCA)</h1>
@@ -39,14 +38,14 @@
         </nav>
     </header>
 
-    <section id="about">
+    <section id="about" class="transition-section">
         <h2 data-lang-ko>소개</h2>
         <h2 data-lang-en style="display:none;">About</h2>
         <p data-lang-ko>QISCA는 양자 정보 과학을 연구하는 학생 동아리들을 위한 협회로, 2024년 10월에 설립되었습니다. 학술 교류와 전문성 향상을 목표로 하며, 양자 컴퓨팅의 접근성을 높이고 다양성을 확보하여 도전적인 문제를 해결하는 데 기여하고 있습니다.</p>
         <p data-lang-en style="display:none;">Founded in October 2024, QISCA is an association for student clubs dedicated to quantum information science. We aim to promote academic exchange, improve accessibility, and embrace diversity to tackle challenging problems in quantum computing.</p>
     </section>
 
-    <section id="activities">
+    <section id="activities" class="transition-section">
         <h2 data-lang-ko>주요 활동</h2>
         <h2 data-lang-en style="display:none;">Activities</h2>
         <ul data-lang-ko>
@@ -67,100 +66,96 @@
         <h2 data-lang-ko>회원 동아리</h2>
         <h2 data-lang-en style="display:none;">Member Clubs</h2>
     
-        <!-- JavaScript로 생성될 동아리 정보가 들어갈 빈 컨테이너 -->
         <div id="club-list"></div>
     </section>
     
     <script>
         // 동아리 데이터 배열
-    const clubs = [
-        {
-            logo: "images/SQRT.png",
-            name_en: "SQRT (Seoul National University)",
-            name_ko: "SQRT (서울대학교)",
-            established_ko: "2022년 9월",
-            established_en: "September 2022",
-            president_ko: "배윤진",
-            president_en: "Yoonjin Bae",
-            website: "https://sites.google.com/view/sqrt-quantum",
-            email: "snuquantums@gmail.com"
-        },
-        {
-            logo: "images/EQS.png",
-            name_en: "EQS (KAIST)",
-            name_ko: "EQS (KAIST)",
-            established_ko: "2022년 9월",
-            established_en: "September 2022",
-            president_ko: "강현구",
-            president_en: "Hyeongu Kang",
-            website: "https://sites.google.com/view/eqs-kaist",
-            email: "eqskaist2022@gmail.com"
-        },
-        {
-            logo: "images/QUIK.png",
-            name_en: "QUICK (Korea University)",
-            name_ko: "QUICK (고려대학교)",
-            established_ko: "2023년 3월",
-            established_en: "March 2023",
-            president_ko: "박성근",
-            president_en: "Seonggeun Park",
-            website: "https://quick.oopy.io/",
-            email: "kuquickofficial@gmail.com"
-        },
-        {
-            logo: "images/QIYA.png",
-            name_en: "QIYA (Yonsei University)",
-            name_ko: "QIYA (연세대학교)",
-            established_ko: "2024년 9월",
-            established_en: "September 2024",
-            president_ko: "임형민",
-            president_en: "Hyeongmin Lim",
-            website: "https://qiya-yonsei.github.io/",
-            email: "qiyayonsei@gmail.com"
-        }
-    ];
+        const clubs = [
+            {
+                logo: "images/SQRT.png",
+                name_en: "SQRT (Seoul National University)",
+                name_ko: "SQRT (서울대학교)",
+                established_ko: "2022년 9월",
+                established_en: "September 2022",
+                president_ko: "배윤진",
+                president_en: "Yoonjin Bae",
+                website: "https://sites.google.com/view/sqrt-quantum",
+                email: "snuquantums@gmail.com"
+            },
+            {
+                logo: "images/EQS.png",
+                name_en: "EQS (KAIST)",
+                name_ko: "EQS (KAIST)",
+                established_ko: "2022년 9월",
+                established_en: "September 2022",
+                president_ko: "강현구",
+                president_en: "Hyeongu Kang",
+                website: "https://sites.google.com/view/eqs-kaist",
+                email: "eqskaist2022@gmail.com"
+            },
+            {
+                logo: "images/QUIK.png",
+                name_en: "QUICK (Korea University)",
+                name_ko: "QUICK (고려대학교)",
+                established_ko: "2023년 3월",
+                established_en: "March 2023",
+                president_ko: "박성근",
+                president_en: "Seonggeun Park",
+                website: "https://quick.oopy.io/",
+                email: "kuquickofficial@gmail.com"
+            },
+            {
+                logo: "images/QIYA.png",
+                name_en: "QIYA (Yonsei University)",
+                name_ko: "QIYA (연세대학교)",
+                established_ko: "2024년 9월",
+                established_en: "September 2024",
+                president_ko: "임형민",
+                president_en: "Hyeongmin Lim",
+                website: "https://qiya-yonsei.github.io/",
+                email: "qiyayonsei@gmail.com"
+            }
+        ];
     
-    // HTML 요소에 동아리 정보 추가
-    const clubList = document.getElementById("club-list");
+        // HTML 요소에 동아리 정보 추가
+        const clubList = document.getElementById("club-list");
     
-    clubs.forEach((club, index) => {
-        const clubElement = document.createElement("div");
-        clubElement.classList.add("club", index % 2 === 0 ? "flex-row-left" : "flex-row-right");
-
-    
-        clubElement.innerHTML = `
-            <img src="${club.logo}" alt="${club.name_ko} Logo">
-            <div class="club-content">
-                <h3 data-lang-ko>${club.name_ko}</h3>
-                <h3 data-lang-en style="display:none;">${club.name_en}</h3>
-                <div class="club-info">
-                    <p>
-                        <span>
-                        <strong data-lang-ko>설립:</strong>
-                        <span data-lang-ko>${club.established_ko}</span>
-                        <strong data-lang-en>Established in:</strong>
-                        <span data-lang-en>${club.established_en}</span>
-                        </span>
-                        <span style="margin-left: 20px;">
-                        <strong data-lang-ko>회장:</strong>
-                        <span data-lang-ko>${club.president_ko}</span>
-                        <strong data-lang-en>President:</strong>
-                        <span data-lang-en>${club.president_en}</span>
-                        </span>
-                    </p>
-                    <div class="club-links">
-                        <a href="${club.website}" target="_blank">Website</a> | <a href="mailto:${club.email}">Email</a>
+        clubs.forEach((club, index) => {
+            const clubElement = document.createElement("div");
+            clubElement.classList.add("club", "transition-section", index % 2 === 0 ? "flex-row-left" : "flex-row-right");
+        
+            clubElement.innerHTML = 
+                `<img src="${club.logo}" alt="${club.name_ko} Logo">
+                <div class="club-content">
+                    <h3 data-lang-ko>${club.name_ko}</h3>
+                    <h3 data-lang-en style="display:none;">${club.name_en}</h3>
+                    <div class="club-info">
+                        <p>
+                            <span>
+                            <strong data-lang-ko>설립:</strong>
+                            <span data-lang-ko>${club.established_ko}</span>
+                            <strong data-lang-en>Established in:</strong>
+                            <span data-lang-en>${club.established_en}</span>
+                            </span>
+                            <span style="margin-left: 20px;">
+                            <strong data-lang-ko>회장:</strong>
+                            <span data-lang-ko>${club.president_ko}</span>
+                            <strong data-lang-en>President:</strong>
+                            <span data-lang-en>${club.president_en}</span>
+                            </span>
+                        </p>
+                        <div class="club-links">
+                            <a href="${club.website}" target="_blank">Website</a> | <a href="mailto:${club.email}">Email</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        `;
-    
-        clubList.appendChild(clubElement);
-    });
-
+                </div>`;
+        
+            clubList.appendChild(clubElement);
+        });
     </script>
 
-    <section id="contact">
+    <section id="contact" class="transition-section">
         <h2 data-lang-ko>연락처</h2>
         <h2 data-lang-en style="display:none;">Contact</h2>
         <p data-lang-ko>문의 사항 또는 협업에 관련된 내용은 아래 연락처로 문의 부탁드립니다.</p>
@@ -172,14 +167,9 @@
         <p>&copy; 2024 QISCA. All rights reserved.</p>
     </footer>
     
-    
     <script>
-        // 모든 section 요소와 header를 가져옵니다
-        const sections = document.querySelectorAll("section");
-        const header = document.querySelector("header");
-    
-        // 스크롤 방향 추적용 변수
-        let lastScrollTop = 0;
+        // 모든 transition 섹션 요소를 가져옵니다
+        const transitionSections = document.querySelectorAll(".transition-section");
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
@@ -195,42 +185,22 @@
             { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
         );
     
-        // 각 section에 observer 적용
-        sections.forEach(section => {
+        // 각 transition 섹션에 observer 적용
+        transitionSections.forEach(section => {
             section.classList.add("transition-section"); // 초기 상태 설정
             observer.observe(section); // 관찰 시작
         });
     
         // 페이지 로드 시, 보이는 섹션 애니메이션 실행
         window.addEventListener("load", () => {
-            sections.forEach(section => {
+            transitionSections.forEach(section => {
                 const rect = section.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom >= 0) {
                     section.classList.add("visible");
                 }
             });
         });
-    
-        // 스크롤 이벤트를 통해 헤더 숨기기 / 보이기
-        window.addEventListener("scroll", () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop) {
-                // 스크롤 내려갈 때 헤더 숨기기
-                header.classList.add("hidden");
-            } else {
-                // 스크롤 올라갈 때 헤더 보이기
-                header.classList.remove("hidden");
-            }
-    
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 모바일에서 음수 스크롤 방지
-        });
     </script>
 
-
-
-
-
-    
 </body>
 </html>
