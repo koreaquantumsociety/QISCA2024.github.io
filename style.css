@@ -8,7 +8,7 @@
 :root {
     --primary-color: #2c3e50; /* 진한 네이비 색 */
     --secondary-color: #2980b9; /* 포인트 파란색 */
-    --background-color: #ecf0f1; /* 밝은 배경색 */
+    --background-color: #F4F7F4
     --text-color: #333;
     --header-color: #ffffff;
     --footer-bg-color: #34495e;
@@ -28,27 +28,22 @@ header {
     padding: 40px;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 텍스트와 콘텐츠를 가운데 정렬 */
 }
 
-body {
-    background-color: #F4F7F4; /* 은은한 연초록색 배경 */
+header img {
+    display: inline-block; /* 이미지를 중앙 정렬 */
+    vertical-align: middle; /* 이미지의 수직 정렬 */
+    margin: 0 10px; /* 이미지 간의 간격 */
 }
 
-header h1 {
-    font-size: 2.5em;
-    font-weight: bold;
+header h1, header p, header nav {
+    display: inline-block;
+    width: 100%;
 }
 
-header nav a {
-    color: var(--header-color);
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: var(--secondary-color);
+header nav {
+    margin-top: 10px;
 }
 
 button {
