@@ -123,10 +123,10 @@ section ul li {
 }
 
 .club img {
-    width: 150px;
-    height: auto;
+    max-width: 100px; /* 최대 너비를 제한하여 이미지 크기를 조정 */
+    height: auto; /* 높이를 자동으로 맞춤 */
     border-radius: 0;
-    object-fit: contain;
+    object-fit: cover; /* contain 대신 cover를 사용하여 이미지 비율을 맞춤 */
     flex-shrink: 0;
 }
 
