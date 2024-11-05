@@ -128,17 +128,15 @@
                 <div class="club-content">
                     <h3 data-lang-ko>${club.name_ko}</h3>
                     <h3 data-lang-en style="display:none;">${club.name_en}</h3>
-                    <p>
-                        <div style="display: inline-block;">
-                            <strong data-lang-ko>설립:</strong> 
-                            <span data-lang-ko>${club.established_ko}</span>
-                            <span data-lang-en style="display:none;">${club.established_en}</span>
+                    <div class="club-info">
+                        <p>
+                            <span><strong data-lang-ko>설립:</strong> <span data-lang-ko>${club.established_ko}</span><span data-lang-en style="display:none;">${club.established_en}</span></span>
+                            <span style="margin-left: 20px;"><strong data-lang-ko>회장:</strong> ${club.president}</span>
+                        </p>
+                        <div class="club-links">
+                            <a href="${club.website}" target="_blank">Website</a> | <a href="mailto:${club.email}">Email</a>
                         </div>
-                        <div style="display: inline-block;">
-                            <strong data-lang-ko>회장:</strong> <span>${club.president}</span>
-                        </div>
-                    </p>
-                    <a href="${club.website}" target="_blank">Website</a> | <a href="mailto:${club.email}">Email</a>
+                    </div>
                 </div>
             `;
     
