@@ -176,17 +176,27 @@
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
+                    const isMembers = entry.target.id === "members";
+                    
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
-                    } else if (entry.target.id !== "members" && !entry.isIntersecting) {
-                        entry.target.classList.remove("visible"); // members 섹션 이외의 모든 섹션은 뷰포트를 벗어나면 visible 클래스 제거
-                    } else if (entry.target.id === "members" && !entry.isIntersecting) {
+        
+                        // members 섹션에 들어오면 내부 club-item들에 visible 클래스 추가
+                        if (isMembers) {
+                            const clubItems = document.querySelectorAll(".club-item");
+                            clubItems.forEach(club => club.classList.add("visible"));
+                        }
+                    } else if (!isMembers) {
+                        // members 섹션 이외의 모든 섹션은 뷰포트를 벗어나면 visible 클래스 제거
+                        entry.target.classList.remove("visible");
+                    } else if (!entry.isIntersecting && isMembers) {
+                        // members 섹션이 완전히 벗어났을 때만 club-item에서 visible 클래스 제거
                         const clubItems = document.querySelectorAll(".club-item");
-                        clubItems.forEach(club => club.classList.remove("visible")); // members 전체가 벗어나면 개별 club 숨김
+                        clubItems.forEach(club => club.classList.remove("visible"));
                     }
                 });
             },
-            { rootMargin: "-100px 0px 100px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
+            { rootMargin: "-100px 0px 100px 0px" }
         );
     
         // 각 transition 섹션에 observer 적용
