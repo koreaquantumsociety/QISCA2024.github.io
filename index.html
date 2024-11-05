@@ -173,8 +173,8 @@
     </footer>
     
     <script>
-        // 모든 club 요소를 가져옵니다
-        const clubSections = document.querySelectorAll(".club");
+        // 모든 section 요소를 가져옵니다
+        const sections = document.querySelectorAll("section");
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
@@ -189,8 +189,8 @@
             { threshold: 0.1 } // 섹션이 10% 이상 보일 때 애니메이션 실행
         );
     
-        // 각 club 섹션에 observer 적용
-        clubSections.forEach(section => {
+        // 각 section에 observer 적용
+        sections.forEach(section => {
             section.classList.add("transition-section"); // 초기 상태 설정
             observer.observe(section); // 관찰 시작
         });
