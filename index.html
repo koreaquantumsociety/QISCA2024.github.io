@@ -174,8 +174,12 @@
     
     
     <script>
-        // 모든 section 요소를 가져옵니다
+        // 모든 section 요소와 header를 가져옵니다
         const sections = document.querySelectorAll("section");
+        const header = document.querySelector("header");
+    
+        // 스크롤 방향 추적용 변수
+        let lastScrollTop = 0;
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
@@ -188,7 +192,7 @@
                     }
                 });
             },
-            { rootMargin: "-150px 0px -150px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
+            { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
         );
     
         // 각 section에 observer 적용
@@ -206,7 +210,23 @@
                 }
             });
         });
+    
+        // 스크롤 이벤트를 통해 헤더 숨기기 / 보이기
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop) {
+                // 스크롤 내려갈 때 헤더 숨기기
+                header.classList.add("hidden");
+            } else {
+                // 스크롤 올라갈 때 헤더 보이기
+                header.classList.remove("hidden");
+            }
+    
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 모바일에서 음수 스크롤 방지
+        });
     </script>
+
 
 
 
