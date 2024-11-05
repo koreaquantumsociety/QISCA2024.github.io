@@ -125,8 +125,8 @@
     
     clubs.forEach((club, index) => {
         const clubElement = document.createElement("div");
-        // 번갈아가며 왼쪽 정렬과 오른쪽 정렬 클래스를 적용
-        clubElement.classList.add(index % 2 === 0 ? "flex-row-left" : "flex-row-right");
+        clubElement.classList.add("club", index % 2 === 0 ? "flex-row-left" : "flex-row-right");
+
     
         clubElement.innerHTML = `
             <img src="${club.logo}" alt="${club.name_ko} Logo">
