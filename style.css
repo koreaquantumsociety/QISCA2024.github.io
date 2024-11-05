@@ -88,6 +88,17 @@ section h2 {
     padding-bottom: 5px;
 }
 
+section ul {
+    list-style-type: disc; /* 기본 목록 스타일을 원형으로 설정 */
+    padding-left: 20px; /* 전체 목록의 들여쓰기 간격 설정 */
+    margin-top: 10px; /* 위와 아래 간격 조절 */
+}
+
+section ul li {
+    margin-bottom: 5px; /* 각 항목 간격을 조정하여 가독성 향상 */
+    line-height: 1.6; /* 각 줄의 높이를 늘려 가독성 향상 */
+}
+
 .club {
     display: flex;
     align-items: center; /* 전체 클럽 섹션을 상단에 맞춰 정렬 */
