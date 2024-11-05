@@ -62,7 +62,7 @@
         </ul>
     </section>
 
-    <section id="members">
+    <section id="members" class="transition-section">
         <h2 data-lang-ko>회원 동아리</h2>
         <h2 data-lang-en style="display:none;">Member Clubs</h2>
     
@@ -123,7 +123,7 @@
     
         clubs.forEach((club, index) => {
             const clubElement = document.createElement("div");
-            clubElement.classList.add("club", "transition-section", index % 2 === 0 ? "flex-row-left" : "flex-row-right");
+            clubElement.classList.add("club", "transition-section", "club-item", index % 2 === 0 ? "flex-row-left" : "flex-row-right");
         
             clubElement.innerHTML = 
                 `<img src="${club.logo}" alt="${club.name_ko} Logo">
@@ -182,12 +182,11 @@
                     }
                 });
             },
-            { rootMargin: "-50px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
+            { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
         );
     
         // 각 transition 섹션에 observer 적용
         transitionSections.forEach(section => {
-            section.classList.add("transition-section"); // 초기 상태 설정
             observer.observe(section); // 관찰 시작
         });
     
