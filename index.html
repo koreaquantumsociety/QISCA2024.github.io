@@ -178,21 +178,17 @@
                 entries.forEach(entry => {
                     const isMembers = entry.target.id === "members";
                     
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
-        
-                        // members 섹션에 들어오면 내부 club-item들에 visible 클래스 추가
+                    if (entry.isIntersecting){
+                        entry.target.classList.add("visible");
+                    } 
+                    else {
+                        if (!isMembers) {
+                            entry.target.classList.remove("visible");
+                        } 
                         if (isMembers) {
                             const clubItems = document.querySelectorAll(".club-item");
-                            clubItems.forEach(club => club.classList.add("visible"));
+                            clubItems.forEach(club => club.classList.remove("visible"));
                         }
-                    } else if (!isMembers) {
-                        // members 섹션 이외의 모든 섹션은 뷰포트를 벗어나면 visible 클래스 제거
-                        entry.target.classList.remove("visible");
-                    } else if (!entry.isIntersecting && isMembers) {
-                        // members 섹션이 완전히 벗어났을 때만 club-item에서 visible 클래스 제거
-                        const clubItems = document.querySelectorAll(".club-item");
-                        clubItems.forEach(club => club.classList.remove("visible"));
                     }
                 });
             },
