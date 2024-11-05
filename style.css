@@ -71,36 +71,37 @@ section h2 {
 
 .club {
     display: flex;
-    align-items: center;
+    align-items: center; /* 모든 요소를 수평으로 가운데 정렬 */
     padding: 20px;
     border-radius: 10px;
     background-color: var(--background-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    gap: 20px; /* 이미지와 텍스트 사이의 간격 */
+    gap: 20px; /* 이미지와 텍스트 사이 간격 */
 }
 
 .club img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0; /* 이미지 크기 고정 */
 }
 
-.club h3, .club p {
-    flex-grow: 1; /* 텍스트가 남는 공간을 채우도록 설정 */
-    display: inline-block;
+.club h3, .club p, .club a {
     margin: 0;
-    color: var(--primary-color);
-    font-size: 1.1em;
 }
 
-.club a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    margin-left: 10px;
-    font-size: 0.9em;
+.club-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 텍스트를 이미지 중앙에 맞춤 */
+    flex: 1; /* 텍스트 부분이 남은 공간을 차지하도록 설정 */
+}
+
+.club p {
+    display: flex;
+    gap: 20px; /* 설립과 회장 정보 사이의 간격 */
 }
 
 footer {
