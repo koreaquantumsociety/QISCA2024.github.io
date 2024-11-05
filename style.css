@@ -113,8 +113,8 @@ section ul li {
 
 .club {
     display: flex;
-    align-items: center; /* 전체 클럽 섹션을 상단에 맞춰 정렬 */
-    gap: 20px; /* 이미지와 콘텐츠 사이 간격 */
+    align-items: center;
+    gap: 20px;
     padding: 20px;
     border-radius: 10px;
     background-color: var(--background-color);
@@ -123,24 +123,29 @@ section ul li {
 }
 
 .club img {
-    max-width: 100px; /* 최대 너비를 제한하여 이미지 크기를 조정 */
-    height: auto; /* 높이를 자동으로 맞춤 */
+    max-width: 100px;
+    height: auto;
     border-radius: 0;
     object-fit: contain;
     flex-shrink: 0;
 }
 
+/* 왼쪽 정렬: 로고 - 설명 순서 */
+.club.flex-row-left {
+    flex-direction: row;
+}
+
+/* 오른쪽 정렬: 설명 - 로고 순서 */
+.club.flex-row-right {
+    flex-direction: row-reverse;
+}
+
+/* 내부 콘텐츠 스타일 */
 .club-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* 각 섹션 사이 간격 */
-}
-
-.club-content h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: var(--primary-color);
+    gap: 10px;
 }
 
 .club-info {
@@ -157,15 +162,10 @@ section ul li {
 
 .club-links {
     margin-top: 10px;
-}
-
-/* .club 스타일을 유지하면서 방향을 설정 */
-.club.flex-row-left {
-    flex-direction: row; /* 로고 - 설명 순서 */
-}
-
-.club.flex-row-right {
-    flex-direction: row-reverse; /* 설명 - 로고 순서 */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
 }
 
 
