@@ -71,20 +71,28 @@ button:hover {
 section {
     background-color: white;
     padding: 30px;
-    margin: 20px 0;
+    margin: 20px auto;
+    max-width: 800px;
     border-radius: 10px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 section h2 {
-    color: var(--primary-color);
+    color: #2c3e50;
     font-size: 1.8em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
 }
 
 section p, section ul {
-    margin-top: 10px;
-    line-height: 1.8;
+    margin-top: 15px;
+    color: #555;
+}
+
+section:hover {
+    transform: scale(1.02);
 }
 
 /* 클럽 소개 스타일 */
