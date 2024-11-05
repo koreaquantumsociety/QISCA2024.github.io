@@ -34,6 +34,25 @@ header img {
     vertical-align: middle;
     margin: 0 10px;
 }
+header nav {
+    display: flex; /* 링크들을 수평으로 나열 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    gap: 20px; /* 각 링크 사이 간격 설정 */
+    margin-top: 20px;
+}
+
+header nav a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: white; /* 텍스트 색상 설정 (헤더 배경에 맞게 조정) */
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s; /* 링크에 마우스를 올렸을 때의 전환 효과 */
+}
+
+header nav a:hover {
+    color: var(--secondary-color); /* 마우스를 올렸을 때 색상 변경 */
+}
 
 button {
     background-color: transparent;
