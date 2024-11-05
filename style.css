@@ -22,12 +22,6 @@ header {
     color: white;
 }
 
-header img {
-    height: 100px;
-    margin: 0 10px; 
-    vertical-align: middle;
-}
-
 header h1 {
     font-size: 2em;
     margin: 10px 0;
