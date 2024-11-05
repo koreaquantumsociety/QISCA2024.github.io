@@ -170,6 +170,7 @@
     <script>
         // 모든 transition 섹션 요소를 가져옵니다
         const transitionSections = document.querySelectorAll(".transition-section");
+        const membersSection = document.getElementById("members");
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
@@ -177,8 +178,9 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
-                    } else {
-                        entry.target.classList.remove("visible"); // 뷰포트에서 나가면 visible 클래스 제거
+                    } else if (entry.target.id === "members" && !entry.isIntersecting) {
+                        const clubItems = document.querySelectorAll(".club-item");
+                        clubItems.forEach(club => club.classList.remove("visible")); // members 전체가 벗어나면 개별 club 숨김
                     }
                 });
             },
