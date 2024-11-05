@@ -1,0 +1,102 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+header img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+header nav a:hover {
+    background-color: #3e8e41;
+    border-radius: 5px;
+}
+
+/* 섹션 스타일 */
+section {
+    padding: 20px;
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+section p, section ul {
+    margin-top: 10px;
+    line-height: 1.8;
+}
+
+/* 클럽 소개 스타일 */
+.club {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.club img {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.club h3 {
+    color: #333;
+}
+
+.club a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.club a:hover {
+    text-decoration: underline;
+}
+
+/* 푸터 스타일 */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #333;
+    color: white;
+}
