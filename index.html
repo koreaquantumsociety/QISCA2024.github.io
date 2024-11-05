@@ -173,16 +173,16 @@
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
-            (entries, observer) => {
+            (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
                     } else {
-                        entry.target.classList.remove("visible"); // 시야에서 사라지면 visible 클래스 제거
+                        entry.target.classList.remove("visible"); // 뷰포트에서 나가면 visible 클래스 제거
                     }
                 });
             },
-            { rootMargin: "-100px 0px -100px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
+            { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
         );
     
         // 각 transition 섹션에 observer 적용
