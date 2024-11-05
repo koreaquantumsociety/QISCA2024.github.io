@@ -174,9 +174,8 @@
     
     
     <script>
-        // 모든 section과 각 club 요소를 가져옵니다
+        // 모든 section 요소를 가져옵니다
         const sections = document.querySelectorAll("section");
-        const clubs = document.querySelectorAll(".club");
     
         // Intersection Observer 설정
         const observer = new IntersectionObserver(
@@ -184,33 +183,26 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible"); // 뷰포트에 들어오면 visible 클래스 추가
-                        observer.unobserve(entry.target); // 한번 실행된 후 다시 관찰하지 않음
+                    } else {
+                        entry.target.classList.remove("visible"); // 시야에서 사라지면 visible 클래스 제거
                     }
                 });
             },
-            {
-                rootMargin: "-200px 0px 0px 0px", // 위쪽 200px에 진입하면 실행
-                threshold: 0 // 요소의 일부만 보이더라도 실행
-            }
+            { rootMargin: "-200px 0px 0px 0px" } // 섹션이 위쪽 200픽셀에서 보이면 애니메이션 실행
         );
     
-        // 각 section과 club에 observer 적용
+        // 각 section에 observer 적용
         sections.forEach(section => {
             section.classList.add("transition-section"); // 초기 상태 설정
             observer.observe(section); // 관찰 시작
         });
     
-        clubs.forEach(club => {
-            club.classList.add("transition-section"); // 초기 상태 설정
-            observer.observe(club); // 관찰 시작
-        });
-    
-        // 페이지 로드 시, 보이는 섹션 및 클럽 애니메이션 실행
+        // 페이지 로드 시, 보이는 섹션 애니메이션 실행
         window.addEventListener("load", () => {
-            [...sections, ...clubs].forEach(element => {
-                const rect = element.getBoundingClientRect();
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    element.classList.add("visible");
+                    section.classList.add("visible");
                 }
             });
         });
