@@ -265,6 +265,7 @@ footer {
 
     /* 링크 중앙 정렬 */
     .club-links {
+        margin-top: 10px; /* 링크와 정보 사이 간격 설정 */
         display: flex;
         gap: 10px;
         justify-content: center;
