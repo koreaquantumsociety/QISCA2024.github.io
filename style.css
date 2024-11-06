@@ -260,5 +260,11 @@ footer {
     .club-links {
         justify-content: center;
     }
+    
+    .club.flex-row-left, .club.flex-row-right {
+        flex-direction: column !important; /* 수직 배열 강제 적용 */
+        align-items: center;
+        text-align: center;
+    }
 }
 
