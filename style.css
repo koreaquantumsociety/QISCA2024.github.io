@@ -192,20 +192,29 @@ footer {
         padding: 20px;
     }
     
+    /* 헤더 이미지 크기를 화면 너비에 맞추기 */
     header img {
-        height: 200px; /* 로고 크기 */
+        width: 100%; /* 화면 너비에 맞춤 */
+        max-width: 300px; /* 너무 커지지 않도록 최대 너비 설정 */
+        height: auto; /* 비율 유지 */
+    }
+
+    /* 헤더 h1 텍스트 크기 조정 */
+    header h1 {
+        font-size: 1.5em; /* 글씨 크기를 작게 조정 */
     }
 
     /* nav 링크 스타일 조정 */
     header nav {
         flex-direction: column; /* 링크들을 세로로 배치 */
-        gap: 15px;
-        font-size: 1.2em; /* nav 링크 글꼴 크기 확대 */
+        gap: 8px; /* 링크 간의 수직 간격 줄이기 */
+        font-size: 1.1em; /* nav 링크 글꼴 크기 소폭 확대 */
     }
 
     header nav a {
-        padding: 8px 0; /* 링크 패딩을 조정하여 클릭 영역 확대 */
+        padding: 5px 0; /* 링크 패딩을 조정하여 클릭 영역 축소 */
     }
+    
     section {
         padding: 20px;
         margin: 10px;
