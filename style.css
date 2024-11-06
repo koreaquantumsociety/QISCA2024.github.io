@@ -226,29 +226,37 @@ footer {
         font-size: 0.9em;
     }
 
-    /* 동아리 섹션 레이아웃 수정 */
+    /* 클럽 섹션 레이아웃 수정: 수직 배열 및 가운데 정렬 */
     .club {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; /* 수직 배열 */
+        align-items: center; /* 가운데 정렬 */
         text-align: center;
+        width: 100%; /* 가로 공간을 꽉 채움 */
     }
 
-    /* club-content 안의 로고 크기 및 텍스트 크기 조정 */
+    /* 클럽 이미지 크기 조정 및 중앙 배치 */
     .club img {
-        max-width: 200px; /* 로고 크기 확대 */
-        height: auto;
+        width: 100%; /* 가로 공간을 최대한 사용 */
+        max-width: 300px; /* 최대 크기 설정 */
+        height: auto; /* 비율 유지 */
     }
 
+    /* club-content 스타일 조정 */
     .club-content {
-        font-size: 1.1em; /* club-content 내 텍스트 크기 확대 */
-        align-items: center;
+        font-size: 1.1em; /* 텍스트 크기 확대 */
+        width: 100%; /* 가로 공간을 꽉 채움 */
+        max-width: 600px; /* 텍스트 영역의 최대 너비 */
     }
 
+    /* club-info p 요소를 수직 배열 */
     .club-info p {
         flex-direction: column;
         text-align: center;
         gap: 8px;
     }
 
+    /* club-links 중앙 정렬 */
     .club-links {
         justify-content: center;
     }
