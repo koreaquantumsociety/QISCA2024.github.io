@@ -130,7 +130,9 @@
                 clubElement.classList.add(index % 2 === 0 ? "flex-row-left" : "flex-row-right");
             }
         
-
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
             clubElement.innerHTML = isMobile()
                 ? // 모바일 전용 HTML 구조
                   `
