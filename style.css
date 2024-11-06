@@ -187,19 +187,25 @@ footer {
 
 /* 모바일 디바이스용 스타일 */
 @media (max-width: 768px) {
+
     header {
         padding: 20px;
     }
     
     header img {
-        height: 150px; /* 로고 크기를 줄입니다 */
+        height: 200px; /* 로고 크기 */
     }
 
+    /* nav 링크 스타일 조정 */
     header nav {
         flex-direction: column; /* 링크들을 세로로 배치 */
-        gap: 10px; /* 링크 사이 간격을 줄입니다 */
+        gap: 15px;
+        font-size: 1.2em; /* nav 링크 글꼴 크기 확대 */
     }
 
+    header nav a {
+        padding: 8px 0; /* 링크 패딩을 조정하여 클릭 영역 확대 */
+    }
     section {
         padding: 20px;
         margin: 10px;
@@ -216,18 +222,21 @@ footer {
         text-align: center;
     }
 
+    /* club-content 안의 로고 크기 및 텍스트 크기 조정 */
     .club img {
-        max-width: 150px;
+        max-width: 200px; /* 로고 크기 확대 */
+        height: auto;
     }
 
     .club-content {
+        font-size: 1.1em; /* club-content 내 텍스트 크기 확대 */
         align-items: center;
     }
 
     .club-info p {
         flex-direction: column;
         text-align: center;
-        gap: 5px;
+        gap: 8px;
     }
 
     .club-links {
