@@ -136,21 +136,21 @@
                     <h3 data-lang-ko>${club.name_ko}</h3>
                     <h3 data-lang-en style="display:none;">${club.name_en}</h3>
                     <div class="club-info">
-                        <p>
-                            <span style="display: inline-block; margin-right: 20px;">
+                        <p style="display: flex; gap: 20px; justify-content: center;">
+                            <span>
                                 <strong data-lang-ko>설립:</strong>
                                 <span data-lang-ko>${club.established_ko}</span>
                                 <strong data-lang-en>Established:</strong>
                                 <span data-lang-en>${club.established_en}</span>
                             </span>
-                            <span style="display: inline-block;">
+                            <span>
                                 <strong data-lang-ko>회장:</strong>
                                 <span data-lang-ko>${club.president_ko}</span>
                                 <strong data-lang-en>President:</strong>
                                 <span data-lang-en>${club.president_en}</span>
                             </span>
                         </p>
-                        <div class="club-links" style="margin-top: 10px;">
+                        <div class="club-links">
                             <a href="${club.website}" target="_blank">Website</a> | 
                             <a href="mailto:${club.email}">Email</a>
                         </div>
