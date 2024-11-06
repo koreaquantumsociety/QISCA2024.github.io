@@ -226,7 +226,6 @@ footer {
         font-size: 0.9em;
     }
 
-    /* 클럽 섹션 레이아웃 수정: 수직 배열 및 가운데 정렬 */
     .club {
         display: flex;
         flex-direction: column; /* 수직 배열 */
@@ -235,16 +234,17 @@ footer {
         width: 100%; /* 가로 공간을 꽉 채움 */
     }
 
-    /* 클럽 이미지 크기 조정 및 중앙 배치 */
+    /* 클럽 이미지 크기 조정 */
     .club img {
         width: 100%; /* 가로 공간을 최대한 사용 */
-        max-width: 300px; /* 최대 크기 설정 */
+        max-width: 300px; /* 너무 커지지 않도록 제한 */
         height: auto; /* 비율 유지 */
     }
 
     /* club-content 스타일 조정 */
     .club-content {
         font-size: 1.1em; /* 텍스트 크기 확대 */
+        text-align: center;
         width: 100%; /* 가로 공간을 꽉 채움 */
         max-width: 600px; /* 텍스트 영역의 최대 너비 */
     }
