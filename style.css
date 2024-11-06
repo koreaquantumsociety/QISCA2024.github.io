@@ -184,3 +184,54 @@ footer {
     color: var(--footer-text-color);
     font-size: 0.9em;
 }
+
+/* 모바일 디바이스용 스타일 */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+    
+    header img {
+        height: 150px; /* 로고 크기를 줄입니다 */
+    }
+
+    header nav {
+        flex-direction: column; /* 링크들을 세로로 배치 */
+        gap: 10px; /* 링크 사이 간격을 줄입니다 */
+    }
+
+    section {
+        padding: 20px;
+        margin: 10px;
+        max-width: 100%;
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+
+    /* 동아리 섹션 레이아웃 수정 */
+    .club {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .club img {
+        max-width: 150px;
+    }
+
+    .club-content {
+        align-items: center;
+    }
+
+    .club-info p {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .club-links {
+        justify-content: center;
+    }
+}
+
