@@ -123,7 +123,12 @@
     
         clubs.forEach((club, index) => {
             const clubElement = document.createElement("div");
-            clubElement.classList.add("club", "transition-section", "club-item", index % 2 === 0 ? "flex-row-left" : "flex-row-right");
+            clubElement.classList.add("club", "transition-section", "club-item");
+        
+            // 모바일인지 확인하는 조건 추가
+            if (window.innerWidth > 768) {
+                clubElement.classList.add(index % 2 === 0 ? "flex-row-left" : "flex-row-right");
+            }
         
             clubElement.innerHTML = 
                 `<img src="${club.logo}" alt="${club.name_ko} Logo">
