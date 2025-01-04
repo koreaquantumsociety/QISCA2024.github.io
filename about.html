@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>QISCA - About</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function changeLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang-ko], [data-lang-en]").forEach(el => {
+        el.style.display = el.hasAttribute(`data-lang-${lang}`) ? "block" : "none";
+      });
+    }
+  </script>
+</head>
+<body onload="changeLanguage('ko')">
+
+  <div class="language-switch">
+    <button onclick="changeLanguage('ko')">한글</button>
+    <button onclick="changeLanguage('en')">English</button>
+  </div>
+
+  <header>
+    <img src="images/QISCA_2.png" alt="QISCA Logo" style="height: 150px;">
+    <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
+    <h1 data-lang-en style="display:none;">Quantum Information Science Club Association</h1>
+    <nav>
+      <a href="index.html" data-lang-ko>메인</a>
+      <a href="index.html" data-lang-en style="display:none;">Home</a>
+
+      <a href="about.html" data-lang-ko>소개</a>
+      <a href="about.html" data-lang-en style="display:none;">About</a>
+
+      <a href="activities.html" data-lang-ko>활동</a>
+      <a href="activities.html" data-lang-en style="display:none;">Activities</a>
+
+      <a href="members.html" data-lang-ko>회원 동아리</a>
+      <a href="members.html" data-lang-en style="display:none;">Members</a>
+    </nav>
+  </header>
+
+  <section class="transition-section">
+    <h2 data-lang-ko>소개</h2>
+    <h2 data-lang-en style="display:none;">About</h2>
+    <p data-lang-ko>
+      QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로,  
+      2024년 10월에 설립되었습니다. 다양한 학술 교류를 통해 전문성을 향상시키고  
+      양자 컴퓨팅 이론의 접근성을 높여 도전적인 문제를 해결하는 데 기여하는 것을 목표로 합니다.
+    </p>
+    <p data-lang-en style="display:none;">
+      QISCA is an association for student clubs dedicated to quantum information science,  
+      founded in October 2024. We aim to promote academic exchange, improve accessibility,  
+      and tackle challenging problems in quantum computing.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      <strong data-lang-ko>회장 이성빈</strong> 
+      <span data-lang-en>President SungBin Lee</span> | 
+      <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a> | 
+      <strong>Phone:</strong> +82 10-9650-0718
+    </p>
+    <p>&copy; 2024 QISCA. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const transitionSections = document.querySelectorAll(".transition-section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    transitionSections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
