@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>QISCA - Members</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function changeLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang-ko], [data-lang-en]").forEach(el => {
+        el.style.display = el.hasAttribute(`data-lang-${lang}`) ? "block" : "none";
+      });
+    }
+
+    // 각 동아리 정보를 배열 형태로 저장
+    const clubs = [
+      {
+        id: "sqrt",
+        logo: "images/SQRT.png",
+        name_ko: "SQRT (서울대학교)",
+        name_en: "SQRT (Seoul National University)",
+        established_ko: "2022년 9월",
+        established_en: "September 2022",
+        president_ko: "배윤진",
+        president_en: "Yoonjin Bae",
+        website: "https://sites.google.com/view/sqrt-quantum",
+        email: "snuquantums@gmail.com"
+      },
+      {
+        id: "eqs",
+        logo: "images/EQS.png",
+        name_ko: "EQS (KAIST)",
+        name_en: "EQS (KAIST)",
+        established_ko: "2022년 9월",
+        established_en: "September 2022",
+        president_ko: "강현구",
+        president_en: "Hyeongu Kang",
+        website: "https://sites.google.com/view/eqs-kaist",
+        email: "eqskaist2022@gmail.com"
+      },
+      {
+        id: "quick",
+        logo: "images/QUIK.png",
+        name_ko: "QUICK (고려대학교)",
+        name_en: "QUICK (Korea University)",
+        established_ko: "2023년 3월",
+        established_en: "March 2023",
+        president_ko: "박성근",
+        president_en: "Seonggeun Park",
+        website: "https://quick.oopy.io/",
+        email: "kuquickofficial@gmail.com"
+      },
+      {
+        id: "qiya",
+        logo: "images/QIYA.png",
+        name_ko: "QIYA (연세대학교)",
+        name_en: "QIYA (Yonsei University)",
+        established_ko: "2024년 9월",
+        established_en: "September 2024",
+        president_ko: "임형민",
+        president_en: "Hyeongmin Lim",
+        website: "https://qiya-yonsei.github.io/",
+        email: "qiyayonsei@gmail.com"
+      }
+    ];
+
+    // 특정 클럽 정보를 표시하는 함수
+    function showClubInfo(clubId) {
+      // club-info-container 요소를 가져와서
+      const container = document.getElementById("club-info-container");
+      // 먼저 기존 내용을 비운다
+      container.innerHTML = "";
+
+      // 선택된 동아리 데이터를 찾는다
+      const selectedClub = clubs.find(c => c.id === clubId);
+      if (!selectedClub) return;
+
+      // HTML 생성
+      container.innerHTML = `
+        <div class="club transition-section visible">
+          <img src="${selectedClub.logo}" alt="${selectedClub.name_ko} Logo" style="max-width: 150px;">
+          <div class="club-content">
+              <h3 data-lang-ko>${selectedClub.name_ko}</h3>
+              <h3 data-lang-en style="display:none;">${selectedClub.name_en}</h3>
+              <div class="club-info">
+                  <p>
+                      <span>
+                          <strong data-lang-ko>설립:</strong>
+                          <span data-lang-ko>${selectedClub.established_ko}</span>
+                          <strong data-lang-en>Established:</strong>
+                          <span data-lang-en>${selectedClub.established_en}</span>
+                      </span>
+                      <span style="margin-left: 20px;">
+                          <strong data-lang-ko>회장:</strong>
+                          <span data-lang-ko>${selectedClub.president_ko}</span>
+                          <strong data-lang-en>President:</strong>
+                          <span data-lang-en>${selectedClub.president_en}</span>
+                      </span>
+                  </p>
+                  <div class="club-links">
+                      <a href="${selectedClub.website}" target="_blank">Website</a> | 
+                      <a href="mailto:${selectedClub.email}">Email</a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      `;
+
+      // 언어 토글 상태에 맞춰 즉시 갱신
+      const currentLang = document.documentElement.lang;
+      changeLanguage(currentLang);
+    }
+  </script>
+</head>
+<body onload="changeLanguage('ko')">
+
+  <div class="language-switch">
+    <button onclick="changeLanguage('ko')">한글</button>
+    <button onclick="changeLanguage('en')">English</button>
+  </div>
+
+  <header>
+    <img src="images/QISCA_2.png" alt="QISCA Logo" style="height: 150px;">
+    <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
+    <h1 data-lang-en style="display:none;">Quantum Information Science Club Association</h1>
+    <nav>
+      <a href="index.html" data-lang-ko>메인</a>
+      <a href="index.html" data-lang-en style="display:none;">Home</a>
+
+      <a href="about.html" data-lang-ko>소개</a>
+      <a href="about.html" data-lang-en style="display:none;">About</a>
+
+      <a href="activities.html" data-lang-ko>활동</a>
+      <a href="activities.html" data-lang-en style="display:none;">Activities</a>
+
+      <a href="members.html" data-lang-ko>회원 동아리</a>
+      <a href="members.html" data-lang-en style="display:none;">Members</a>
+    </nav>
+  </header>
+
+  <section class="transition-section">
+    <h2 data-lang-ko>회원 동아리</h2>
+    <h2 data-lang-en style="display:none;">Member Clubs</h2>
+
+    <!-- 동아리 탭 버튼 -->
+    <div style="text-align: center; margin: 20px 0;">
+      <button onclick="showClubInfo('sqrt')">SQRT</button>
+      <button onclick="showClubInfo('eqs')">EQS</button>
+      <button onclick="showClubInfo('quick')">QUICK</button>
+      <button onclick="showClubInfo('qiya')">QIYA</button>
+    </div>
+
+    <!-- 동아리 정보가 표시될 영역 -->
+    <div id="club-info-container" style="margin-top: 30px;">
+      <!-- showClubInfo() 함수로 내용이 동적으로 들어갈 예정 -->
+    </div>
+
+  </section>
+
+  <footer>
+    <p>
+      <strong data-lang-ko>회장 이성빈</strong> 
+      <span data-lang-en>President SungBin Lee</span> | 
+      <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a> | 
+      <strong>Phone:</strong> +82 10-9650-0718
+    </p>
+    <p>&copy; 2024 QISCA. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // 페이지 로드시 기본으로 첫 번째 탭(SQRT) 정보 표시
+    window.addEventListener('load', () => {
+      showClubInfo('sqrt');
+    });
+
+    // Intersection Observer (예시)
+    const transitionSections = document.querySelectorAll(".transition-section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    transitionSections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
