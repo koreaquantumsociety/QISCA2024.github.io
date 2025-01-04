@@ -1,256 +1,90 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QISCA - Quantum Information Science Club Association</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.querySelectorAll("[data-lang-ko], [data-lang-en]").forEach(el => {
-                el.style.display = el.hasAttribute(`data-lang-${lang}`) ? "block" : "none";
-            });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <title>QISCA - Main</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function changeLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang-ko], [data-lang-en]").forEach(el => {
+        el.style.display = el.hasAttribute(`data-lang-${lang}`) ? "block" : "none";
+      });
+    }
+  </script>
 </head>
 <body onload="changeLanguage('ko')">
 
-    <div style="text-align: right; margin: 10px;">
-        <button onclick="changeLanguage('ko')">한글</button>
-        <button onclick="changeLanguage('en')">English</button>
-    </div>
+  <!-- 언어 변경 버튼 -->
+  <div class="language-switch">
+    <button onclick="changeLanguage('ko')">한글</button>
+    <button onclick="changeLanguage('en')">English</button>
+  </div>
 
-    <header class="transition-section">
-        <img src="images/QISCA_2.png" alt="QISCA Second Logo" style="height: 250px;">
-        <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
-        <h1 data-lang-en style="display:none;">Quantum Information Science Club Association (QISCA)</h1>
-        <p data-lang-en style="display:none;">An association for student clubs interested in quantum information science.</p>
-        <nav>
-            <a href="#about" data-lang-ko>소개</a>
-            <a href="#about" data-lang-en style="display:none;">About</a>
-            <a href="#activities" data-lang-ko>활동</a>
-            <a href="#activities" data-lang-en style="display:none;">Activities</a>
-            <a href="#members" data-lang-ko>회원 동아리</a>
-            <a href="#members" data-lang-en style="display:none;">Member Clubs</a>
-            <a href="#contact" data-lang-ko>연락처</a>
-            <a href="#contact" data-lang-en style="display:none;">Contact</a>
-        </nav>
-    </header>
+  <!-- 헤더 -->
+  <header>
+    <img src="images/QISCA_2.png" alt="QISCA Logo" style="height: 150px;">
+    <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
+    <h1 data-lang-en style="display:none;">Quantum Information Science Club Association</h1>
+    <nav>
+      <a href="index.html" data-lang-ko>메인</a>
+      <a href="index.html" data-lang-en style="display:none;">Home</a>
 
-    <section id="about" class="transition-section">
-        <h2 data-lang-ko>소개</h2>
-        <h2 data-lang-en style="display:none;">About</h2>
-        <p data-lang-ko>QISCA는 양자 정보 과학을 연구하는 학생 동아리들을 위한 협회로, 2024년 10월에 설립되었습니다. 다양한 학술 교류를 통해 전문성을 향상시키고 양자 컴퓨팅 이론의 접근성을 높여 도전적인 문제를 해결하는 데 기여하는 것을 목표로 하고 있습니다.</p>
-        <p data-lang-en style="display:none;">Founded in October 2024, QISCA is an association for student clubs dedicated to quantum information science. We aim to promote academic exchange, improve accessibility, and embrace diversity to tackle challenging problems in quantum computing.</p>
-    </section>
+      <a href="about.html" data-lang-ko>소개</a>
+      <a href="about.html" data-lang-en style="display:none;">About</a>
 
-    <section id="activities" class="transition-section">
-        <h2 data-lang-ko>주요 활동</h2>
-        <h2 data-lang-en style="display:none;">Activities</h2>
-        <ul data-lang-ko>
-            <li><strong>정기 세미나</strong>: 매년 64회의 세미나 개최 예정</li>
-            <li><strong>공동 연구 및 인턴십</strong>: 학교 간 협력 연구 프로젝트</li>
-            <li><strong>글로벌 교류 프로그램</strong>: 해외 양자 정보 동아리와 교류</li>
-            <li><strong>공동 행사</strong>: Quantum Hackathon, 학기 말 연구 발표회 등</li>
-        </ul>
-        <ul data-lang-en style="display:none;">
-            <li><strong>Regular Seminars</strong>: 64 seminars scheduled per year</li>
-            <li><strong>Collaborative Research and Internships</strong>: Inter-school research projects</li>
-            <li><strong>Global Exchange Program</strong>: Exchange with quantum clubs abroad</li>
-            <li><strong>Joint Events</strong>: Quantum Hackathon, end-of-semester presentations, etc.</li>
-        </ul>
-    </section>
+      <a href="activities.html" data-lang-ko>활동</a>
+      <a href="activities.html" data-lang-en style="display:none;">Activities</a>
 
-    <section id="members" class="transition-section">
-        <h2 data-lang-ko>회원 동아리</h2>
-        <h2 data-lang-en style="display:none;">Member Clubs</h2>
-    
-        <div id="club-list"></div>
-    </section>
-    
-    <script>
-        // 동아리 데이터 배열
-        const clubs = [
-            {
-                logo: "images/SQRT.png",
-                name_en: "SQRT (Seoul National University)",
-                name_ko: "SQRT (서울대학교)",
-                established_ko: "2022년 9월",
-                established_en: "September 2022",
-                president_ko: "배윤진",
-                president_en: "Yoonjin Bae",
-                website: "https://sites.google.com/view/sqrt-quantum",
-                email: "snuquantums@gmail.com"
-            },
-            {
-                logo: "images/EQS.png",
-                name_en: "EQS (KAIST)",
-                name_ko: "EQS (KAIST)",
-                established_ko: "2022년 9월",
-                established_en: "September 2022",
-                president_ko: "강현구",
-                president_en: "Hyeongu Kang",
-                website: "https://sites.google.com/view/eqs-kaist",
-                email: "eqskaist2022@gmail.com"
-            },
-            {
-                logo: "images/QUIK.png",
-                name_en: "QUICK (Korea University)",
-                name_ko: "QUICK (고려대학교)",
-                established_ko: "2023년 3월",
-                established_en: "March 2023",
-                president_ko: "박성근",
-                president_en: "Seonggeun Park",
-                website: "https://quick.oopy.io/",
-                email: "kuquickofficial@gmail.com"
-            },
-            {
-                logo: "images/QIYA.png",
-                name_en: "QIYA (Yonsei University)",
-                name_ko: "QIYA (연세대학교)",
-                established_ko: "2024년 9월",
-                established_en: "September 2024",
-                president_ko: "임형민",
-                president_en: "Hyeongmin Lim",
-                website: "https://qiya-yonsei.github.io/",
-                email: "qiyayonsei@gmail.com"
-            }
-        ];
-    
-        // HTML 요소에 동아리 정보 추가
-        const clubList = document.getElementById("club-list");
-    
-        clubs.forEach((club, index) => {
-            const clubElement = document.createElement("div");
-            clubElement.classList.add("club", "transition-section", "club-item");
-        
-            // 모바일인지 확인하는 조건 추가
-            if (window.innerWidth > 768) {
-                clubElement.classList.add(index % 2 === 0 ? "flex-row-left" : "flex-row-right");
-            }
-        
-            function isMobile() {
-                return window.innerWidth <= 768;
-            }
-            clubElement.innerHTML = isMobile()
-                ? // 모바일 전용 HTML 구조
-                  `
-                    <img src="${club.logo}" alt="${club.name_ko} Logo">
-                    <div class="club-content">
-                        <h3 data-lang-ko>${club.name_ko}</h3>
-                        <h3 data-lang-en style="display:none;">${club.name_en}</h3>
-                        <div class="club-info">
-                            <p style="display: flex; gap: 20px; justify-content: center;">
-                                <span>
-                                    <strong data-lang-ko>설립:</strong>
-                                    <span data-lang-ko>${club.established_ko}</span>
-                                    <strong data-lang-en>Established:</strong>
-                                    <span data-lang-en>${club.established_en}</span>
-                                </span>
-                                <span>
-                                    <strong data-lang-ko>회장:</strong>
-                                    <span data-lang-ko>${club.president_ko}</span>
-                                    <strong data-lang-en>President:</strong>
-                                    <span data-lang-en>${club.president_en}</span>
-                                </span>
-                            </p>
-                            <div class="club-links">
-                                <a href="${club.website}" target="_blank">Website</a> | 
-                                <a href="mailto:${club.email}">Email</a>
-                            </div>
-                        </div>
-                    </div>
-                  `
-                : // 데스크탑 전용 HTML 구조
-                  `
-                    <img src="${club.logo}" alt="${club.name_ko} Logo">
-                    <div class="club-content">
-                        <h3 data-lang-ko>${club.name_ko}</h3>
-                        <h3 data-lang-en style="display:none;">${club.name_en}</h3>
-                        <div class="club-info">
-                            <p>
-                                <span>
-                                    <strong data-lang-ko>설립:</strong>
-                                    <span data-lang-ko>${club.established_ko}</span>
-                                    <strong data-lang-en>Established:</strong>
-                                    <span data-lang-en>${club.established_en}</span>
-                                </span>
-                                <span style="margin-left: 20px;">
-                                    <strong data-lang-ko>회장:</strong>
-                                    <span data-lang-ko>${club.president_ko}</span>
-                                    <strong data-lang-en>President:</strong>
-                                    <span data-lang-en>${club.president_en}</span>
-                                </span>
-                            </p>
-                            <div class="club-links">
-                                <a href="${club.website}" target="_blank">Website</a> | 
-                                <a href="mailto:${club.email}">Email</a>
-                            </div>
-                        </div>
-                    </div>
-                  `;
+      <a href="members.html" data-lang-ko>회원 동아리</a>
+      <a href="members.html" data-lang-en style="display:none;">Members</a>
+    </nav>
+  </header>
 
-        
-            clubList.appendChild(clubElement);
-        });
-    </script>
+  <!-- 메인 컨텐츠 섹션 -->
+  <section class="transition-section">
+    <h2 data-lang-ko>QISCA에 오신 것을 환영합니다!</h2>
+    <h2 data-lang-en style="display:none;">Welcome to QISCA!</h2>
+    <p data-lang-ko>
+      양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.  
+      다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다.
+    </p>
+    <p data-lang-en style="display:none;">
+      QISCA is an association of student clubs passionate about quantum information science.  
+      We strive to lead the field of quantum computing through various activities and collaborations.
+    </p>
 
-    <section id="contact" class="transition-section">
-        <h2 data-lang-ko>연락처</h2>
-        <h2 data-lang-en style="display:none;">Contact</h2>
-        <p data-lang-ko>문의 사항 또는 협업에 관련된 내용은 아래 연락처로 부탁드립니다.</p>
-        <p data-lang-en style="display:none;">If you have any questions or are interested in collaboration, please contact us below.</p>
-        <p><strong data-lang-ko>회장 이성빈</strong> <span data-lang-en>President SungBin Lee</span> | <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a> | <strong>Phone:</strong> +82 10-9650-0718</p>
-    </section>
+    <!-- 필요하다면 슬라이드/배너 이미지 등을 추가할 수 있습니다. -->
+    <img src="images/main_banner.jpg" alt="Main Banner" style="width:100%; max-width:800px; margin-top:20px;">
+  </section>
 
-    <footer>
-        <p>&copy; 2024 QISCA. All rights reserved.</p>
-    </footer>
-    
-    <script>
-        // 모든 transition 섹션 요소를 가져옵니다
-        const transitionSections = document.querySelectorAll(".transition-section");
-        const membersSection = document.getElementById("members");
-    
-        // Intersection Observer 설정
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    const isMembers = entry.target.id === "members";
-                    
-                    if (entry.isIntersecting){
-                        entry.target.classList.add("visible");
-                    } 
-                    else {
-                        if (!isMembers) {
-                            entry.target.classList.remove("visible");
-                        } 
-                        if (isMembers) {
-                            const clubItems = document.querySelectorAll(".club-item");
-                            clubItems.forEach(club => club.classList.remove("visible"));
-                        }
-                    }
-                });
-            },
-            { rootMargin: "-100px 0px 100px 0px" }
-        );
-    
-        // 각 transition 섹션에 observer 적용
-        transitionSections.forEach(section => {
-            observer.observe(section); // 관찰 시작
-        });
-    
-        // 페이지 로드 시, 보이는 섹션 애니메이션 실행
-        window.addEventListener("load", () => {
-            transitionSections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    section.classList.add("visible");
-                }
-            });
-        });
-    </script>
+  <!-- 푸터 (연락처) -->
+  <footer>
+    <p>
+      <strong data-lang-ko>회장 이성빈</strong> 
+      <span data-lang-en>President SungBin Lee</span> | 
+      <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a> | 
+      <strong>Phone:</strong> +82 10-9650-0718
+    </p>
+    <p>&copy; 2024 QISCA. All rights reserved.</p>
+  </footer>
 
+  <script>
+    // Intersection Observer 간단 적용 (필요하다면 추가)
+    const transitionSections = document.querySelectorAll(".transition-section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    transitionSections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
