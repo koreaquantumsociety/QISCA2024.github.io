@@ -1,147 +1,164 @@
 /* style.css */
 
+/* 기본 박스 설정 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* 컬러 팔레트 (Material-ish) */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #2980b9;
-    --background-color: #F4F7F4;
-    --text-color: #333;
-    --header-bg-color: #4CAF50;
-    --footer-bg-color: #34495e;
-    --footer-text-color: #bdc3c7;
+  --color-primary: #6200ee;       /* 보라 계열 */
+  --color-primary-light: #bb86fc; 
+  --color-secondary: #03dac6;     /* 민트색 계열 */
+  --color-background: #f4f7f4;    
+  --color-surface: #ffffff;       
+  --color-text: #333;
+  --color-header: #3700b3;        /* 진한 보라 */
+  --color-footer: #121212;        
+  --color-footer-text: #cccccc;
+  --transition-speed: 0.4s;
 }
 
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    line-height: 1.8;
+/* 바디 기본 설정 */
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  overflow: hidden; /* Scroll Snap 전용(각 페이지의 .main-container에 스크롤 할당) */
 }
 
-/* ----- 헤더 영역 공통 스타일 ----- */
+/* ------------------ Scroll Snap 공통 스타일 ------------------ */
+/* 각 페이지 최상단 래퍼에 .main-container를 두고 
+   그 안에 section들을 100vh로 배치하면, 스크롤 시 풀스크린 전환 */
+.main-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;   /* 수직 스크롤 + 스냅 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-section {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ------------------ HEADER ------------------ */
 header {
-    background-color: var(--header-bg-color);
-    padding: 40px;
-    color: white;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-header);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: relative;  /* .snap-section 내부 레이아웃을 위해 */
 }
 
 header img {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 10px;
+  height: 60px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
-header nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+header h1 {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
-header nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: color 0.3s;
+nav {
+  margin-top: 10px;
 }
 
-header nav a:hover {
-    color: var(--secondary-color);
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* 언어 변경 버튼 */
+nav a:hover {
+  background-color: var(--color-primary-light);
+  color: #000;
+}
+
+/* ------------------ LANGUAGE SWITCH ------------------ */
 .language-switch {
-    text-align: right;
-    margin: 10px;
+  position: absolute; /* 상단 오른쪽 고정 */
+  top: 0;
+  right: 0;
+  background-color: var(--color-primary-light);
+  padding: 5px 10px;
 }
 
-button {
-    background-color: transparent;
-    color: var(--secondary-color);
-    padding: 5px 15px;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s, color 0.3s;
+.language-switch button {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1rem;
+  transition: 0.3s;
 }
 
-button:hover {
-    background-color: rgba(41, 128, 185, 0.1);
+.language-switch button:hover {
+  color: var(--color-secondary);
 }
 
-/* ----- 메인 섹션 기본 Transition 효과 ----- */
+/* ------------------ SECTION 내용 ------------------ */
+section h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--color-primary-light);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+/* 인터섹션 옵저버용 transition */
 .transition-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .transition-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-section {
-    background-color: white;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 1000px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* ----- 푸터 영역 ----- */
+/* ------------------ FOOTER ------------------ */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--footer-bg-color);
-    color: var(--footer-text-color);
-    font-size: 0.9em;
+  background-color: var(--color-footer);
+  color: var(--color-footer-text);
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  position: relative;
 }
 
-/* ----- 모바일 대응 ----- */
+/* ------------------ RESPONSIVE ------------------ */
 @media (max-width: 768px) {
-    header {
-        padding: 20px;
-    }
-
-    header img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        object-fit: contain;
-    }
-
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    header nav {
-        flex-direction: column;
-        gap: 8px;
-        font-size: 1.1em;
-    }
-
-    header nav a {
-        padding: 5px 0;
-    }
-
-    section {
-        padding: 20px;
-        margin: 10px;
-        max-width: 100%;
-    }
-
-    button {
-        font-size: 0.9em;
-    }
+  header h1 {
+    font-size: 1.2rem;
+  }
+  section h2 {
+    font-size: 1.6rem;
+  }
 }
