@@ -4,67 +4,80 @@
   <meta charset="UTF-8">
   <title>QISCA - Activities</title>
   <link rel="stylesheet" href="style.css">
-  <script>
-    function changeLanguage(lang) {
-      document.documentElement.lang = lang;
-      document.querySelectorAll("[data-lang-ko], [data-lang-en]").forEach(el => {
-        el.style.display = el.hasAttribute(`data-lang-${lang}`) ? "block" : "none";
-      });
-    }
-  </script>
+  <script src="common.js"></script>
 </head>
-<body onload="changeLanguage('ko')">
+<body onload="initLanguage()">
 
-  <div class="language-switch">
-    <button onclick="changeLanguage('ko')">한글</button>
-    <button onclick="changeLanguage('en')">English</button>
+  <div class="main-container">
+    <!-- 섹션 1: 헤더 & 소개 -->
+    <section class="snap-section transition-section">
+      <header>
+        <img src="images/QISCA_2.png" alt="QISCA Logo">
+        <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
+        <h1 data-lang-en style="display:none;">Quantum Information Science Club Association</h1>
+        <nav>
+          <a href="index.html" data-lang-ko>메인</a>
+          <a href="index.html" data-lang-en style="display:none;">Home</a>
+
+          <a href="about.html" data-lang-ko>소개</a>
+          <a href="about.html" data-lang-en style="display:none;">About</a>
+
+          <a href="activities.html" data-lang-ko>활동</a>
+          <a href="activities.html" data-lang-en style="display:none;">Activities</a>
+
+          <a href="members.html" data-lang-ko>회원 동아리</a>
+          <a href="members.html" data-lang-en style="display:none;">Members</a>
+        </nav>
+      </header>
+
+      <div class="language-switch">
+        <button onclick="changeLanguage('ko')">한글</button>
+        <button onclick="changeLanguage('en')">English</button>
+      </div>
+
+      <h2 data-lang-ko>주요 활동</h2>
+      <h2 data-lang-en style="display:none;">Activities</h2>
+      <p data-lang-ko>QISCA의 주요 활동들을 간단히 소개합니다.</p>
+      <p data-lang-en style="display:none;">Here are the main activities of QISCA.</p>
+    </section>
+
+    <!-- 섹션 2: 활동 목록 1 -->
+    <section class="snap-section transition-section" style="background-color: #fefefe;">
+      <ul data-lang-ko>
+        <li><strong>정기 세미나</strong>: 매년 64회의 세미나 개최 예정</li>
+        <li><strong>공동 연구 및 인턴십</strong>: 학교 간 협력 연구 프로젝트</li>
+      </ul>
+      <ul data-lang-en style="display:none;">
+        <li><strong>Regular Seminars</strong>: 64 seminars scheduled per year</li>
+        <li><strong>Collaborative Research and Internships</strong>: Inter-school research projects</li>
+      </ul>
+    </section>
+
+    <!-- 섹션 3: 활동 목록 2 -->
+    <section class="snap-section transition-section" style="background-color: #fcfcfc;">
+      <ul data-lang-ko>
+        <li><strong>글로벌 교류 프로그램</strong>: 해외 양자 정보 동아리와 교류</li>
+        <li><strong>공동 행사</strong>: Quantum Hackathon, 학기 말 연구 발표회 등</li>
+      </ul>
+      <ul data-lang-en style="display:none;">
+        <li><strong>Global Exchange Program</strong>: Exchange with quantum clubs abroad</li>
+        <li><strong>Joint Events</strong>: Quantum Hackathon, end-of-semester presentations, etc.</li>
+      </ul>
+    </section>
+
+    <!-- 섹션 4: 푸터 -->
+    <section class="snap-section transition-section" style="background-color: #eeeeee;">
+      <footer>
+        <p>
+          <strong data-lang-ko>회장 이성빈</strong> 
+          <span data-lang-en>President SungBin Lee</span> | 
+          <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a> | 
+          <strong>Phone:</strong> +82 10-9650-0718
+        </p>
+        <p>&copy; 2024 QISCA. All rights reserved.</p>
+      </footer>
+    </section>
   </div>
-
-  <header>
-    <img src="images/QISCA_2.png" alt="QISCA Logo" style="height: 150px;">
-    <h1 data-lang-ko>양자 정보 과학 동아리 협회 (QISCA)</h1>
-    <h1 data-lang-en style="display:none;">Quantum Information Science Club Association</h1>
-    <nav>
-      <a href="index.html" data-lang-ko>메인</a>
-      <a href="index.html" data-lang-en style="display:none;">Home</a>
-
-      <a href="about.html" data-lang-ko>소개</a>
-      <a href="about.html" data-lang-en style="display:none;">About</a>
-
-      <a href="activities.html" data-lang-ko>활동</a>
-      <a href="activities.html" data-lang-en style="display:none;">Activities</a>
-
-      <a href="members.html" data-lang-ko>회원 동아리</a>
-      <a href="members.html" data-lang-en style="display:none;">Members</a>
-    </nav>
-  </header>
-
-  <section class="transition-section">
-    <h2 data-lang-ko>주요 활동</h2>
-    <h2 data-lang-en style="display:none;">Activities</h2>
-    <ul data-lang-ko>
-      <li><strong>정기 세미나</strong>: 매년 64회의 세미나 개최 예정</li>
-      <li><strong>공동 연구 및 인턴십</strong>: 학교 간 협력 연구 프로젝트</li>
-      <li><strong>글로벌 교류 프로그램</strong>: 해외 양자 정보 동아리와 교류</li>
-      <li><strong>공동 행사</strong>: Quantum Hackathon, 학기 말 연구 발표회 등</li>
-    </ul>
-    <ul data-lang-en style="display:none;">
-      <li><strong>Regular Seminars</strong>: 64 seminars scheduled per year</li>
-      <li><strong>Collaborative Research and Internships</strong>: Inter-school research projects</li>
-      <li><strong>Global Exchange Program</strong>: Exchange with quantum clubs abroad</li>
-      <li><strong>Joint Events</strong>: Quantum Hackathon, end-of-semester presentations, etc.</li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>
-      <strong data-lang-ko>회장 이성빈</strong> 
-      <span data-lang-en>President SungBin Lee</span> | 
-      <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a> | 
-      <strong>Phone:</strong> +82 10-9650-0718
-    </p>
-    <p>&copy; 2024 QISCA. All rights reserved.</p>
-  </footer>
 
   <script>
     const transitionSections = document.querySelectorAll(".transition-section");
@@ -78,10 +91,7 @@
       });
     }, { threshold: 0.1 });
 
-    transitionSections.forEach(section => {
-      observer.observe(section);
-    });
+    transitionSections.forEach(section => observer.observe(section));
   </script>
-
 </body>
 </html>
