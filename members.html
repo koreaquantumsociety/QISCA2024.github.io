@@ -6,38 +6,47 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Swiper CSS -->
+  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-  
+
   <script src="common.js"></script>
   <style>
     nav.navbar {
       z-index:9999;
     }
-    .club-slide {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 40px 20px; text-align: center;
-    }
-    .club-slide img {
-      height: 200px; object-fit: contain; margin-bottom: 20px;
-    }
+    .navbar-brand { margin-left:30px; }
 
-    .member-slide {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 40px 20px; text-align: center;
-    }
-    .member-slide img {
-      height: 200px; object-fit: cover; margin-bottom: 20px;
-    }
-    .member-info {
-      max-width: 600px; margin: 0 auto; text-align: center;
-    }
-    .member-info p {
-      margin-bottom: 10px; line-height: 1.6;
+    body {
+      font-size: 1.3em; 
+      font-weight: 500;
     }
     .section-title {
-      text-align: center; margin-top: 40px; margin-bottom: 20px;
-      font-size: 1.5em; font-weight: 600;
+      text-align: center; 
+      margin-top: 80px; /* 기존보다 더 큰 간격 (위쪽 공백) */
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .club-slide, .member-slide {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .club-slide img, .member-slide img {
+      height: 200px; 
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+    .member-info {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .member-info p {
+      line-height: 1.4;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -46,7 +55,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA Logo" height="40">
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
@@ -70,7 +79,8 @@
 </nav>
 
 <div class="container py-5">
-  <!-- 동아리 섹션 -->
+
+  <!-- 1) 동아리 소개 -->
   <h2 class="section-title" data-lang-ko>회원 동아리</h2>
   <h2 class="section-title" data-lang-en style="display:none;">Member Clubs</h2>
 
@@ -81,52 +91,47 @@
         <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/SQRT.png" alt="SQRT">
         <h4 data-lang-ko>SQRT (서울대학교)</h4>
         <h4 data-lang-en style="display:none;">SQRT (Seoul National University)</h4>
-        <p>
-          <strong data-lang-ko>설립:</strong> <span data-lang-ko>2022년 9월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en>September 2022</span>
-        </p>
+        <p data-lang-ko>설립 2022년 9월</p>
+        <p data-lang-en style="display:none;">Established September 2022</p>
         <p>
           <a href="https://sites.google.com/view/sqrt-quantum" target="_blank">Website</a> | 
           <a href="mailto:snuquantums@gmail.com">Email</a>
         </p>
       </div>
+
       <!-- EQS -->
       <div class="swiper-slide club-slide">
         <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/EQS.png" alt="EQS">
         <h4 data-lang-ko>EQS (KAIST)</h4>
         <h4 data-lang-en style="display:none;">EQS (KAIST)</h4>
-        <p>
-          <strong data-lang-ko>설립:</strong> <span data-lang-ko>2022년 9월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en>September 2022</span>
-        </p>
+        <p data-lang-ko>설립 2022년 9월</p>
+        <p data-lang-en style="display:none;">Established September 2022</p>
         <p>
           <a href="https://sites.google.com/view/eqs-kaist" target="_blank">Website</a> | 
           <a href="mailto:eqskaist2022@gmail.com">Email</a>
         </p>
       </div>
+
       <!-- QUICK -->
       <div class="swiper-slide club-slide">
         <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/QUIK.png" alt="QUICK">
         <h4 data-lang-ko>QUICK (고려대학교)</h4>
         <h4 data-lang-en style="display:none;">QUICK (Korea University)</h4>
-        <p>
-          <strong data-lang-ko>설립:</strong> <span data-lang-ko>2023년 3월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en>March 2023</span>
-        </p>
+        <p data-lang-ko>설립 2023년 3월</p>
+        <p data-lang-en style="display:none;">Established March 2023</p>
         <p>
           <a href="https://quick.oopy.io/" target="_blank">Website</a> | 
           <a href="mailto:kuquickofficial@gmail.com">Email</a>
         </p>
       </div>
+
       <!-- QIYA -->
       <div class="swiper-slide club-slide">
         <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/QIYA.png" alt="QIYA">
         <h4 data-lang-ko>QIYA (연세대학교)</h4>
         <h4 data-lang-en style="display:none;">QIYA (Yonsei University)</h4>
-        <p>
-          <strong data-lang-ko>설립:</strong> <span data-lang-ko>2024년 9월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en>September 2024</span>
-        </p>
+        <p data-lang-ko>설립 2024년 9월</p>
+        <p data-lang-en style="display:none;">Established September 2024</p>
         <p>
           <a href="https://qiya-yonsei.github.io/" target="_blank">Website</a> | 
           <a href="mailto:qiyayonsei@gmail.com">Email</a>
@@ -138,7 +143,7 @@
     <div class="swiper-button-next"></div>
   </div>
 
-  <!-- 임원 소개 -->
+  <!-- 2) 임원 소개 -->
   <h2 class="section-title mt-5" data-lang-ko>임원 소개</h2>
   <h2 class="section-title mt-5" data-lang-en style="display:none;">Leadership Introduction</h2>
 
@@ -157,14 +162,14 @@
     <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr" class="text-light">rqtoe@snu.ac.kr</a> |
     <strong>Phone:</strong> +82 10-9650-0718
   </p>
-  <p>&copy; 2024 QISCA. All rights reserved.</p>
+  <p>&copy; 2024 QISCA All rights reserved</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 <script>
-// leadershipData : 직책은 영어 position 필드에
+// leadershipData : 실제 소개 전부 기입 (마침표 제거 시, 본문에서 '.' 를 제거 or 대체)
 const leadershipData = [
   {
     no: 1,
@@ -241,27 +246,25 @@ const leadershipData = [
 ];
 
 document.addEventListener('DOMContentLoaded', function(){
-  // 동아리 스와이퍼
   new Swiper('.clubSwiper', {
     slidesPerView: 1,
-    spaceBetween: 20,
-    autoHeight: true,
-    navigation: {
-      nextEl: '.clubSwiper .swiper-button-next',
-      prevEl: '.clubSwiper .swiper-button-prev',
+    spaceBetween:20,
+    autoHeight:true,
+    navigation:{
+      nextEl:'.clubSwiper .swiper-button-next',
+      prevEl:'.clubSwiper .swiper-button-prev',
     },
-    pagination: {
-      el: '.clubSwiper .swiper-pagination',
-      clickable: true,
+    pagination:{
+      el:'.clubSwiper .swiper-pagination',
+      clickable:true,
     },
   });
 
-  // 임원 소개
   const memberSlides = document.getElementById('memberSlides');
-  leadershipData.forEach(person => {
+  leadershipData.forEach(person=>{
     const slide = document.createElement('div');
     slide.classList.add('swiper-slide','member-slide');
-    slide.innerHTML = `
+    slide.innerHTML=`
       <img src="${person.image}" alt="${person.name_ko}">
       <div class="member-info">
         <h3>${person.name_ko}</h3>
@@ -273,17 +276,17 @@ document.addEventListener('DOMContentLoaded', function(){
     memberSlides.appendChild(slide);
   });
 
-  new Swiper('.memberSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    autoHeight: true,
-    navigation: {
-      nextEl: '.memberSwiper .swiper-button-next',
-      prevEl: '.memberSwiper .swiper-button-prev',
+  new Swiper('.memberSwiper',{
+    slidesPerView:1,
+    spaceBetween:20,
+    autoHeight:true,
+    navigation:{
+      nextEl:'.memberSwiper .swiper-button-next',
+      prevEl:'.memberSwiper .swiper-button-prev',
     },
-    pagination: {
-      el: '.memberSwiper .swiper-pagination',
-      clickable: true,
+    pagination:{
+      el:'.memberSwiper .swiper-pagination',
+      clickable:true,
     },
   });
 });
