@@ -3,62 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <title>QISCA - Activities</title>
-
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
-
   <script src="common.js"></script>
+
   <style>
     nav.navbar {
-      z-index:9999 !important;
+      z-index:9999;
     }
+    .navbar-brand { margin-left:30px; }
+
     .section {
       position: relative;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-size: 1.5em;
-      font-weight: 600;
-      text-align: center;
-    }
-    .section[data-anchor="overview"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_1.png");
-    }
-    .section[data-anchor="seminars"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_2.png");
-    }
-    .section[data-anchor="collab"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_3.png");
-    }
-    .section[data-anchor="global"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_4.png");
-    }
-    .section[data-anchor="events"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_5.png");
+      font-size:1.3em; 
+      font-weight:500;
+      text-align:center;
     }
 
-    /* 홀수/짝수 오버레이 명암 차이 */
-    .section:nth-of-type(odd)::before {
-      content:"";
-      position:absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      z-index: 0;
+    /* 1st(odd) => activities_1.png => 밝음 */
+    .section:nth-of-type(1) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_1.png");
     }
-    .section:nth-of-type(even)::before {
-      content:"";
-      position:absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.3);
-      z-index: 0;
+    .section:nth-of-type(1)::before {
+      content:""; position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(255,255,255,0.1); z-index:0;
     }
+    /* 2nd(even) => activities_2.png => 어두움 */
+    .section:nth-of-type(2) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_2.png");
+    }
+    .section:nth-of-type(2)::before {
+      content:""; position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.5); z-index:0;
+    }
+    /* 3rd(odd) => activities_3.png => 밝음, etc */
+    .section:nth-of-type(3) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_3.png");
+    }
+    .section:nth-of-type(3)::before {
+      content:""; position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(255,255,255,0.1);
+      z-index:0;
+    }
+    /* 4th(even) => activities_4.png => 어두움 */
+    .section:nth-of-type(4) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_4.png");
+    }
+    .section:nth-of-type(4)::before {
+      content:""; position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.5);
+      z-index:0;
+    }
+    /* 5th(odd) => activities_5.png => 밝음 */
+    .section:nth-of-type(5) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_5.png");
+    }
+    .section:nth-of-type(5)::before {
+      content:""; position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(255,255,255,0.1);
+      z-index:0;
+    }
+
     .section-content {
       position: relative;
       z-index:2;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      color: #fff;
+      max-width:800px;
+      margin:0 auto;
+      padding:40px 20px;
+      color:#fff;
     }
   </style>
 </head>
@@ -67,7 +82,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" height="40" alt="QISCA">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
@@ -76,10 +91,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html" data-lang-ko>메인</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html" data-lang-ko>소개</a></li>
-        <li class="nav-item">
-          <a class="nav-link active" href="activities.html" data-lang-ko>활동</a>
-          <a class="nav-link active" href="activities.html" data-lang-en style="display:none;">Activities</a>
-        </li>
+        <li class="nav-item"><a class="nav-link active" href="activities.html" data-lang-ko>활동</a></li>
         <li class="nav-item"><a class="nav-link" href="members.html" data-lang-ko>회원 동아리</a></li>
       </ul>
       <div class="d-flex ms-3">
@@ -91,52 +103,50 @@
 </nav>
 
 <div id="fullpage">
-
-  <div class="section" data-anchor="overview">
+  <div class="section">
     <div class="section-content">
       <h2 data-lang-ko>QISCA의 주요 활동</h2>
-      <h2 data-lang-en style="display:none;">QISCA's Main Activities</h2>
-      <p data-lang-ko>정기 세미나, 공동 연구, 글로벌 교류 프로그램 등 다양한 활동을 진행합니다.</p>
-      <p data-lang-en style="display:none;">We host regular seminars, collaborate on research, run global exchange programs, etc.</p>
+      <h2 data-lang-en style="display:none;">QISCA Main Activities</h2>
+      <p data-lang-ko>정기 세미나, 공동 연구, 글로벌 교류 프로그램 등 다양한 활동을 진행합니다</p>
+      <p data-lang-en style="display:none;">We host regular seminars, collaborate on research, run global exchange programs etc</p>
     </div>
   </div>
 
-  <div class="section" data-anchor="seminars">
+  <div class="section">
     <div class="section-content">
       <h2 data-lang-ko>정기 세미나</h2>
       <h2 data-lang-en style="display:none;">Regular Seminars</h2>
-      <p data-lang-ko>매년 64회의 세미나를 통해 최신 양자정보 연구를 공유합니다.</p>
-      <p data-lang-en style="display:none;">We hold 64 seminars annually to discuss the latest quantum information research.</p>
+      <p data-lang-ko>매년 64회의 세미나를 통해 최신 양자정보 연구를 공유합니다</p>
+      <p data-lang-en style="display:none;">We hold 64 seminars annually to discuss the latest quantum information research</p>
     </div>
   </div>
 
-  <div class="section" data-anchor="collab">
+  <div class="section">
     <div class="section-content">
       <h2 data-lang-ko>공동 연구 & 인턴십</h2>
       <h2 data-lang-en style="display:none;">Collaborative Research & Internships</h2>
-      <p data-lang-ko>학교 간 협력 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓습니다.</p>
-      <p data-lang-en style="display:none;">We conduct inter-school projects and industry internships for practical experience.</p>
+      <p data-lang-ko>학교 간 협력 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓습니다</p>
+      <p data-lang-en style="display:none;">We conduct inter-school projects and industry internships for practical experience</p>
     </div>
   </div>
 
-  <div class="section" data-anchor="global">
+  <div class="section">
     <div class="section-content">
       <h2 data-lang-ko>글로벌 교류 프로그램</h2>
       <h2 data-lang-en style="display:none;">Global Exchange Program</h2>
-      <p data-lang-ko>해외 양자 동아리와 교류하여 국제 공동 연구 기회를 넓힙니다.</p>
-      <p data-lang-en style="display:none;">We collaborate with quantum clubs abroad, expanding global research opportunities.</p>
+      <p data-lang-ko>해외 양자 동아리와 교류하여 국제 공동 연구 기회를 넓힙니다</p>
+      <p data-lang-en style="display:none;">We collaborate with quantum clubs abroad expanding global research opportunities</p>
     </div>
   </div>
 
-  <div class="section" data-anchor="events">
+  <div class="section">
     <div class="section-content">
       <h2 data-lang-ko>공동 행사</h2>
       <h2 data-lang-en style="display:none;">Joint Events</h2>
-      <p data-lang-ko>Quantum Hackathon, 학기말 연구 발표회 등 다채로운 행사를 개최합니다.</p>
-      <p data-lang-en style="display:none;">We host events like Quantum Hackathons and end-of-semester presentations.</p>
+      <p data-lang-ko>Quantum Hackathon, 학기말 연구 발표회 등 다채로운 행사를 개최합니다</p>
+      <p data-lang-en style="display:none;">We host events like Quantum Hackathons and end-of-semester presentations</p>
     </div>
   </div>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -146,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
-    anchors: ['overview','seminars','collab','global','events']
+    css3: true
   });
 });
 </script>
