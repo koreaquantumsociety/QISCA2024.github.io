@@ -425,10 +425,10 @@ document.addEventListener('DOMContentLoaded', function(){
     slide.classList.add('swiper-slide','member-slide');
     slide.innerHTML = 
       <img src="${person.image}" alt="${person.name_ko}">
-      <div class="member-name">${person.name_ko}</div>
-      <div class="member-position">${person.position}</div>
-      <div class="member-affiliation">${person.affiliation}</div>
-      <div class="member-intro">${person.intro}</div>
+      <div class="member-name">${person.name_en}</div>
+      <div class="member-position">${person.position_en}</div>
+      <div class="member-affiliation">${person.affiliation_en}</div>
+      <div class="member-intro">${person.intro_en}</div>
     ;
     memberSlides.appendChild(slide);
   });
