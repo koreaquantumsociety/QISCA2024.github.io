@@ -12,56 +12,57 @@
   <script src="common.js"></script>
 
   <style>
-    /* 메인 페이지 섹션별 배경 (예시로 2개) */
+    nav.navbar {
+      z-index:9999;
+    }
     .section {
       position: relative;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-size: 1.5em;   /* 글자 크기 1.5배 */
-      font-weight: 600;  /* 굵기도 조절 */
-    }
-    /* 섹션 1 => main_1.png, 섹션 2 => main_2.png (가정) */
-    .section[data-anchor="main1"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_1.png");
-    }
-    .section[data-anchor="main2"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_2.png");
+      font-size: 1.3em; /* 글씨 크기 */
+      font-weight: 500; /* 기본 굵기 약간 줄임, 필요 시 조정 */
+      text-align: center;
     }
 
-    /* 홀수 섹션은 진한 오버레이, 짝수 섹션은 옅은 오버레이 */
+    /* 홀수 → 밝은 오버레이, 짝수 → 어두운 오버레이 (반전) */
+    .section:nth-of-type(odd) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_1.png");
+    }
     .section:nth-of-type(odd)::before {
       content: "";
       position: absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      z-index: 0;
+      background: rgba(255,255,255,0.1); /* 밝게 (혹은 완전 투명?) */
+      z-index:0;
+    }
+    /* 짝수 섹션 */
+    .section:nth-of-type(even) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_2.png");
     }
     .section:nth-of-type(even)::before {
-      content: "";
-      position: absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.3);
-      z-index: 0;
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+      z-index:0;
     }
 
     .section-content {
       position: relative;
       z-index: 2;
       color: #fff;
-      text-align: center;
       max-width: 800px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
-    /* Navbar z-index 높임 */
-    nav.navbar {
-      z-index: 9999 !important;
+    .navbar-brand {
+      margin-left: 30px; /* 로고를 약간 우측으로 이동 */
     }
   </style>
 </head>
 <body onload="initLanguage()">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="z-index:9999;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
       <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
@@ -97,24 +98,19 @@
 </nav>
 
 <div id="fullpage">
-
   <!-- 섹션 1 -->
   <div class="section" data-anchor="main1">
     <div class="section-content">
-      <!-- qisca_2.png 크기 2배 (예: width=600px 등) -->
-      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca_2.png" 
-           alt="QISCA_2" 
+      <!-- 2배 크기 -->
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca_2.png"
+           alt="QISCA_2"
            style="width:600px; max-width:90%; margin-bottom:20px;">
-      <h2 data-lang-ko>QISCA에 오신 것을 환영합니다!</h2>
-      <h2 data-lang-en style="display:none;">Welcome to QISCA!</h2>
-      <p data-lang-ko>
-        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.<br>
-        다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다.
-      </p>
-      <p data-lang-en style="display:none;">
-        QISCA is an association of student clubs passionate about quantum information science.<br>
-        We strive to lead the field of quantum computing through various activities and collaborations.
-      </p>
+      <h2 data-lang-ko>QISCA에 오신 것을 환영합니다</h2>
+      <h2 data-lang-en style="display:none;">Welcome to QISCA</h2>
+      <p data-lang-ko>양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다<br>
+      다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다</p>
+      <p data-lang-en style="display:none;">QISCA is an association of student clubs passionate about quantum information science<br>
+      We strive to lead the field of quantum computing through various activities and collaborations</p>
     </div>
   </div>
 
@@ -129,10 +125,9 @@
         <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a><br>
         <strong>Phone:</strong> +82 10-9650-0718
       </p>
-      <p>&copy; 2024 QISCA. All rights reserved.</p>
+      <p>&copy; 2024 QISCA All rights reserved</p> <!-- 마침표 제거 -->
     </div>
   </div>
-
 </div>
 
 <!-- JS -->
@@ -143,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
-    anchors: ['main1','main2']
+    anchors: ['main1','main2'],
+    css3: true
   });
 });
 </script>
-
 </body>
 </html>
