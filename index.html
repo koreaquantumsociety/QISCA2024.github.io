@@ -3,54 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>QISCA - Main</title>
-  
-  <!-- Bootstrap (CDN) -->
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- fullPage.js (CDN) -->
+  <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
 
   <script src="common.js"></script>
 
   <style>
-    /* 메인 배너 배경 + 오버레이 */
-    .main-banner {
-      background: url('images/main_banner.jpg') center center/cover no-repeat;
+    /* 첫 섹션 배경 + 어둡게 */
+    .main-bg {
+      background: url('images/main_1.png') center center/cover no-repeat;
       position: relative;
     }
-    .main-banner-overlay {
-      background: rgba(0, 0, 0, 0.6); /* 어두운 오버레이 */
+    .dark-overlay {
       position: absolute;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); /* 어둡게 처리 */
     }
-    .main-banner-content {
-      position: relative; 
-      z-index: 2; /* 오버레이 위에 표시 */
+    .section-content {
+      position: relative;
+      z-index: 2;
       color: #fff;
       text-align: center;
       max-width: 800px;
     }
-    .main-banner-content h2 {
-      font-weight: 700; /* 굵은 폰트 */
+    .section-content h2 {
+      font-weight: 700;
       font-size: 2rem;
-    }
-    .main-banner-content p {
-      font-weight: 500;
     }
   </style>
 </head>
 <body onload="initLanguage()">
 
-<!-- 네비게이션 바 (Bootstrap) -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="images/QISCA_2.png" alt="QISCA Logo" height="40" class="me-2">
-      <span data-lang-ko>QISCA</span>
-      <span data-lang-en style="display:none;">QISCA</span>
+    <!-- 로고(qisca.png)만 남김 -->
+    <a class="navbar-brand" href="index.html">
+      <img src="images/qisca.png" alt="QISCA Logo" height="40">
     </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -82,23 +78,23 @@
   </div>
 </nav>
 
-<!-- fullPage 컨테이너 -->
 <div id="fullpage">
-  <!-- 섹션 1: 메인 배너 -->
-  <div class="section main-banner" data-anchor="main">
-    <!-- 어두운 오버레이 -->
-    <div class="main-banner-overlay"></div>
+  <!-- 섹션 1: 메인 -->
+  <div class="section main-bg" data-anchor="main">
+    <div class="dark-overlay"></div>
+    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 w-100 mx-auto px-3">
 
-    <!-- 실제 콘텐츠 -->
-    <div class="main-banner-content d-flex flex-column justify-content-center align-items-center h-100 w-100 mx-auto px-3">
+      <!-- 새로 삽입: qisca_2.png (메인 섹션 맨 위) -->
+      <img src="images/qisca_2.png" alt="QISCA_2 Logo" style="max-width: 300px; margin-bottom: 20px;">
+
       <h2 data-lang-ko>QISCA에 오신 것을 환영합니다!</h2>
       <h2 data-lang-en style="display:none;">Welcome to QISCA!</h2>
       <p data-lang-ko>
-        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.  
+        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.<br>
         다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다.
       </p>
       <p data-lang-en style="display:none;">
-        QISCA is an association of student clubs passionate about quantum information science.  
+        QISCA is an association of student clubs passionate about quantum information science.<br>
         We strive to lead the field of quantum computing through various activities and collaborations.
       </p>
     </div>
@@ -110,8 +106,8 @@
       <h3 data-lang-ko>연락처</h3>
       <h3 data-lang-en style="display:none;">Contact</h3>
       <p>
-        <strong data-lang-ko>회장 이성빈</strong>
-        <span data-lang-en style="display:none;">President SungBin Lee</span><br>
+        <strong data-lang-ko>이성빈</strong>
+        <span data-lang-en style="display:none;">SungBin Lee</span><br>
         <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a><br>
         <strong>Phone:</strong> +82 10-9650-0718
       </p>
@@ -126,10 +122,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   new fullpage('#fullpage', {
-    // fullPage.js 옵션
     autoScrolling: true,
     navigation: true,
-    anchors: ['main', 'contact']  // 섹션 인덱스와 일치
+    anchors: ['main','contact']
   });
 });
 </script>
