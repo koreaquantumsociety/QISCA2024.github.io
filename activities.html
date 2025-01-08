@@ -11,14 +11,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
 
   <script src="common.js"></script>
+
+  <style>
+    .bg-activities {
+      background: url('images/activities_1.png') center center/cover no-repeat;
+      position: relative;
+    }
+    .dark-overlay {
+      position: absolute; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.6);
+    }
+    .section-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      max-width: 800px;
+    }
+    .section-content h2 {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  </style>
 </head>
 <body onload="initLanguage()">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="images/QISCA_2.png" alt="QISCA Logo" height="40" class="me-2">
-      QISCA
+      <img src="images/qisca.png" alt="QISCA Logo" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
@@ -52,26 +73,28 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1: 종합 소개 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center" data-anchor="overview">
-    <div class="container text-center">
+
+  <!-- 섹션 1: activities_1.png 배경 -->
+  <div class="section bg-activities" data-anchor="overview">
+    <div class="dark-overlay"></div>
+    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 w-100 mx-auto px-3">
       <h2 data-lang-ko>QISCA의 주요 활동</h2>
       <h2 data-lang-en style="display:none;">QISCA's Main Activities</h2>
       <p data-lang-ko>정기 세미나, 공동 연구, 글로벌 교류 프로그램 등 다양한 활동을 진행합니다.</p>
       <p data-lang-en style="display:none;">We host regular seminars, collaborate on research, run global exchange programs, etc.</p>
 
-      <!-- 간단 요약 목록 (같은 섹션 내) -->
+      <!-- 간단 요약 목록 -->
       <ul class="list-unstyled mt-4" data-lang-ko>
-        <li><strong>정기 세미나</strong> : 매년 64회의 세미나 개최 예정</li>
-        <li><strong>공동 연구 & 인턴십</strong> : 학교 간 협력 연구 프로젝트</li>
-        <li><strong>글로벌 교류 프로그램</strong> : 해외 양자 정보 동아리와 교류</li>
-        <li><strong>공동 행사</strong> : Quantum Hackathon, 학기말 연구 발표회 등</li>
+        <li><strong>정기 세미나</strong> : 매년 64회의 세미나</li>
+        <li><strong>공동 연구 & 인턴십</strong> : 학교 간 협력 프로젝트</li>
+        <li><strong>글로벌 교류 프로그램</strong> : 해외 양자 동아리와 교류</li>
+        <li><strong>공동 행사</strong> : Quantum Hackathon 등</li>
       </ul>
       <ul class="list-unstyled mt-4" data-lang-en style="display:none;">
         <li><strong>Regular Seminars</strong> : 64 seminars per year</li>
         <li><strong>Collaborative Research & Internships</strong> : Inter-school projects</li>
         <li><strong>Global Exchange Program</strong> : Exchange with quantum clubs abroad</li>
-        <li><strong>Joint Events</strong> : Quantum Hackathon, end-of-semester presentations, etc.</li>
+        <li><strong>Joint Events</strong> : Quantum Hackathon, etc.</li>
       </ul>
     </div>
   </div>
@@ -79,13 +102,13 @@
   <!-- 섹션 2: Regular Seminars -->
   <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="seminars">
     <div class="container text-center">
-      <h2 data-lang-ko>정기 세미나 (Regular Seminars)</h2>
+      <h2 data-lang-ko>정기 세미나</h2>
       <h2 data-lang-en style="display:none;">Regular Seminars</h2>
       <p data-lang-ko>
-        매년 64회의 세미나를 개최하여, 최신 양자 정보 이론 및 실습 내용을 공유하고 토론합니다.
+        매년 64회의 세미나를 통해 최신 양자 정보 이론 및 실습을 공유합니다.
       </p>
       <p data-lang-en style="display:none;">
-        We hold 64 seminars annually to share and discuss the latest theories and practices in quantum information.
+        We hold 64 seminars annually to discuss the latest theories and practices in quantum information.
       </p>
     </div>
   </div>
@@ -96,11 +119,10 @@
       <h2 data-lang-ko>공동 연구 & 인턴십</h2>
       <h2 data-lang-en style="display:none;">Collaborative Research & Internships</h2>
       <p data-lang-ko>
-        학교 간 협력 연구 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓고 양자 분야 네트워크를 확대합니다.
+        학교 간 협력 연구 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓고 네트워크를 확장합니다.
       </p>
       <p data-lang-en style="display:none;">
-        By conducting inter-school collaborative projects and industry internships,  
-        we gain hands-on experience and expand our network in the quantum field.
+        We conduct inter-school collaborative projects and industry internships for practical experience.
       </p>
     </div>
   </div>
@@ -111,11 +133,10 @@
       <h2 data-lang-ko>글로벌 교류 프로그램</h2>
       <h2 data-lang-en style="display:none;">Global Exchange Program</h2>
       <p data-lang-ko>
-        해외 양자 정보 동아리와 교류하며 국제 공동 연구 기회를 넓히고, 글로벌 인재로 성장할 수 있습니다.
+        해외 양자 동아리와 공동 연구, 교류를 통해 글로벌 역량을 강화합니다.
       </p>
       <p data-lang-en style="display:none;">
-        We collaborate with quantum clubs abroad, offering international joint research opportunities  
-        and fostering global talent in quantum science.
+        We collaborate with international quantum clubs to strengthen global capabilities.
       </p>
     </div>
   </div>
@@ -126,17 +147,16 @@
       <h2 data-lang-ko>공동 행사</h2>
       <h2 data-lang-en style="display:none;">Joint Events</h2>
       <p data-lang-ko>
-        Quantum Hackathon, 학기 말 연구 발표회 등 회원 동아리들이 함께 참여하는 다채로운 행사를 개최합니다.
+        Quantum Hackathon, 학기말 연구 발표회 등 다채로운 행사를 개최합니다.
       </p>
       <p data-lang-en style="display:none;">
-        We host various joint events such as Quantum Hackathons and end-of-semester presentations,
-        where member clubs participate together.
+        We host diverse events such as Quantum Hackathons and end-of-semester presentations.
       </p>
     </div>
   </div>
+
 </div>
 
-<!-- Bootstrap & fullPage JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
