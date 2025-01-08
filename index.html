@@ -8,64 +8,63 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
-
+  
   <script src="common.js"></script>
-
   <style>
     nav.navbar {
-      z-index:9999;
+      z-index: 9999;
     }
+    .navbar-brand {
+      margin-left: 30px; /* 로고 우측 이동 */
+    }
+    
     .section {
       position: relative;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-size: 1.3em; /* 글씨 크기 */
-      font-weight: 500; /* 기본 굵기 약간 줄임, 필요 시 조정 */
+      font-size: 1.3em;
+      font-weight: 500;
       text-align: center;
     }
-
-    /* 홀수 → 밝은 오버레이, 짝수 → 어두운 오버레이 (반전) */
-    .section:nth-of-type(odd) {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_1.png");
-    }
+    
+    /* 홀수(1,3) → 밝은, 짝수(2) → 어두운, etc */
     .section:nth-of-type(odd)::before {
       content: "";
       position: absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(255,255,255,0.1); /* 밝게 (혹은 완전 투명?) */
-      z-index:0;
-    }
-    /* 짝수 섹션 */
-    .section:nth-of-type(even) {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_2.png");
+      background: rgba(255,255,255,0.1); /* 매우 밝게 */
+      z-index: 0;
     }
     .section:nth-of-type(even)::before {
-      content:"";
-      position:absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.5);
-      z-index:0;
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.8); /* 어두운 섹션 -> 짙게 */
+      z-index: 0;
     }
-
+    /* 밝은 섹션 → 텍스트 검정 (#111), 어두운 섹션 → 텍스트 흰색 (#fff) */
+    .section:nth-of-type(odd) .section-content {
+      color: #111;
+    }
+    .section:nth-of-type(even) .section-content {
+      color: #fff;
+    }
+    
     .section-content {
       position: relative;
       z-index: 2;
-      color: #fff;
       max-width: 800px;
       margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .navbar-brand {
-      margin-left: 30px; /* 로고를 약간 우측으로 이동 */
+      padding: 60px 20px;
     }
   </style>
 </head>
 <body onload="initLanguage()">
 
+<!-- NavBar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA Logo" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
@@ -98,24 +97,38 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1 -->
+  <!-- 섹션 1: 로고 & QISCA에 오신것 환영 -->
   <div class="section" data-anchor="main1">
     <div class="section-content">
-      <!-- 2배 크기 -->
       <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca_2.png"
            alt="QISCA_2"
            style="width:600px; max-width:90%; margin-bottom:20px;">
       <h2 data-lang-ko>QISCA에 오신 것을 환영합니다</h2>
       <h2 data-lang-en style="display:none;">Welcome to QISCA</h2>
-      <p data-lang-ko>양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다<br>
-      다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다</p>
-      <p data-lang-en style="display:none;">QISCA is an association of student clubs passionate about quantum information science<br>
-      We strive to lead the field of quantum computing through various activities and collaborations</p>
     </div>
   </div>
 
-  <!-- 섹션 2 -->
+  <!-- 섹션 2: Welcome to QISCA & 설명 -->
   <div class="section" data-anchor="main2">
+    <div class="section-content">
+      <h2 data-lang-en>Welcome to QISCA</h2>
+      <h2 data-lang-ko style="display:none;">QISCA에 오신 것을 환영합니다</h2>
+      
+      <!-- 영어 설명 -->
+      <p data-lang-en>
+        QISCA is an association of student clubs passionate about quantum information science<br>
+        We strive to lead the field of quantum computing through various activities and collaborations
+      </p>
+      <!-- 한글 설명(필요하시면 별도로) -->
+      <p data-lang-ko style="display:none;">
+        QISCA는 양자 정보 과학에 열정을 가진 학생 동아리들의 연합체이며<br>
+        다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다
+      </p>
+    </div>
+  </div>
+
+  <!-- 섹션 3: 연락처 -->
+  <div class="section" data-anchor="main3">
     <div class="section-content">
       <h3 data-lang-ko>연락처</h3>
       <h3 data-lang-en style="display:none;">Contact</h3>
@@ -125,12 +138,12 @@
         <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr">rqtoe@snu.ac.kr</a><br>
         <strong>Phone:</strong> +82 10-9650-0718
       </p>
-      <p>&copy; 2024 QISCA All rights reserved</p> <!-- 마침표 제거 -->
+      <p>&copy; 2024 QISCA All rights reserved</p>
     </div>
   </div>
 </div>
 
-<!-- JS -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
@@ -138,10 +151,11 @@ document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
-    anchors: ['main1','main2'],
+    anchors: ['main1','main2','main3'],
     css3: true
   });
 });
 </script>
+
 </body>
 </html>
