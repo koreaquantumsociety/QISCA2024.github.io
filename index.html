@@ -3,46 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>QISCA - Main</title>
-  
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
-  
+
   <script src="common.js"></script>
 
   <style>
-    /* 메인 페이지 첫 섹션 배경 */
-    .main-bg {
-      background: url('images/main_1.png') center center/cover no-repeat;
+    /* 메인 페이지 섹션별 배경 (예시로 2개) */
+    .section {
       position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-size: 1.5em;   /* 글자 크기 1.5배 */
+      font-weight: 600;  /* 굵기도 조절 */
     }
-    .dark-overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6); /* 어둡게 */
+    /* 섹션 1 => main_1.png, 섹션 2 => main_2.png (가정) */
+    .section[data-anchor="main1"] {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_1.png");
     }
+    .section[data-anchor="main2"] {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/main_2.png");
+    }
+
+    /* 홀수 섹션은 진한 오버레이, 짝수 섹션은 옅은 오버레이 */
+    .section:nth-of-type(odd)::before {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+    .section:nth-of-type(even)::before {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.3);
+      z-index: 0;
+    }
+
     .section-content {
       position: relative;
       z-index: 2;
       color: #fff;
       text-align: center;
       max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    .section-content h2 {
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 20px;
+
+    /* Navbar z-index 높임 */
+    nav.navbar {
+      z-index: 9999 !important;
     }
   </style>
 </head>
 <body onload="initLanguage()">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="z-index:9999;">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="images/qisca.png" alt="QISCA" height="40">
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
@@ -75,29 +97,30 @@
 </nav>
 
 <div id="fullpage">
+
   <!-- 섹션 1 -->
-  <div class="section main-bg" data-anchor="main">
-    <div class="dark-overlay"></div>
-    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 mx-auto px-3">
-      <!-- 메인 섹션 로고(qisca_2.png) -->
-      <img src="images/qisca_2.png" alt="QISCA_2" style="max-width: 300px; margin-bottom: 20px;">
-      
+  <div class="section" data-anchor="main1">
+    <div class="section-content">
+      <!-- qisca_2.png 크기 2배 (예: width=600px 등) -->
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca_2.png" 
+           alt="QISCA_2" 
+           style="width:600px; max-width:90%; margin-bottom:20px;">
       <h2 data-lang-ko>QISCA에 오신 것을 환영합니다!</h2>
       <h2 data-lang-en style="display:none;">Welcome to QISCA!</h2>
       <p data-lang-ko>
-        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.  
+        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.<br>
         다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다.
       </p>
       <p data-lang-en style="display:none;">
-        QISCA is an association of student clubs passionate about quantum information science.  
+        QISCA is an association of student clubs passionate about quantum information science.<br>
         We strive to lead the field of quantum computing through various activities and collaborations.
       </p>
     </div>
   </div>
 
   <!-- 섹션 2 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="contact">
-    <div class="container text-center">
+  <div class="section" data-anchor="main2">
+    <div class="section-content">
       <h3 data-lang-ko>연락처</h3>
       <h3 data-lang-en style="display:none;">Contact</h3>
       <p>
@@ -109,6 +132,7 @@
       <p>&copy; 2024 QISCA. All rights reserved.</p>
     </div>
   </div>
+
 </div>
 
 <!-- JS -->
@@ -119,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
-    anchors: ['main','contact']
+    anchors: ['main1','main2']
   });
 });
 </script>
