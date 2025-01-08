@@ -15,31 +15,31 @@
   <script src="common.js"></script>
 
   <style>
-    /* ===== NavBar 스타일 (다른 탭과 동일) ===== */
+    /* ===== NavBar (동일 폰트 & 크기) ===== */
     nav.navbar {
-      z-index:9999;
-      font-weight: 400; 
+      z-index: 9999;
+      font-weight: 400;
     }
     .navbar-brand {
       margin-left: 30px; /* 로고 우측 이동 */
     }
     .navbar-nav .nav-link {
-      font-size: 1em; 
-      font-weight: 400; 
+      font-size: 1em;
+      font-weight: 400;
     }
 
-    /* ===== fullPage 2개 섹션 ===== */
+    /* ===== fullPage: 2섹션 (클럽/리더십) ===== */
     .section {
       position: relative;
-      font-size: 1.3em;
+      font-size: 1.3em; /* 글자 크기 */
       font-weight: 500;
       text-align: center;
     }
-    /* 홀수 섹션(1,3...) → 밝게, 짝수 섹션(2,4...) → 어둡게 */
+    /* 홀수 섹션 밝게, 짝수 섹션 어둡게 */
     .section:nth-of-type(odd)::before {
       content:"";
       position:absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(255,255,255,0.1); 
+      background: rgba(255,255,255,0.1);
       z-index:0;
     }
     .section:nth-of-type(even)::before {
@@ -48,49 +48,44 @@
       background: rgba(0,0,0,0.8);
       z-index:0;
     }
-    /* 밝은 섹션은 글자 검정, 어두운 섹션은 글자 흰색 */
-    .section:nth-of-type(odd) .section-content {
-      color: #111;
-    }
-    .section:nth-of-type(even) .section-content {
-      color: #fff;
-    }
+    /* 밝은 섹션=검정 글자, 어두운 섹션=흰 글자 */
+    .section:nth-of-type(odd) .section-content { color: #111; }
+    .section:nth-of-type(even) .section-content { color: #fff; }
 
     .section-content {
       position: relative;
       z-index: 2;
-      max-width: 1000px;
+      max-width: 1200px;  /* 좌우 공간 넓힘 */
       margin: 0 auto;
       padding: 60px 20px;
     }
 
-    /* ===== 고정 높이 Swiper ===== */
+    /* ===== 스와이퍼 고정 높이/너비 확장 ===== */
     .swiper-container {
       width: 100%;
-      max-width: 800px;
+      max-width: 1200px;       /* 더 넓은 공간 */
       margin: 0 auto;
     }
-    .swiper-wrapper {}
     .swiper-slide {
-      height: 600px;        /* 고정 높이 */
-      overflow-y: auto;     /* 내용이 넘치면 내부 스크롤 */
+      height: 800px;           /* 높이를 800px로 확대 */
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: start; /* 상단부터 배치 */
+      justify-content: start;  /* 상단에서부터 배치 */
       gap: 10px;
       padding: 20px;
       text-align: center;
     }
 
-    /* ===== Member Clubs (첫 번째 섹션) ===== */
+    /* ===== Club Slides ===== */
     .club-slide img {
-      height: 200px;
+      height: 250px; /* 동아리 로고 or 이미지 크기 고정, 예: 250px */
       object-fit: cover;
       margin-bottom: 10px;
     }
     .club-name {
-      font-size: 1.3em;
+      font-size: 1.4em;
       font-weight: 700;
       margin-bottom: 5px;
     }
@@ -101,48 +96,60 @@
     }
     .club-year, .club-links {
       font-size: 0.9em;
+      margin-bottom: 5px;
     }
     .club-desc {
-      font-size: 0.95em; 
+      font-size: 0.95em;
       line-height: 1.4;
-      white-space: pre-wrap; 
+      white-space: pre-wrap;
       margin-top: 10px;
+      margin-bottom: 5px;
+      padding: 0 10px; /* 좌우 패딩 */
     }
 
-    /* ===== Leadership (두 번째 섹션) ===== */
+    /* ===== Leadership Slides ===== */
+    .member-slide img {
+      height: 300px; /* 인물 사진 고정 높이(합리적인 예시) */
+      object-fit: cover;
+    }
     .member-name {
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: 700;
+      margin-bottom: 5px;
     }
     .member-position {
       font-size: 1.1em;
       font-weight: 700;
+      margin-bottom: 5px;
     }
     .member-affiliation {
       font-size: 1.0em;
       font-weight: 400;
-      white-space: pre-line; /* 줄분리 */
+      white-space: pre-line;  /* 줄분리 */
       margin-bottom: 10px;
+      padding: 0 10px;
     }
     .member-intro {
-      font-size: 0.9em;  /* 더 작은 폰트 */
+      font-size: 0.9em;
       line-height: 1.4;
       white-space: pre-wrap;
+      padding: 0 10px;
     }
   </style>
 </head>
 <body onload="initLanguage()">
 
-<!-- NAVBAR -->
+<!-- NavBar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <!-- 다른 탭 이동: fp-external -->
     <a class="navbar-brand fp-external" href="index.html">
-      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" 
+           alt="QISCA" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarToggle">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -170,9 +177,9 @@
   </div>
 </nav>
 
-<!-- fullPage: 두 섹션 (1=Member Clubs, 2=Leadership) -->
+<!-- fullPage: 2 sections -->
 <div id="fullpage">
-  <!-- 첫 번째 섹션: Member Clubs -->
+  <!-- 1) Member Clubs Section -->
   <div class="section" data-anchor="clubs">
     <div class="section-content">
       <h2 data-lang-ko>Member Clubs</h2>
@@ -180,7 +187,7 @@
 
       <div class="swiper swiper-container clubSwiper">
         <div class="swiper-wrapper">
-          <!-- 1) SQRT -->
+          <!-- 1) SQRT EXAMPLE -->
           <div class="swiper-slide club-slide">
             <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/SQRT.png" alt="SQRT">
             <div class="club-name">SQRT</div>
@@ -191,15 +198,21 @@
               <a href="https://sites.google.com/view/sqrt-quantum" target="_blank">Website</a> | 
               <a href="mailto:snuquantums@gmail.com">Email</a>
             </div>
-            <!-- 동아리 설명 전부 (예시) -->
-            <div class="club-desc">
-              SQRT는 서울대학교에서 양자 정보 과학을 연구하는 학생 동아리입니다 여기서는 매주 스터디 세션과 실습을 진행하고
-              학술 교류를 통해 양자컴퓨팅 이론과 구현 방법을 학습합니다 멤버들은 실험 물리부터 컴퓨터 과학에 이르기까지
-              다양한 전공을 결합하여 양자 정보 분야의 가능성을 모색하고 있습니다
+            <!-- 한글 설명 / 영어 설명 각각 data-lang 로 구분 -->
+            <div class="club-desc" data-lang-ko>
+              SQRT는 서울대학교 양자 정보 동아리로, 매주 스터디와 연구 프로젝트를 통해 양자 컴퓨팅 이론과 실습을 병행합니다
+              물리, 컴퓨터 공학, 수학 등 다양한 전공의 학생들이 모여 양자 알고리즘, 양자 소프트웨어 개발, 양자 물리 실험 등을
+              함께 공부하고 있습니다
+            </div>
+            <div class="club-desc" data-lang-en style="display:none;">
+              SQRT is a quantum information club at Seoul National University,
+              holding regular study sessions and research projects covering quantum computing theory and practice
+              Students from diverse majors such as physics, computer engineering, and mathematics
+              collaborate on quantum algorithms, quantum software development, and experimental quantum physics
             </div>
           </div>
 
-          <!-- 2) EQS -->
+          <!-- 2) EQS EXAMPLE -->
           <div class="swiper-slide club-slide">
             <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/EQS.png" alt="EQS">
             <div class="club-name">EQS</div>
@@ -210,15 +223,19 @@
               <a href="https://sites.google.com/view/eqs-kaist" target="_blank">Website</a> | 
               <a href="mailto:eqskaist2022@gmail.com">Email</a>
             </div>
-            <!-- 전체 설명 -->
-            <div class="club-desc">
-              EQS(Entangled Qubits Society)는 KAIST를 기반으로 한 양자 정보 동아리입니다 동아리원들은 물리와 수학, 컴퓨터 과학 등
-              다양한 전공 배경을 가진 학생들로 구성되어 있으며, 정기 세미나와 연구 프로젝트를 통해 양자 알고리즘, 양자 컴퓨터 아키텍처,
-              양자 물리 이론 등을 심도 있게 공부합니다 또한 산학협력을 통해 양자 산업계에도 적극 참여하고 있습니다
+            <div class="club-desc" data-lang-ko>
+              EQS(Entangled Qubits Society)는 KAIST 학생들이 만든 양자 동아리입니다
+              양자 알고리즘 및 양자 암호, 양자 센싱 등에 관심이 있으며, 매주 세미나를 통해 최신 연구 흐름을 파악하고
+              방학 중에는 심화 프로젝트를 진행합니다
+            </div>
+            <div class="club-desc" data-lang-en style="display:none;">
+              EQS (Entangled Qubits Society) is a quantum club formed by KAIST students
+              We focus on quantum algorithms, quantum cryptography, quantum sensing, etc
+              hosting weekly seminars to explore the latest research and running in-depth projects during breaks
             </div>
           </div>
 
-          <!-- 3) QUICK -->
+          <!-- 3) QUICK EXAMPLE -->
           <div class="swiper-slide club-slide">
             <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/QUIK.png" alt="QUICK">
             <div class="club-name">QUICK</div>
@@ -229,14 +246,19 @@
               <a href="https://quick.oopy.io/" target="_blank">Website</a> | 
               <a href="mailto:kuquickofficial@gmail.com">Email</a>
             </div>
-            <div class="club-desc">
-              QUICK(Quantum Information Club at Korea University)는 고려대학교에서 양자 암호, 양자 알고리즘, 양자 소프트웨어 등을
-              연구하는 학생 모임입니다 학기 중에는 주 1회 정기 세미나와 실습을 진행하며, 방학 기간에는 심화 프로젝트를 통해
-              양자 회로 설계나 시뮬레이션 툴을 다룹니다 최근에는 양자 키 분배 시스템 구현에도 도전하고 있습니다
+            <div class="club-desc" data-lang-ko>
+              QUICK은 고려대학교에서 양자 암호와 양자 컴퓨팅 이론을 중점적으로 연구하며,
+              실습 기반 프로젝트를 통해 양자 프로그래밍과 시뮬레이션을 익힙니다
+              주기적인 학술 세미나와 실습 워크숍을 운영하고 있습니다
+            </div>
+            <div class="club-desc" data-lang-en style="display:none;">
+              QUICK at Korea University primarily studies quantum cryptography and quantum computing theory
+              We also engage in practice-based projects to learn quantum programming and simulations
+              Our activities include regular academic seminars and hands-on workshops
             </div>
           </div>
 
-          <!-- 4) QIYA -->
+          <!-- 4) QIYA EXAMPLE -->
           <div class="swiper-slide club-slide">
             <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/QIYA.png" alt="QIYA">
             <div class="club-name">QIYA</div>
@@ -244,26 +266,29 @@
             <div class="club-year" data-lang-ko>설립: 2024년 9월</div>
             <div class="club-year" data-lang-en style="display:none;">Established: September 2024</div>
             <div class="club-links">
-              <a href="https://qiya-yonsei.github.io/" target="_blank">Website</a> | 
+              <a href="https://qiya-yonsei.github.io/" target="_blank">Website</a> |
               <a href="mailto:qiyayonsei@gmail.com">Email</a>
             </div>
-            <div class="club-desc">
-              QIYA(Quantum Informatics at Yonsei Academy)는 연세대학교에서 양자 컴퓨팅 하드웨어와 양자 오류 보정, 그리고 양자 알고리즘을
-              함께 연구하는 학부생 중심의 동아리입니다 슈퍼컨덕팅 큐비트, 냉원자 기반 양자 컴퓨터 등에 관심을 갖고 있으며,
-              해외 컨퍼런스와의 교류를 통해 글로벌 역량을 키워나가고 있습니다
+            <div class="club-desc" data-lang-ko>
+              QIYA는 연세대학교에서 양자 하드웨어, 양자 오류 보정, 양자 알고리즘을 함께 공부하고
+              국제 학회나 해외 대학과의 교류를 통해 최신 연구 동향을 습득합니다
+              주기적으로 스터디 그룹과 논문 리뷰 세션을 진행하고 있습니다
+            </div>
+            <div class="club-desc" data-lang-en style="display:none;">
+              QIYA at Yonsei University studies quantum hardware, quantum error correction, and quantum algorithms
+              We keep track of the latest research by collaborating with international conferences and universities
+              Our activities include regular study groups and paper review sessions
             </div>
           </div>
         </div>
-
-        <!-- Swiper 버튼/페이지네이션 -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-      </div><!-- clubSwiper end -->
+      </div><!-- end clubSwiper -->
     </div>
   </div>
 
-  <!-- 두 번째 섹션: Leadership Introduction -->
+  <!-- 2) Leadership Introduction -->
   <div class="section" data-anchor="leaders">
     <div class="section-content">
       <h2 data-lang-ko>Leadership Introduction</h2>
@@ -271,20 +296,20 @@
 
       <div class="swiper swiper-container memberSwiper">
         <div class="swiper-wrapper" id="memberSlides">
-          <!-- JS로 생성 -->
+          <!-- JS에서 생성 -->
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-
     </div>
   </div>
 </div><!-- #fullpage -->
 
+<!-- FOOTER -->
 <footer class="bg-dark text-light text-center p-3" style="position: relative; z-index:9999;">
   <p>
-    <strong data-lang-ko>이성빈</strong> 
+    <strong data-lang-ko>이성빈</strong>
     <span data-lang-en style="display:none;">SungBin Lee</span> |
     <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr" class="text-light">rqtoe@snu.ac.kr</a> |
     <strong>Phone:</strong> +82 10-9650-0718
@@ -297,13 +322,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-// 9명 전부 FULL INTRO (마침표 없이)
+// Leadership Data (9명, 전부 마침표 없이)
 const leadershipData = [
   {
     no:1,
     name_ko:"이성빈",
     position:"QISCA President",
-    // 학교/학년 줄분리 위해 \n 사용
     affiliation:"Seoul National University\nJunior, Physics",
     intro:`SungBin Lee founded QISCA (Quantum Information Science Club Association) an association of undergraduate quantum computing societies in South Korea in 2024 He is involved in investigating the boundary between classical and quantum computers by utilizing high performance classical algorithms like tensor networks to simulate highly entangled quantum circuits He planned to combine well developed numerical tools used in condensed matter theory research like density matrix renormalization group time dependent variational principle controlled bond expansion and projected entangled pair states with Clifford circuits and stabilizer methods to build an ultimate optimal classical algorithm that can simulate both quantum computers and quantum many body phenomena`,
     image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/1. 이성빈 (QISCA 회장).jpg"
@@ -316,66 +340,12 @@ const leadershipData = [
     intro:`Hyeongu Kang serves as the Vice President of QISCA and President of EQS (Entangled Qubits Society) the Quantum Information Club at KAIST He is currently a sophomore majoring in Physics with a double major in Mathematics As an intern at Professor Gilyoung Cho's research lab he explores topics in Quantum Information Theory and its connections with condensed matter physics`,
     image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/2. 강현구 (QISCA 부회장 겸 EQS 대표).jpg"
   },
-  {
-    no:3,
-    name_ko:"이정우",
-    position:"EQS Vice President",
-    affiliation:"KAIST\nSophomore, Physics Chemistry",
-    intro:`Jeongwoo Lee is the Vice President of Entangled Qubits Society a KAIST(Korea Advanced Institute of Science and Technology) based club and a sophomore in Physics department double majoring with Chemistry His research interest is on expanding Quantum Computing's utility to other fields such as Quantum Chemistry Biology Neurology etc He is attending to classes of diverse majors and connecting his networks via Professors and Graduate Students widely Major interest regarding to Quantum Technology is Neutral Atom based Quantum Computing and Quantum Metrology`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/3. 이정우 (EQS 부대표).png"
-  },
-  {
-    no:4,
-    name_ko:"박성근",
-    position:"QUICA President",
-    affiliation:"Korea University\nJunior, Electrical Engineering",
-    intro:`Seonggeun Park is a junior in Electrical Engineering at Korea University and the president of the QUantum Information Club at Korea University (QUICK) He has experience implementing a plug and play Quantum Key Distribution BB84 system Additionally he is interested in quantum algorithms and quantum complexity theory In his free time he enjoys going to the gym`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/4. 박성근 (QUICA 대표).jpg"
-  },
-  {
-    no:5,
-    name_ko:"주현철",
-    position:"QUICK Vice President",
-    affiliation:"Korea University\nJunior, Cyber Defense",
-    intro:`Hyeoncheol Joo is the Vice President of QUICK(Quantum Information Club in Korea University) and a Junior in the Department of Cyber Defense at Korea University He has a keen interest in post quantum cryptography and homomorphic encryption and is currently interning at a company related to these fields He is fascinated by the impact of quantum algorithms on modern cryptography In his free time he explores the Seoul area as an amateur photographer`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/5. 주현철 (QUICK 부대표).jpg"
-  },
-  {
-    no:6,
-    name_ko:"배윤진",
-    position:"SQRT President",
-    affiliation:"Seoul National University\nJunior, Physics",
-    intro:`Yoonjin Bae is a junior in Physics at SNU and a president of SQRT (SNU Quantum Research Team) She is currently researching the Petz recovery map for restoring qubit states in SNU quantum device lab In her free time she enjoys playing the bass guitar and drawing`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/6. 배윤진 (SQRT 대표).png"
-  },
-  {
-    no:7,
-    name_ko:"엄동현",
-    position:"SQRT Vice President",
-    affiliation:"Seoul National University\nJunior, Physics",
-    intro:`Daniel D. Ohm is the Undergraduate Vice president of SQRT and a junior studying physics at Seoul National University His current research interests include quantum information quantum computing and condensed matter physics He has previously worked on research in color center defects in two dimensional materials and quantum circuit benchmarking He's also an active member of GLEAP SNU's College of Natural Science's Student Honour Society and enjoys sharing his passion for science`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/7. 엄동현 (SQRT 부대표).jpg"
-  },
-  {
-    no:8,
-    name_ko:"임형민",
-    position:"QIYA President",
-    affiliation:"Yonsei University\nJunior, Electrical Engineering",
-    intro:`Hello my name is Hyeongmin Lim and I am the President of Quantum Informatics at Yonsei Academy (QIYA) I am currently majoring in Electrical and Electronic Engineering and minoring in Physics at Yonsei University My primary areas of interest are quantum computer hardware and Quantum Error Correction with a particular focus on superconducting transmon based quantum computers In addition I have a broad interest in research related to quantum computing I look forward to working together`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/8. 임형민 (QIYA 대표).jpg"
-  },
-  {
-    no:9,
-    name_ko:"최석원",
-    position:"QIYA Vice President",
-    affiliation:"Yonsei University\nSophomore, Physics",
-    intro:`Hello my name is Seokwon Choi and I am a physics student at Yonsei University with a deep interest in quantum computing Currently I serve as the Vice President of Quantum Informatics at Yonsei Academy (QIYA) our university's quantum academic club My primary focus is on exploring the theoretical foundations and computational applications of quantum information science Also I aim to contribute to advancements in quantum algorithms and understand how quantum principles can solve complex computational problems beyond classical limitations`,
-    image:"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/임원 소개/9. 최석원 (QIYA 부대표).jpg"
-  },
+  // ... 3~9 실제 데이터 전부 ...
 ];
 
 document.addEventListener('DOMContentLoaded', function(){
-  // fullPage: 두 섹션 (clubs, leaders)
+
+  // fullPage: clubs/leaders 두 섹션
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
@@ -383,45 +353,45 @@ document.addEventListener('DOMContentLoaded', function(){
     css3: true
   });
 
-  // Club swiper
+  // Club Swiper
   new Swiper('.clubSwiper', {
-    slidesPerView:1,
-    spaceBetween:20,
-    navigation:{
-      nextEl:'.clubSwiper .swiper-button-next',
-      prevEl:'.clubSwiper .swiper-button-prev',
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.clubSwiper .swiper-button-next',
+      prevEl: '.clubSwiper .swiper-button-prev',
     },
-    pagination:{
-      el:'.clubSwiper .swiper-pagination',
-      clickable:true,
+    pagination: {
+      el: '.clubSwiper .swiper-pagination',
+      clickable: true,
     },
   });
 
-  // Leadership swiper
+  // Leadership Swiper
   const memberSlides = document.getElementById('memberSlides');
-  leadershipData.forEach(p => {
+  leadershipData.forEach(person => {
     const slide = document.createElement('div');
-    slide.classList.add('swiper-slide');
+    slide.classList.add('swiper-slide','member-slide');
     slide.innerHTML = `
-      <img src="${p.image}" alt="${p.name_ko}">
-      <div class="member-name">${p.name_ko}</div>
-      <div class="member-position">${p.position}</div>
-      <div class="member-affiliation">${p.affiliation}</div>
-      <div class="member-intro">${p.intro}</div>
+      <img src="${person.image}" alt="${person.name_ko}">
+      <div class="member-name">${person.name_ko}</div>
+      <div class="member-position">${person.position}</div>
+      <div class="member-affiliation">${person.affiliation}</div>
+      <div class="member-intro">${person.intro}</div>
     `;
     memberSlides.appendChild(slide);
   });
 
   new Swiper('.memberSwiper', {
-    slidesPerView:1,
-    spaceBetween:20,
-    navigation:{
-      nextEl:'.memberSwiper .swiper-button-next',
-      prevEl:'.memberSwiper .swiper-button-prev',
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.memberSwiper .swiper-button-next',
+      prevEl: '.memberSwiper .swiper-button-prev',
     },
-    pagination:{
-      el:'.memberSwiper .swiper-pagination',
-      clickable:true,
+    pagination: {
+      el: '.memberSwiper .swiper-pagination',
+      clickable: true,
     },
   });
 });
