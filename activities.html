@@ -11,64 +11,54 @@
 
   <script src="common.js"></script>
   <style>
-    /* 각 섹션별 고유 배경 이미지 */
-    /* 첫 번째(overview) 섹션: activities_1.png */
-    /* 두 번째(seminars) 섹션: activities_2.png */
-    /* 세 번째(collab) 섹션: activities_3.png */
-    /* 네 번째(global) 섹션: activities_4.png */
-    /* 다섯 번째(events) 섹션: activities_5.png */
-
+    nav.navbar {
+      z-index:9999 !important;
+    }
     .section {
       position: relative;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      font-size: 1.5em;
+      font-weight: 600;
+      text-align: center;
     }
-
-    /* 섹션마다 다른 배경 이미지 */
     .section[data-anchor="overview"] {
-      background-image: url('images/activities_1.png');
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_1.png");
     }
     .section[data-anchor="seminars"] {
-      background-image: url('images/activities_2.png');
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_2.png");
     }
     .section[data-anchor="collab"] {
-      background-image: url('images/activities_3.png');
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_3.png");
     }
     .section[data-anchor="global"] {
-      background-image: url('images/activities_4.png');
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_4.png");
     }
     .section[data-anchor="events"] {
-      background-image: url('images/activities_5.png');
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/activities_5.png");
     }
 
-    /* 모든 섹션에 어둡게 처리(오버레이) - 기본으로 살짝 어둡게 */
-    .section::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.3); /* 기본값(짝수일 때) */
+    /* 홀수/짝수 오버레이 명암 차이 */
+    .section:nth-of-type(odd)::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
       z-index: 0;
     }
-    /* 홀수 섹션은 명암을 더 진하게 => rgba(0,0,0,0.6) 등 */
-    .section:nth-of-type(odd)::before {
-      background: rgba(0,0,0,0.6);
+    .section:nth-of-type(even)::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.3);
+      z-index: 0;
     }
-
-    /* 섹션 내부 텍스트 스타일 */
     .section-content {
       position: relative;
-      z-index: 2; 
-      color: #fff;
-      text-align: center;
+      z-index:2;
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
-    }
-    .section-content h2 {
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 20px;
+      color: #fff;
     }
   </style>
 </head>
@@ -77,7 +67,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="images/qisca.png" alt="QISCA" height="40">
+      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
@@ -101,7 +91,7 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1: overview (activities_1.png) -->
+
   <div class="section" data-anchor="overview">
     <div class="section-content">
       <h2 data-lang-ko>QISCA의 주요 활동</h2>
@@ -111,37 +101,33 @@
     </div>
   </div>
 
-  <!-- 섹션 2: seminars (activities_2.png) -->
   <div class="section" data-anchor="seminars">
     <div class="section-content">
       <h2 data-lang-ko>정기 세미나</h2>
       <h2 data-lang-en style="display:none;">Regular Seminars</h2>
-      <p data-lang-ko>매년 64회의 세미나를 통해 최신 양자정보 이론/실습을 공유합니다.</p>
-      <p data-lang-en style="display:none;">We hold 64 seminars annually to discuss the latest theories in quantum information.</p>
+      <p data-lang-ko>매년 64회의 세미나를 통해 최신 양자정보 연구를 공유합니다.</p>
+      <p data-lang-en style="display:none;">We hold 64 seminars annually to discuss the latest quantum information research.</p>
     </div>
   </div>
 
-  <!-- 섹션 3: collab (activities_3.png) -->
   <div class="section" data-anchor="collab">
     <div class="section-content">
       <h2 data-lang-ko>공동 연구 & 인턴십</h2>
       <h2 data-lang-en style="display:none;">Collaborative Research & Internships</h2>
-      <p data-lang-ko>학교 간 협력 연구 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓습니다.</p>
+      <p data-lang-ko>학교 간 협력 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓습니다.</p>
       <p data-lang-en style="display:none;">We conduct inter-school projects and industry internships for practical experience.</p>
     </div>
   </div>
 
-  <!-- 섹션 4: global (activities_4.png) -->
   <div class="section" data-anchor="global">
     <div class="section-content">
       <h2 data-lang-ko>글로벌 교류 프로그램</h2>
       <h2 data-lang-en style="display:none;">Global Exchange Program</h2>
       <p data-lang-ko>해외 양자 동아리와 교류하여 국제 공동 연구 기회를 넓힙니다.</p>
-      <p data-lang-en style="display:none;">We collaborate with quantum clubs abroad, expanding global joint research opportunities.</p>
+      <p data-lang-en style="display:none;">We collaborate with quantum clubs abroad, expanding global research opportunities.</p>
     </div>
   </div>
 
-  <!-- 섹션 5: events (activities_5.png) -->
   <div class="section" data-anchor="events">
     <div class="section-content">
       <h2 data-lang-ko>공동 행사</h2>
@@ -150,13 +136,13 @@
       <p data-lang-en style="display:none;">We host events like Quantum Hackathons and end-of-semester presentations.</p>
     </div>
   </div>
+
 </div>
 
-<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
