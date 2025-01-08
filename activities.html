@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <title>QISCA - Activities</title>
 
-  <!-- Bootstrap 5 -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
 
@@ -14,7 +14,7 @@
 </head>
 <body onload="initLanguage()">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
       <img src="images/QISCA_2.png" alt="QISCA Logo" height="40" class="me-2">
@@ -52,42 +52,99 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center">
+  <!-- 섹션 1: 종합 소개 -->
+  <div class="section d-flex flex-column justify-content-center align-items-center" data-anchor="overview">
     <div class="container text-center">
       <h2 data-lang-ko>QISCA의 주요 활동</h2>
-      <h2 data-lang-en style="display:none;">Main Activities of QISCA</h2>
+      <h2 data-lang-en style="display:none;">QISCA's Main Activities</h2>
       <p data-lang-ko>정기 세미나, 공동 연구, 글로벌 교류 프로그램 등 다양한 활동을 진행합니다.</p>
-      <p data-lang-en style="display:none;">We host regular seminars, collaborate on research, and run global exchange programs.</p>
+      <p data-lang-en style="display:none;">We host regular seminars, collaborate on research, run global exchange programs, etc.</p>
+
+      <!-- 간단 요약 목록 (같은 섹션 내) -->
+      <ul class="list-unstyled mt-4" data-lang-ko>
+        <li><strong>정기 세미나</strong> : 매년 64회의 세미나 개최 예정</li>
+        <li><strong>공동 연구 & 인턴십</strong> : 학교 간 협력 연구 프로젝트</li>
+        <li><strong>글로벌 교류 프로그램</strong> : 해외 양자 정보 동아리와 교류</li>
+        <li><strong>공동 행사</strong> : Quantum Hackathon, 학기말 연구 발표회 등</li>
+      </ul>
+      <ul class="list-unstyled mt-4" data-lang-en style="display:none;">
+        <li><strong>Regular Seminars</strong> : 64 seminars per year</li>
+        <li><strong>Collaborative Research & Internships</strong> : Inter-school projects</li>
+        <li><strong>Global Exchange Program</strong> : Exchange with quantum clubs abroad</li>
+        <li><strong>Joint Events</strong> : Quantum Hackathon, end-of-semester presentations, etc.</li>
+      </ul>
     </div>
   </div>
 
-  <!-- 섹션 2 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center bg-light">
-    <div class="container">
-      <ul data-lang-ko>
-        <li><strong>정기 세미나</strong> : 매년 64회의 세미나 개최 예정</li>
-        <li><strong>공동 연구 및 인턴십</strong> : 학교 간 협력 연구 프로젝트</li>
-        <li><strong>글로벌 교류 프로그램</strong> : 해외 양자 정보 동아리와 교류</li>
-        <li><strong>공동 행사</strong> : Quantum Hackathon, 학기 말 연구 발표회 등</li>
-      </ul>
-      <ul data-lang-en style="display:none;">
-        <li><strong>Regular Seminars</strong>: 64 seminars scheduled per year</li>
-        <li><strong>Collaborative Research & Internships</strong>: Inter-school projects</li>
-        <li><strong>Global Exchange Program</strong>: Exchange with quantum clubs abroad</li>
-        <li><strong>Joint Events</strong>: Quantum Hackathon, end-of-semester presentations, etc.</li>
-      </ul>
+  <!-- 섹션 2: Regular Seminars -->
+  <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="seminars">
+    <div class="container text-center">
+      <h2 data-lang-ko>정기 세미나 (Regular Seminars)</h2>
+      <h2 data-lang-en style="display:none;">Regular Seminars</h2>
+      <p data-lang-ko>
+        매년 64회의 세미나를 개최하여, 최신 양자 정보 이론 및 실습 내용을 공유하고 토론합니다.
+      </p>
+      <p data-lang-en style="display:none;">
+        We hold 64 seminars annually to share and discuss the latest theories and practices in quantum information.
+      </p>
+    </div>
+  </div>
+
+  <!-- 섹션 3: Collaborative Research -->
+  <div class="section d-flex flex-column justify-content-center align-items-center" data-anchor="collab">
+    <div class="container text-center">
+      <h2 data-lang-ko>공동 연구 & 인턴십</h2>
+      <h2 data-lang-en style="display:none;">Collaborative Research & Internships</h2>
+      <p data-lang-ko>
+        학교 간 협력 연구 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓고 양자 분야 네트워크를 확대합니다.
+      </p>
+      <p data-lang-en style="display:none;">
+        By conducting inter-school collaborative projects and industry internships,  
+        we gain hands-on experience and expand our network in the quantum field.
+      </p>
+    </div>
+  </div>
+
+  <!-- 섹션 4: Global Exchange -->
+  <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="global">
+    <div class="container text-center">
+      <h2 data-lang-ko>글로벌 교류 프로그램</h2>
+      <h2 data-lang-en style="display:none;">Global Exchange Program</h2>
+      <p data-lang-ko>
+        해외 양자 정보 동아리와 교류하며 국제 공동 연구 기회를 넓히고, 글로벌 인재로 성장할 수 있습니다.
+      </p>
+      <p data-lang-en style="display:none;">
+        We collaborate with quantum clubs abroad, offering international joint research opportunities  
+        and fostering global talent in quantum science.
+      </p>
+    </div>
+  </div>
+
+  <!-- 섹션 5: Joint Events -->
+  <div class="section d-flex flex-column justify-content-center align-items-center" data-anchor="events">
+    <div class="container text-center">
+      <h2 data-lang-ko>공동 행사</h2>
+      <h2 data-lang-en style="display:none;">Joint Events</h2>
+      <p data-lang-ko>
+        Quantum Hackathon, 학기 말 연구 발표회 등 회원 동아리들이 함께 참여하는 다채로운 행사를 개최합니다.
+      </p>
+      <p data-lang-en style="display:none;">
+        We host various joint events such as Quantum Hackathons and end-of-semester presentations,
+        where member clubs participate together.
+      </p>
     </div>
   </div>
 </div>
 
+<!-- Bootstrap & fullPage JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   new fullpage('#fullpage', {
     autoScrolling: true,
-    navigation: true
+    navigation: true,
+    anchors: ['overview','seminars','collab','global','events']
   });
 });
 </script>
