@@ -6,7 +6,7 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  
   <!-- Swiper CSS -->
   <link
     rel="stylesheet"
@@ -16,39 +16,41 @@
   <script src="common.js"></script>
 
   <style>
-  /* 중앙 정렬 */
-  .club-slide {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  .club-slide img {
-    max-width: 150px;
-    margin-bottom: 20px;
-  }
-
-  /* 리더십 카드 가운데 정렬을 위해 */
-  .leadership-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-  }
-  .leadership-cards .card {
-    width: 300px;
-  }
-
+    .swiper {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .swiper-slide {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    .dark-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .slide-desc {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body onload="initLanguage()">
 
-<!-- Bootstrap NavBar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
+    <!-- 왼쪽 로고만 -->
     <a class="navbar-brand" href="index.html">
-      <img src="images/QISCA_2.png" alt="QISCA Logo" height="40" class="me-2">
-      <span data-lang-ko>QISCA</span>
-      <span data-lang-en style="display:none;">QISCA</span>
+      <img src="images/qisca.png" alt="QISCA Logo" height="40">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
@@ -82,191 +84,181 @@
   </div>
 </nav>
 
-<div class="container my-5">
+<div class="container py-5">
+  <!-- 1) 멤버 소개 (상단) -->
+  <h2 class="text-center" data-lang-ko>멤버 소개</h2>
+  <h2 class="text-center" data-lang-en style="display:none;">Leadership & Members</h2>
+  <p class="text-center" data-lang-ko>아래를 좌우로 넘겨서 각 멤버 정보를 확인하세요</p>
+  <p class="text-center" data-lang-en style="display:none;">Swipe left or right to see each member's info</p>
 
-  <h2 class="text-center mb-4" data-lang-ko>회원 동아리</h2>
-  <h2 class="text-center mb-4" data-lang-en style="display:none;">Member Clubs</h2>
-  <p class="text-center" data-lang-ko>좌우 슬라이드를 넘겨 각 동아리 정보를 보실 수 있습니다.</p>
-  <p class="text-center" data-lang-en style="display:none;">Swipe (or use arrows) to view each member club.</p>
-
-  <!-- Swiper 컨테이너 -->
-  <div class="swiper mySwiper">
+  <!-- Swiper for Members -->
+  <div class="swiper mySwiper mb-5">
     <div class="swiper-wrapper">
-      
-      <!-- SNU (SQRT) Slide -->
-      <div class="swiper-slide club-slide">
-        <img src="images/SQRT.png" alt="SQRT Logo">
+      <!-- 1. 이성빈 (QISCA 회장).jpg -->
+      <div class="swiper-slide">
+        <img src="images/1. 이성빈 (QISCA 회장).jpg" alt="이성빈" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>이성빈 (QISCA 회장)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">SungBin Lee</h4>
+        <p class="slide-desc">
+          [간단 소개 / 연구 내용 / 한글 & 영어 혼합 등]
+        </p>
+      </div>
+      <!-- 2. 강현구 (QISCA 부회장 겸 EQS 대표).jpg -->
+      <div class="swiper-slide">
+        <img src="images/2. 강현구 (QISCA 부회장 겸 EQS 대표).jpg" alt="강현구" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>강현구 (QISCA 부회장, EQS 대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Hyeongu Kang</h4>
+        <p class="slide-desc">
+          [멤버 내용 ...]
+        </p>
+      </div>
+      <!-- 3. 이정우 (EQS 부대표).png -->
+      <div class="swiper-slide">
+        <img src="images/3. 이정우 (EQS 부대표).png" alt="이정우" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>이정우 (EQS 부대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Jeongwoo Lee (EQS)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+      <!-- 4. 박성근 (QUICA 대표).jpg -->
+      <div class="swiper-slide">
+        <img src="images/4. 박성근 (QUICA 대표).jpg" alt="박성근" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>박성근 (QUICA 대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Seonggeun Park (QUICK)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+      <!-- 5. 주현철 (QUICK 부대표).jpg -->
+      <div class="swiper-slide">
+        <img src="images/5. 주현철 (QUICK 부대표).jpg" alt="주현철" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>주현철 (QUICK 부대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Hyeoncheol Joo (QUICK)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+      <!-- 6. 배윤진 (SQRT 대표).png -->
+      <div class="swiper-slide">
+        <img src="images/6. 배윤진 (SQRT 대표).png" alt="배윤진" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>배윤진 (SQRT 대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Yoonjin Bae (SQRT)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+      <!-- 7. 엄동현 (SQRT 부대표).jpg -->
+      <div class="swiper-slide">
+        <img src="images/7. 엄동현 (SQRT 부대표).jpg" alt="엄동현" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>엄동현 (SQRT 부대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Daniel D. Ohm (SQRT)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+      <!-- 8. 임형민 (QIYA 대표).jpg -->
+      <div class="swiper-slide">
+        <img src="images/8. 임형민 (QIYA 대표).jpg" alt="임형민" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>임형민 (QIYA 대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Hyeongmin Lim (QIYA)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+      <!-- 9. 최석원 (QIYA 부대표).jpg -->
+      <div class="swiper-slide">
+        <img src="images/9. 최석원 (QIYA 부대표).jpg" alt="최석원" class="slide-img">
+        <h4 class="dark-title" data-lang-ko>최석원 (QIYA 부대표)</h4>
+        <h4 class="dark-title" data-lang-en style="display:none;">Seokwon Choi (QIYA)</h4>
+        <p class="slide-desc">
+          ...
+        </p>
+      </div>
+    </div><!-- swiper-wrapper -->
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div><!-- end of Swiper -->
+
+  <!-- 2) 회원 동아리 (하단) - 예전과 동일한 구조의 Swiper -->
+  <h2 class="text-center" data-lang-ko>회원 동아리</h2>
+  <h2 class="text-center" data-lang-en style="display:none;">Member Clubs</h2>
+  <p class="text-center" data-lang-ko>아래를 좌우로 넘겨서 각 동아리 정보를 보실 수 있습니다.</p>
+  <p class="text-center" data-lang-en style="display:none;">Swipe left or right to view each club.</p>
+
+  <div class="swiper mySwiper2 mt-4">
+    <div class="swiper-wrapper">
+      <!-- SQRT -->
+      <div class="swiper-slide">
+        <img src="images/SQRT.png" alt="SQRT Logo" class="slide-img">
         <h4 data-lang-ko>SQRT (서울대학교)</h4>
         <h4 data-lang-en style="display:none;">SQRT (Seoul National University)</h4>
         <p>
           <strong data-lang-ko>설립:</strong> <span data-lang-ko>2022년 9월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en style="display:none;">September 2022</span><br><br>
-          <strong data-lang-ko>회장:</strong> <span data-lang-ko>배윤진</span><br>
-          <strong data-lang-en>President:</strong> <span data-lang-en style="display:none;">Yoonjin Bae</span>
+          <strong data-lang-en>Established:</strong> <span data-lang-en>September 2022</span>
         </p>
         <p>
           <a href="https://sites.google.com/view/sqrt-quantum" target="_blank">Website</a> | 
           <a href="mailto:snuquantums@gmail.com">Email</a>
         </p>
-
-        <!-- SNU 리더십 카드: SungBin Lee(#1), Yoonjin Bae(#6), Daniel D. Ohm(#7) -->
-        <div class="leadership-cards">
-          <!-- #1 SungBin Lee -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title" data-lang-ko>이성빈 (SungBin Lee)</h5>
-              <h6 class="card-subtitle mb-2 text-muted" data-lang-ko>회장 (President)</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">자세히 보기</button>
-            </div>
-          </div>
-
-          <!-- #6 Yoonjin Bae -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title" data-lang-ko>배윤진 (Yoonjin Bae)</h5>
-              <h6 class="card-subtitle mb-2 text-muted" data-lang-ko>Web UI Manager</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal6">자세히 보기</button>
-            </div>
-          </div>
-
-          <!-- #7 Daniel D. Ohm -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title" data-lang-ko>Daniel D. Ohm</h5>
-              <h6 class="card-subtitle mb-2 text-muted" data-lang-ko>International Relations</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal7">자세히 보기</button>
-            </div>
-          </div>
-        </div><!-- leadership-cards -->
-      </div><!-- end of SNU slide -->
-
-      <!-- KAIST (EQS) Slide -->
-      <div class="swiper-slide club-slide">
-        <img src="images/EQS.png" alt="EQS Logo">
+      </div>
+      <!-- EQS -->
+      <div class="swiper-slide">
+        <img src="images/EQS.png" alt="EQS Logo" class="slide-img">
         <h4 data-lang-ko>EQS (KAIST)</h4>
         <h4 data-lang-en style="display:none;">EQS (KAIST)</h4>
         <p>
           <strong data-lang-ko>설립:</strong> <span data-lang-ko>2022년 9월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en style="display:none;">September 2022</span><br><br>
-          <strong data-lang-ko>회장:</strong> <span data-lang-ko>강현구</span><br>
-          <strong data-lang-en>President:</strong> <span data-lang-en style="display:none;">Hyeongu Kang</span>
+          <strong data-lang-en>Established:</strong> <span data-lang-en>September 2022</span>
         </p>
         <p>
           <a href="https://sites.google.com/view/eqs-kaist" target="_blank">Website</a> | 
           <a href="mailto:eqskaist2022@gmail.com">Email</a>
         </p>
-
-        <!-- KAIST 리더십: #2 Hyeongu Kang, #3 Jeongwoo Lee -->
-        <div class="leadership-cards">
-          <!-- #2 Hyeongu Kang -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Hyeongu Kang</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Vice President of QISCA</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal2">Details</button>
-            </div>
-          </div>
-
-          <!-- #3 Jeongwoo Lee -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Jeongwoo Lee</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Public Relations</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">Details</button>
-            </div>
-          </div>
-        </div>
-      </div><!-- end of KAIST slide -->
-
-      <!-- KU (QUICK) Slide -->
-      <div class="swiper-slide club-slide">
-        <img src="images/QUIK.png" alt="QUICK Logo">
+      </div>
+      <!-- QUICK -->
+      <div class="swiper-slide">
+        <img src="images/QUIK.png" alt="QUIK Logo" class="slide-img">
         <h4 data-lang-ko>QUICK (고려대학교)</h4>
         <h4 data-lang-en style="display:none;">QUICK (Korea University)</h4>
         <p>
           <strong data-lang-ko>설립:</strong> <span data-lang-ko>2023년 3월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en style="display:none;">March 2023</span><br><br>
-          <strong data-lang-ko>회장:</strong> <span data-lang-ko>박성근</span><br>
-          <strong data-lang-en>President:</strong> <span data-lang-en style="display:none;">Seonggeun Park</span>
+          <strong data-lang-en>Established:</strong> <span data-lang-en>March 2023</span>
         </p>
         <p>
           <a href="https://quick.oopy.io/" target="_blank">Website</a> | 
           <a href="mailto:kuquickofficial@gmail.com">Email</a>
         </p>
-
-        <!-- KU 리더십: #4 Seonggeun Park, #5 Hyeoncheol Joo -->
-        <div class="leadership-cards">
-          <!-- #4 Seonggeun Park -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Seonggeun Park</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Public Relations</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal4">Details</button>
-            </div>
-          </div>
-
-          <!-- #5 Hyeoncheol Joo -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Hyeoncheol Joo</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Academic Team</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal5">Details</button>
-            </div>
-          </div>
-        </div>
-      </div><!-- end of KU slide -->
-
-      <!-- Yonsei (QIYA) Slide -->
-      <div class="swiper-slide club-slide">
-        <img src="images/QIYA.png" alt="QIYA Logo">
+      </div>
+      <!-- QIYA -->
+      <div class="swiper-slide">
+        <img src="images/QIYA.png" alt="QIYA Logo" class="slide-img">
         <h4 data-lang-ko>QIYA (연세대학교)</h4>
         <h4 data-lang-en style="display:none;">QIYA (Yonsei University)</h4>
         <p>
           <strong data-lang-ko>설립:</strong> <span data-lang-ko>2024년 9월</span><br>
-          <strong data-lang-en>Established:</strong> <span data-lang-en style="display:none;">September 2024</span><br><br>
-          <strong data-lang-ko>회장:</strong> <span data-lang-ko>임형민</span><br>
-          <strong data-lang-en>President:</strong> <span data-lang-en style="display:none;">Hyeongmin Lim</span>
+          <strong data-lang-en>Established:</strong> <span data-lang-en>September 2024</span>
         </p>
         <p>
           <a href="https://qiya-yonsei.github.io/" target="_blank">Website</a> | 
           <a href="mailto:qiyayonsei@gmail.com">Email</a>
         </p>
+      </div>
+    </div> <!-- end of swiper-wrapper -->
 
-        <!-- Yonsei 리더십: #8 Hyeongmin Lim, #9 Seokwon Choi -->
-        <div class="leadership-cards">
-          <!-- #8 Hyeongmin Lim -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Hyeongmin Lim</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Academic Team</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal8">Details</button>
-            </div>
-          </div>
-
-          <!-- #9 Seokwon Choi -->
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Seokwon Choi</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Academic Team</h6>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal9">Details</button>
-            </div>
-          </div>
-        </div>
-      </div><!-- end of Yonsei slide -->
-
-    </div> <!-- swiper-wrapper -->
-
-    <!-- Swiper Pagination & Navigation -->
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-  </div> <!-- end of Swiper container -->
-</div><!-- end of .container -->
+  </div><!-- end of mySwiper2 -->
+
+</div><!-- end of container -->
 
 <footer class="bg-dark text-light text-center p-3">
   <p>
-    <strong data-lang-ko>회장 이성빈</strong> 
-    <span data-lang-en style="display:none;">President SungBin Lee</span> |
+    <strong data-lang-ko>이성빈</strong> 
+    <span data-lang-en style="display:none;">SungBin Lee</span> |
     <strong>Email:</strong> <a href="mailto:rqtoe@snu.ac.kr" class="text-light">rqtoe@snu.ac.kr</a> |
     <strong>Phone:</strong> +82 10-9650-0718
   </p>
@@ -278,183 +270,12 @@
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<!-- 모달들 (리더십 1~9) -->
-<!-- #1 SungBin Lee -->
-<div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">SungBin Lee (President, SNU)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          SungBin Lee founded QISCA (Quantum Information Science Club Association) in 2024...<br>
-          He is involved in investigating the boundary between classical and quantum computers...
-          <!-- 이하 상세내용 복사 붙여넣기 -->
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #2 Hyeongu Kang -->
-<div class="modal fade" id="modal2" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg"> 
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Hyeongu Kang (Vice President, KAIST)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Hyeongu Kang serves as the Vice President of QISCA and President of EQS at KAIST...
-          <!-- 이하 상세내용 복사 -->
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #3 Jeongwoo Lee -->
-<div class="modal fade" id="modal3">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Jeongwoo Lee (Public Relations, KAIST)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Jeongwoo Lee is the Vice President of Entangled Qubits Society (KAIST)... 
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #4 Seonggeun Park -->
-<div class="modal fade" id="modal4">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Seonggeun Park (Public Relations, KU)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Seonggeun Park is a junior in Electrical Engineering at Korea University...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #5 Hyeoncheol Joo -->
-<div class="modal fade" id="modal5">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Hyeoncheol Joo (Academic Team, KU)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Hyeoncheol Joo is the Vice President of QUICK and a Junior in Cyber Defense...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #6 Yoonjin Bae -->
-<div class="modal fade" id="modal6">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Yoonjin Bae (Web UI Manager, SNU)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Yoonjin Bae is a junior in Physics at SNU and a president of SQRT...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #7 Daniel D. Ohm -->
-<div class="modal fade" id="modal7">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Daniel D. Ohm (International Relations, SNU)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Daniel D. Ohm is the Undergraduate Vice-president of SQRT and a junior studying physics at SNU...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #8 Hyeongmin Lim -->
-<div class="modal fade" id="modal8">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Hyeongmin Lim (Academic Team, Yonsei)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Hello, my name is Hyeongmin Lim, and I am the President of QIYA (Yonsei)...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- #9 Seokwon Choi -->
-<div class="modal fade" id="modal9">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Seokwon Choi (Academic Team, Yonsei)</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          <strong>[KO 버전 내용 추가 가능]</strong><br>
-          Hello, my name is Seokwon Choi, and I am a physics student at Yonsei University...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Swiper 초기화
-  const swiper = new Swiper('.mySwiper', {
+  // 첫 번째 swiper (멤버)
+  new Swiper('.mySwiper', {
     slidesPerView: 1,
-    spaceBetween: 30,
-    loop: false,
+    spaceBetween: 20,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -463,6 +284,37 @@ document.addEventListener('DOMContentLoaded', function() {
       el: '.swiper-pagination',
       clickable: true,
     },
+    // 반응형 옵션 예시
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      992: {
+        slidesPerView: 3
+      }
+    }
+  });
+
+  // 두 번째 swiper (동아리)
+  new Swiper('.mySwiper2', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.mySwiper2 .swiper-button-next',
+      prevEl: '.mySwiper2 .swiper-button-prev',
+    },
+    pagination: {
+      el: '.mySwiper2 .swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      992: {
+        slidesPerView: 3
+      }
+    }
   });
 });
 </script>
