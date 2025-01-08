@@ -5,55 +5,43 @@
   <title>QISCA - About</title>
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <!-- fullPage.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css">
+  
   <script src="common.js"></script>
   <style>
-    nav.navbar {
-      z-index:9999;
-    }
-    .navbar-brand {
-      margin-left:30px;
-    }
+    nav.navbar { z-index:9999; }
+    .navbar-brand { margin-left:30px; }
+
     .section {
       position: relative;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       font-size: 1.3em;
       font-weight: 500;
       text-align: center;
     }
-    /* 섹션 1 (홀수) → about_1.png / 밝음 */
-    .section:nth-of-type(odd) {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/about_1.png");
-    }
+    /* 홀수 → 밝게, 짝수 → 어둡게 */
     .section:nth-of-type(odd)::before {
       content:"";
       position:absolute;top:0;left:0;right:0;bottom:0;
-      background: rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.1);
       z-index:0;
-    }
-    /* 섹션 2 (짝수) → about_2.png / 어두움 */
-    .section:nth-of-type(even) {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/about_2.png");
     }
     .section:nth-of-type(even)::before {
       content:"";
       position:absolute;top:0;left:0;right:0;bottom:0;
-      background: rgba(0,0,0,0.5);
+      background:rgba(0,0,0,0.8);
       z-index:0;
     }
+    .section:nth-of-type(odd) .section-content { color:#111; }
+    .section:nth-of-type(even) .section-content { color:#fff; }
 
     .section-content {
-      position: relative;
+      position:relative;
       z-index:2;
       max-width:800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      color:#fff;
+      margin:0 auto;
+      padding:60px 20px;
     }
   </style>
 </head>
@@ -61,21 +49,28 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand fp-external" href="index.html">
       <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" ...></button>
     <div class="collapse navbar-collapse" id="navbarToggle">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html" data-lang-ko>메인</a></li>
         <li class="nav-item">
-          <a class="nav-link active" href="about.html" data-lang-ko>소개</a>
-          <a class="nav-link active" href="about.html" data-lang-en style="display:none;">About</a>
+          <a class="nav-link fp-external" href="index.html" data-lang-ko>메인</a>
+          <a class="nav-link fp-external" href="index.html" data-lang-en style="display:none;">Home</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="activities.html" data-lang-ko>활동</a></li>
-        <li class="nav-item"><a class="nav-link" href="members.html" data-lang-ko>회원 동아리</a></li>
+        <li class="nav-item">
+          <a class="nav-link active fp-external" href="about.html" data-lang-ko>소개</a>
+          <a class="nav-link active fp-external" href="about.html" data-lang-en style="display:none;">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fp-external" href="activities.html" data-lang-ko>활동</a>
+          <a class="nav-link fp-external" href="activities.html" data-lang-en style="display:none;">Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fp-external" href="members.html" data-lang-ko>회원 동아리</a>
+          <a class="nav-link fp-external" href="members.html" data-lang-en style="display:none;">Members</a>
+        </li>
       </ul>
       <div class="d-flex ms-3">
         <button class="btn btn-outline-light me-1" onclick="changeLanguage('ko')">한글</button>
@@ -86,7 +81,7 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1 -->
+  <!-- 첫 섹션: intro -->
   <div class="section" data-anchor="intro">
     <div class="section-content">
       <h2 data-lang-ko>소개</h2>
@@ -104,7 +99,7 @@
     </div>
   </div>
 
-  <!-- 섹션 2 -->
+  <!-- 두 번째 섹션: vision -->
   <div class="section" data-anchor="vision">
     <div class="section-content">
       <h2 data-lang-ko>비전 & 목표</h2>
@@ -121,15 +116,16 @@
   </div>
 </div>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
-    autoScrolling: true,
-    navigation: true,
-    anchors: ['intro','vision'],
-    css3: true
+    autoScrolling:true,
+    navigation:true,
+    anchors:['intro','vision'],
+    css3:true
   });
 });
 </script>
