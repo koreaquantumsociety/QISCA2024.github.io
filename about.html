@@ -12,43 +12,48 @@
   <script src="common.js"></script>
   <style>
     nav.navbar {
-      z-index:9999 !important;
+      z-index:9999;
+    }
+    .navbar-brand {
+      margin-left:30px;
     }
     .section {
       position: relative;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-size: 1.5em;
-      font-weight: 600;
+      font-size: 1.3em;
+      font-weight: 500;
       text-align: center;
     }
-    .section[data-anchor="intro"] {
+    /* 섹션 1 (홀수) → about_1.png / 밝음 */
+    .section:nth-of-type(odd) {
       background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/about_1.png");
     }
-    .section[data-anchor="vision"] {
-      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/about_2.png");
-    }
-    /* 홀수/짝수 명암 차이 */
     .section:nth-of-type(odd)::before {
       content:"";
-      position: absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      z-index: 0;
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background: rgba(255,255,255,0.1);
+      z-index:0;
+    }
+    /* 섹션 2 (짝수) → about_2.png / 어두움 */
+    .section:nth-of-type(even) {
+      background-image: url("https://koreaquantumsociety.github.io/QISCA2024.github.io/images/about_2.png");
     }
     .section:nth-of-type(even)::before {
       content:"";
-      position: absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.3);
-      z-index: 0;
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background: rgba(0,0,0,0.5);
+      z-index:0;
     }
+
     .section-content {
       position: relative;
-      z-index: 2;
-      max-width: 800px;
+      z-index:2;
+      max-width:800px;
       margin: 0 auto;
-      padding: 20px;
-      color: #fff;
+      padding: 40px 20px;
+      color:#fff;
     }
   </style>
 </head>
@@ -87,14 +92,14 @@
       <h2 data-lang-ko>소개</h2>
       <h2 data-lang-en style="display:none;">About</h2>
       <p data-lang-ko>
-        QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로,<br>
-        2024년 10월에 설립되었습니다. 다양한 학술 교류를 통해 전문성을 향상시키고,<br>
-        양자 컴퓨팅 이론의 접근성을 높이는 것을 목표로 합니다.
+        QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로<br>
+        2024년 10월에 설립되었습니다 다양한 학술 교류를 통해 전문성을 향상시키고<br>
+        양자 컴퓨팅 이론의 접근성을 높이는 것을 목표로 합니다
       </p>
       <p data-lang-en style="display:none;">
-        QISCA is an association for student clubs dedicated to quantum information science,<br>
-        founded in October 2024. We aim to promote academic exchange and improve accessibility<br>
-        in quantum computing theory.
+        QISCA is an association for student clubs dedicated to quantum information science<br>
+        founded in October 2024 We aim to promote academic exchange and improve accessibility<br>
+        in quantum computing theory
       </p>
     </div>
   </div>
@@ -116,7 +121,6 @@
   </div>
 </div>
 
-<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
@@ -124,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
-    anchors: ['intro','vision']
+    anchors: ['intro','vision'],
+    css3: true
   });
 });
 </script>
