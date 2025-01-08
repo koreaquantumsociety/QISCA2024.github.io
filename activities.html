@@ -11,20 +11,59 @@
 
   <script src="common.js"></script>
   <style>
-    .bg-activities {
-      background: url('images/activities_1.png') center center/cover no-repeat;
+    /* 각 섹션별 고유 배경 이미지 */
+    /* 첫 번째(overview) 섹션: activities_1.png */
+    /* 두 번째(seminars) 섹션: activities_2.png */
+    /* 세 번째(collab) 섹션: activities_3.png */
+    /* 네 번째(global) 섹션: activities_4.png */
+    /* 다섯 번째(events) 섹션: activities_5.png */
+
+    .section {
       position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    .dark-overlay {
-      position: absolute; top:0; left:0; width:100%; height:100%;
+
+    /* 섹션마다 다른 배경 이미지 */
+    .section[data-anchor="overview"] {
+      background-image: url('images/activities_1.png');
+    }
+    .section[data-anchor="seminars"] {
+      background-image: url('images/activities_2.png');
+    }
+    .section[data-anchor="collab"] {
+      background-image: url('images/activities_3.png');
+    }
+    .section[data-anchor="global"] {
+      background-image: url('images/activities_4.png');
+    }
+    .section[data-anchor="events"] {
+      background-image: url('images/activities_5.png');
+    }
+
+    /* 모든 섹션에 어둡게 처리(오버레이) - 기본으로 살짝 어둡게 */
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3); /* 기본값(짝수일 때) */
+      z-index: 0;
+    }
+    /* 홀수 섹션은 명암을 더 진하게 => rgba(0,0,0,0.6) 등 */
+    .section:nth-of-type(odd)::before {
       background: rgba(0,0,0,0.6);
     }
+
+    /* 섹션 내부 텍스트 스타일 */
     .section-content {
       position: relative;
-      z-index: 2;
+      z-index: 2; 
       color: #fff;
       text-align: center;
       max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
     }
     .section-content h2 {
       font-weight: 700;
@@ -45,22 +84,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarToggle">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html" data-lang-ko>메인</a>
-          <a class="nav-link" href="index.html" data-lang-en style="display:none;">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html" data-lang-ko>소개</a>
-          <a class="nav-link" href="about.html" data-lang-en style="display:none;">About</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="index.html" data-lang-ko>메인</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html" data-lang-ko>소개</a></li>
         <li class="nav-item">
           <a class="nav-link active" href="activities.html" data-lang-ko>활동</a>
           <a class="nav-link active" href="activities.html" data-lang-en style="display:none;">Activities</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="members.html" data-lang-ko>회원 동아리</a>
-          <a class="nav-link" href="members.html" data-lang-en style="display:none;">Members</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="members.html" data-lang-ko>회원 동아리</a></li>
       </ul>
       <div class="d-flex ms-3">
         <button class="btn btn-outline-light me-1" onclick="changeLanguage('ko')">한글</button>
@@ -71,63 +101,49 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1 -->
-  <div class="section bg-activities" data-anchor="overview">
-    <div class="dark-overlay"></div>
-    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 w-100 px-3">
+  <!-- 섹션 1: overview (activities_1.png) -->
+  <div class="section" data-anchor="overview">
+    <div class="section-content">
       <h2 data-lang-ko>QISCA의 주요 활동</h2>
       <h2 data-lang-en style="display:none;">QISCA's Main Activities</h2>
       <p data-lang-ko>정기 세미나, 공동 연구, 글로벌 교류 프로그램 등 다양한 활동을 진행합니다.</p>
       <p data-lang-en style="display:none;">We host regular seminars, collaborate on research, run global exchange programs, etc.</p>
-
-      <ul class="list-unstyled mt-4" data-lang-ko>
-        <li><strong>정기 세미나</strong> : 매년 64회의 세미나</li>
-        <li><strong>공동 연구 & 인턴십</strong> : 학교 간 협력</li>
-        <li><strong>글로벌 교류 프로그램</strong> : 해외 양자 동아리와 교류</li>
-        <li><strong>공동 행사</strong> : Quantum Hackathon 등</li>
-      </ul>
-      <ul class="list-unstyled mt-4" data-lang-en style="display:none;">
-        <li><strong>Regular Seminars</strong> : 64 seminars per year</li>
-        <li><strong>Collaborative Research & Internships</strong> : Inter-school projects</li>
-        <li><strong>Global Exchange Program</strong> : Exchange with quantum clubs abroad</li>
-        <li><strong>Joint Events</strong> : Quantum Hackathon, etc.</li>
-      </ul>
     </div>
   </div>
 
-  <!-- 섹션 2 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="seminars">
-    <div class="container text-center">
+  <!-- 섹션 2: seminars (activities_2.png) -->
+  <div class="section" data-anchor="seminars">
+    <div class="section-content">
       <h2 data-lang-ko>정기 세미나</h2>
       <h2 data-lang-en style="display:none;">Regular Seminars</h2>
-      <p data-lang-ko>매년 64회의 세미나로 최신 양자정보 연구를 공유합니다.</p>
-      <p data-lang-en style="display:none;">We hold 64 seminars annually to share the latest quantum information research.</p>
+      <p data-lang-ko>매년 64회의 세미나를 통해 최신 양자정보 이론/실습을 공유합니다.</p>
+      <p data-lang-en style="display:none;">We hold 64 seminars annually to discuss the latest theories in quantum information.</p>
     </div>
   </div>
 
-  <!-- 섹션 3 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center" data-anchor="collab">
-    <div class="container text-center">
+  <!-- 섹션 3: collab (activities_3.png) -->
+  <div class="section" data-anchor="collab">
+    <div class="section-content">
       <h2 data-lang-ko>공동 연구 & 인턴십</h2>
       <h2 data-lang-en style="display:none;">Collaborative Research & Internships</h2>
-      <p data-lang-ko>학교 간 협력 프로젝트, 기업 인턴십으로 실무 경험을 쌓습니다.</p>
-      <p data-lang-en style="display:none;">Through inter-school projects and corporate internships, we gain practical experience.</p>
+      <p data-lang-ko>학교 간 협력 연구 프로젝트, 기업 인턴십을 통해 실무 경험을 쌓습니다.</p>
+      <p data-lang-en style="display:none;">We conduct inter-school projects and industry internships for practical experience.</p>
     </div>
   </div>
 
-  <!-- 섹션 4 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="global">
-    <div class="container text-center">
+  <!-- 섹션 4: global (activities_4.png) -->
+  <div class="section" data-anchor="global">
+    <div class="section-content">
       <h2 data-lang-ko>글로벌 교류 프로그램</h2>
       <h2 data-lang-en style="display:none;">Global Exchange Program</h2>
-      <p data-lang-ko>해외 양자 동아리와 교류하여 글로벌 협업 기회를 넓힙니다.</p>
-      <p data-lang-en style="display:none;">We collaborate with quantum clubs abroad, expanding global research opportunities.</p>
+      <p data-lang-ko>해외 양자 동아리와 교류하여 국제 공동 연구 기회를 넓힙니다.</p>
+      <p data-lang-en style="display:none;">We collaborate with quantum clubs abroad, expanding global joint research opportunities.</p>
     </div>
   </div>
 
-  <!-- 섹션 5 -->
-  <div class="section d-flex flex-column justify-content-center align-items-center" data-anchor="events">
-    <div class="container text-center">
+  <!-- 섹션 5: events (activities_5.png) -->
+  <div class="section" data-anchor="events">
+    <div class="section-content">
       <h2 data-lang-ko>공동 행사</h2>
       <h2 data-lang-en style="display:none;">Joint Events</h2>
       <p data-lang-ko>Quantum Hackathon, 학기말 연구 발표회 등 다채로운 행사를 개최합니다.</p>
@@ -136,10 +152,11 @@
   </div>
 </div>
 
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
