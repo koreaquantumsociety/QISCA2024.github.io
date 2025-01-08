@@ -412,10 +412,6 @@ document.addEventListener('DOMContentLoaded', function(){
       nextEl: '.clubSwiper .swiper-button-next',
       prevEl: '.clubSwiper .swiper-button-prev',
     },
-    pagination: {
-      el: '.clubSwiper .swiper-pagination',
-      clickable: true,
-    },
   });
   
   // Leadership Swiper
@@ -425,30 +421,14 @@ document.addEventListener('DOMContentLoaded', function(){
     slide.classList.add('swiper-slide','member-slide');
     slide.innerHTML = `
       <img src="${person.image}" alt="${person.name_ko}">
-      
-      <!-- 이름 -->
-      <div class="member-name">
-        <span data-lang-ko>${person.name_ko}</span>
-        <span data-lang-en style="display:none;">${person.name_en}</span>
-      </div>
-      
-      <!-- 직책 -->
-      <div class="member-position">
-        <span data-lang-ko>${person.position_ko}</span>
-        <span data-lang-en style="display:none;">${person.position_en}</span>
-      </div>
-      
-      <!-- 소속 -->
-      <div class="member-affiliation">
-        <span data-lang-ko>${person.affiliation_ko}</span>
-        <span data-lang-en style="display:none;">${person.affiliation_en}</span>
-      </div>
-      
-      <!-- 소개 -->
-      <div class="member-intro">
-        <span data-lang-ko>${person.intro_ko}</span>
-        <span data-lang-en style="display:none;">${person.intro_en}</span>
-      </div>
+      <div class="member-name" data-lang-ko>${person.name_ko}</div>
+      <div class="member-name" data-lang-en style="display:none;">${person.name_en}</div>
+      <div class="member-position" data-lang-ko>${person.position_ko}</div>
+      <div class="member-position" data-lang-en style="display:none;">${person.position_en}</div>
+      <div class="member-affiliation" data-lang-ko>${person.affiliation_ko}</div>
+      <div class="member-affiliation" data-lang-en style="display:none;">${person.affiliation_en}</div>
+      <div class="member-intro" data-lang-ko>${person.intro_ko}</div>
+      <div class="member-intro" data-lang-en style="display:none;">${person.intro_en}</div>
     `;
     memberSlides.appendChild(slide);
   });
