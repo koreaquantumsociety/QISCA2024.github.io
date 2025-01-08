@@ -15,11 +15,6 @@
   <script src="common.js"></script>
 
   <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
     /* ===== NavBar (동일 폰트 & 크기) ===== */
     nav.navbar {
       z-index: 9999;
@@ -428,33 +423,13 @@ document.addEventListener('DOMContentLoaded', function(){
   leadershipData.forEach(person => {
     const slide = document.createElement('div');
     slide.classList.add('swiper-slide','member-slide');
-    slide.innerHTML = `
+    slide.innerHTML = 
       <img src="${person.image}" alt="${person.name_ko}">
-      
-      <!-- 이름 -->
-      <div class="member-name">
-        <span data-lang-ko>${person.name_ko}</span>
-        <span data-lang-en style="display:none;">${person.name_en}</span>
-      </div>
-      
-      <!-- 직책 -->
-      <div class="member-position">
-        <span data-lang-ko>${person.position_ko}</span>
-        <span data-lang-en style="display:none;">${person.position_en}</span>
-      </div>
-      
-      <!-- 소속 -->
-      <div class="member-affiliation">
-        <span data-lang-ko>${person.affiliation_ko}</span>
-        <span data-lang-en style="display:none;">${person.affiliation_en}</span>
-      </div>
-      
-      <!-- 소개 -->
-      <div class="member-intro">
-        <span data-lang-ko>${person.intro_ko}</span>
-        <span data-lang-en style="display:none;">${person.intro_en}</span>
-      </div>
-    `;
+      <div class="member-name">${person.name_ko}</div>
+      <div class="member-position">${person.position}</div>
+      <div class="member-affiliation">${person.affiliation}</div>
+      <div class="member-intro">${person.intro}</div>
+    ;
     memberSlides.appendChild(slide);
   });
 
