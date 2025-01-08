@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
 
   <script src="common.js"></script>
-
   <style>
     .bg-about {
       background: url('images/about_2.png') center center/cover no-repeat;
@@ -31,21 +30,20 @@
     .section-content h2 {
       font-weight: 700;
       font-size: 2rem;
+      margin-bottom: 20px;
     }
   </style>
-
 </head>
 <body onload="initLanguage()">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="images/qisca.png" alt="QISCA Logo" height="40">
+      <img src="images/qisca.png" alt="QISCA" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarToggle">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -74,15 +72,15 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1: about_2.png 배경 -->
+  <!-- 섹션 1 -->
   <div class="section bg-about" data-anchor="intro">
     <div class="dark-overlay"></div>
-    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 w-100 mx-auto px-3">
+    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 w-100 px-3">
       <h2 data-lang-ko>소개</h2>
       <h2 data-lang-en style="display:none;">About</h2>
       <p data-lang-ko>
-        QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로,
-        2024년 10월에 설립되었습니다. 다양한 학술 교류를 통해 전문성을 향상시키고
+        QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로,  
+        2024년 10월에 설립되었습니다. 다양한 학술 교류를 통해 전문성을 향상시키고,  
         양자 컴퓨팅 이론의 접근성을 높이는 것을 목표로 합니다.
       </p>
       <p data-lang-en style="display:none;">
@@ -93,7 +91,7 @@
     </div>
   </div>
 
-  <!-- 섹션 2: 비전/목표 -->
+  <!-- 섹션 2 -->
   <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="vision">
     <div class="container text-center">
       <h2 data-lang-ko>비전 & 목표</h2>
@@ -110,11 +108,10 @@
   </div>
 </div>
 
-<!-- Bootstrap & fullPage JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
@@ -122,6 +119,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
 </body>
 </html>
