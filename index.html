@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>QISCA - Main</title>
-
+  
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css" />
-
+  
   <script src="common.js"></script>
 
   <style>
-    /* 첫 섹션 배경 + 어둡게 */
+    /* 메인 페이지 첫 섹션 배경 */
     .main-bg {
       background: url('images/main_1.png') center center/cover no-repeat;
       position: relative;
@@ -22,7 +21,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6); /* 어둡게 처리 */
+      background: rgba(0,0,0,0.6); /* 어둡게 */
     }
     .section-content {
       position: relative;
@@ -34,19 +33,17 @@
     .section-content h2 {
       font-weight: 700;
       font-size: 2rem;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body onload="initLanguage()">
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <!-- 로고(qisca.png)만 남김 -->
     <a class="navbar-brand" href="index.html">
-      <img src="images/qisca.png" alt="QISCA Logo" height="40">
+      <img src="images/qisca.png" alt="QISCA" height="40">
     </a>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,7 +66,6 @@
           <a class="nav-link" href="members.html" data-lang-en style="display:none;">Members</a>
         </li>
       </ul>
-      <!-- 언어 버튼 -->
       <div class="d-flex ms-3">
         <button class="btn btn-outline-light me-1" onclick="changeLanguage('ko')">한글</button>
         <button class="btn btn-outline-light" onclick="changeLanguage('en')">English</button>
@@ -79,28 +75,27 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 섹션 1: 메인 -->
+  <!-- 섹션 1 -->
   <div class="section main-bg" data-anchor="main">
     <div class="dark-overlay"></div>
-    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 w-100 mx-auto px-3">
-
-      <!-- 새로 삽입: qisca_2.png (메인 섹션 맨 위) -->
-      <img src="images/qisca_2.png" alt="QISCA_2 Logo" style="max-width: 300px; margin-bottom: 20px;">
-
+    <div class="section-content d-flex flex-column justify-content-center align-items-center h-100 mx-auto px-3">
+      <!-- 메인 섹션 로고(qisca_2.png) -->
+      <img src="images/qisca_2.png" alt="QISCA_2" style="max-width: 300px; margin-bottom: 20px;">
+      
       <h2 data-lang-ko>QISCA에 오신 것을 환영합니다!</h2>
       <h2 data-lang-en style="display:none;">Welcome to QISCA!</h2>
       <p data-lang-ko>
-        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.<br>
+        양자 정보 과학에 열정을 가진 학생 동아리들의 연합체 QISCA입니다.  
         다양한 활동과 교류를 통해 양자 컴퓨팅 분야를 함께 선도해나가고자 합니다.
       </p>
       <p data-lang-en style="display:none;">
-        QISCA is an association of student clubs passionate about quantum information science.<br>
+        QISCA is an association of student clubs passionate about quantum information science.  
         We strive to lead the field of quantum computing through various activities and collaborations.
       </p>
     </div>
   </div>
 
-  <!-- 섹션 2: 연락처/푸터 -->
+  <!-- 섹션 2 -->
   <div class="section d-flex flex-column justify-content-center align-items-center bg-light" data-anchor="contact">
     <div class="container text-center">
       <h3 data-lang-ko>연락처</h3>
@@ -116,11 +111,11 @@
   </div>
 </div>
 
-<!-- Bootstrap & fullPage JS -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
