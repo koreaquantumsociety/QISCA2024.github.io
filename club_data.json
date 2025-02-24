@@ -1,0 +1,14 @@
+[
+    {
+        "html": "<div class=\"swiper-slide club-slide\">\n            <img src=\"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/SQRT.png\" alt=\"SQRT\">\n            <div class=\"club-name\">SQRT</div>"
+    },
+    {
+        "html": "<div class=\"swiper-slide club-slide\">\n            <img src=\"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/EQS.png\" alt=\"EQS\">\n            <div class=\"club-name\">EQS</div>"
+    },
+    {
+        "html": "<div class=\"swiper-slide club-slide\">\n            <img src=\"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/QUIK.png\" alt=\"QUICK\">\n            <div class=\"club-name\">QUICK</div>"
+    },
+    {
+        "html": "<div class=\"swiper-slide club-slide\">\n            <img src=\"https://koreaquantumsociety.github.io/QISCA2024.github.io/images/QIYA.png\" alt=\"QIYA\">\n            <div class=\"club-name\">QIYA</div>"
+    }
+]

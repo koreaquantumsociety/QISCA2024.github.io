@@ -10,45 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css">
   
   <script src="common.js"></script>
-  <style>
-    nav.navbar { z-index:9999; }
-    .navbar-brand { margin-left:30px; }
-
-    .section {
-      position: relative;
-      font-size:1.3em; 
-      font-weight:500;
-      text-align:center;
-    }
-    h2[data-lang-en], h2[data-lang-ko] {
-      font-size: 2em; /* 폰트 크기 */
-      font-weight: 700; /* 폰트 굵기 */
-      margin-bottom: 20px; /* 여백 조정 */
-    }
-    /* 홀수 → 밝게, 짝수 → 어둡게 */
-    .section:nth-of-type(odd)::before {
-      content:"";
-      position:absolute;top:0;left:0;right:0;bottom:0;
-      background:rgba(255,255,255,0.1);
-      z-index:0;
-    }
-    .section:nth-of-type(even)::before {
-      content:"";
-      position:absolute;top:0;left:0;right:0;bottom:0;
-      background:rgba(0,0,0,0.8);
-      z-index:0;
-    }
-    .section:nth-of-type(odd) .section-content { color:#111; }
-    .section:nth-of-type(even) .section-content { color:#fff; }
-
-    .section-content {
-      position:relative;
-      z-index:2;
-      max-width:1200px;
-      margin:0 auto;
-      padding:60px 20px;
-    }
-  </style>
+  
+<link rel="stylesheet" href="style.css">
 </head>
 <body onload="initLanguage()">
 

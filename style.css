@@ -1,164 +1,248 @@
-/* style.css */
 
-/* 기본 박스 설정 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    h2[data-lang-en], h2[data-lang-ko] {
+      font-size: 2.5em; /* 폰트 크기 */
+      font-weight: 800; /* 폰트 굵기 */
+      margin-bottom: 20px; /* 여백 조정 */
+    }
+    nav.navbar {
+      z-index: 9999;
+    }
+    .navbar-brand {
+      margin-left: 30px; /* 로고 우측 이동 */
+    }
+    .section {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-size: 1.3em; /* 글씨 크기 */
+      font-weight: 500;
+      text-align: center;
+    }
+    /* 홀수 → 밝게, 짝수 → 어둡게 */
+    .section:nth-of-type(odd)::before {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(255,255,255,0.1); 
+      z-index: 0;
+    }
+    .section:nth-of-type(even)::before {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.8); 
+      z-index: 0;
+    }
+    /* 밝은 섹션 텍스트는 검정, 어두운 섹션 텍스트는 흰색 */
+    .section:nth-of-type(odd) .section-content { color: #111; }
+    .section:nth-of-type(even) .section-content { color: #fff; }
 
-/* 컬러 팔레트 (Material-ish) */
-:root {
-  --color-primary: #6200ee;       /* 보라 계열 */
-  --color-primary-light: #bb86fc; 
-  --color-secondary: #03dac6;     /* 민트색 계열 */
-  --color-background: #f4f7f4;    
-  --color-surface: #ffffff;       
-  --color-text: #333;
-  --color-header: #3700b3;        /* 진한 보라 */
-  --color-footer: #121212;        
-  --color-footer-text: #cccccc;
-  --transition-speed: 0.4s;
-}
+    .section-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+  
 
-/* 바디 기본 설정 */
-html, body {
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  overflow: hidden; /* Scroll Snap 전용(각 페이지의 .main-container에 스크롤 할당) */
-}
+    nav.navbar { z-index:9999; }
+    .navbar-brand { margin-left:30px; }
 
-/* ------------------ Scroll Snap 공통 스타일 ------------------ */
-/* 각 페이지 최상단 래퍼에 .main-container를 두고 
-   그 안에 section들을 100vh로 배치하면, 스크롤 시 풀스크린 전환 */
-.main-container {
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;   /* 수직 스크롤 + 스냅 */
-  -webkit-overflow-scrolling: touch;
-}
+    h2[data-lang-en], h2[data-lang-ko] {
+      font-size: 2em; /* 폰트 크기 */
+      font-weight: 700; /* 폰트 굵기 */
+      margin-bottom: 20px; /* 여백 조정 */
+    }
+    
+    .section {
+      position: relative;
+      font-size: 1.3em;
+      font-weight: 500;
+      text-align: center;
+    }
+    /* 홀수 → 밝게, 짝수 → 어둡게 */
+    .section:nth-of-type(odd)::before {
+      content:"";
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(255,255,255,0.1);
+      z-index:0;
+    }
+    .section:nth-of-type(even)::before {
+      content:"";
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.8);
+      z-index:0;
+    }
+    .section:nth-of-type(odd) .section-content { color:#111; }
+    .section:nth-of-type(even) .section-content { color:#fff; }
 
-.snap-section {
-  width: 100%;
-  height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 20px;
-  box-sizing: border-box;
-}
+    .section-content {
+      position:relative;
+      z-index:2;
+      max-width:1200px;
+      margin:0 auto;
+      padding:60px 20px;
+    }
+  
 
-/* ------------------ HEADER ------------------ */
-header {
-  background-color: var(--color-header);
-  color: white;
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  position: relative;  /* .snap-section 내부 레이아웃을 위해 */
-}
+    nav.navbar { z-index:9999; }
+    .navbar-brand { margin-left:30px; }
 
-header img {
-  height: 60px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
+    .section {
+      position: relative;
+      font-size:1.3em; 
+      font-weight:500;
+      text-align:center;
+    }
+    h2[data-lang-en], h2[data-lang-ko] {
+      font-size: 2em; /* 폰트 크기 */
+      font-weight: 700; /* 폰트 굵기 */
+      margin-bottom: 20px; /* 여백 조정 */
+    }
+    /* 홀수 → 밝게, 짝수 → 어둡게 */
+    .section:nth-of-type(odd)::before {
+      content:"";
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(255,255,255,0.1);
+      z-index:0;
+    }
+    .section:nth-of-type(even)::before {
+      content:"";
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.8);
+      z-index:0;
+    }
+    .section:nth-of-type(odd) .section-content { color:#111; }
+    .section:nth-of-type(even) .section-content { color:#fff; }
 
-header h1 {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 1.5rem;
-  margin: 0;
-}
+    .section-content {
+      position:relative;
+      z-index:2;
+      max-width:1200px;
+      margin:0 auto;
+      padding:60px 20px;
+    }
+  
 
-nav {
-  margin-top: 10px;
-}
+    /* ===== NavBar (동일 폰트 & 크기) ===== */
+    nav.navbar {
+      z-index: 9999;
+      font-weight: 400;
+    }
+    .navbar-brand {
+      margin-left: 30px; /* 로고 우측 이동 */
+    }
+    .navbar-nav .nav-link {
+      font-size: 1em;
+      font-weight: 400;
+    }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-  padding: 6px 10px;
-  border-radius: 4px;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
+    /* ===== fullPage: 2섹션 (클럽/리더십) ===== */
+    .section {
+      position: relative;
+      font-size: 1.3em; /* 글자 크기 */
+      font-weight: 500;
+      text-align: center;
+    }
+    /* 홀수 섹션 밝게, 짝수 섹션 어둡게 */
+    .section:nth-of-type(odd)::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(255,255,255,0.1);
+      z-index:0;
+    }
+    .section:nth-of-type(even)::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.8);
+      z-index:0;
+    }
+    /* 밝은 섹션=검정 글자, 어두운 섹션=흰 글자 */
+    .section:nth-of-type(odd) .section-content { color: #111; }
+    .section:nth-of-type(even) .section-content { color: #fff; }
 
-nav a:hover {
-  background-color: var(--color-primary-light);
-  color: #000;
-}
+    .section-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;  /* 좌우 공간 넓힘 */
+      margin: 0 auto;
+      margin-top: 50px; /* 공백 크기 조절 */
+      padding: 60px 20px;
+    }
 
-/* ------------------ LANGUAGE SWITCH ------------------ */
-.language-switch {
-  position: absolute; /* 상단 오른쪽 고정 */
-  top: 0;
-  right: 0;
-  background-color: var(--color-primary-light);
-  padding: 5px 10px;
-}
+    /* ===== 스와이퍼 고정 높이/너비 확장 ===== */
+    .swiper-container {
+      width: 100%;
+      max-width: 1200px;       /* 더 넓은 공간 */
+      margin: 0 auto;
+    }
+    .swiper-slide {
+      height: 700px;           /* 높이를 800px로 확대 */
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;  /* 상단에서부터 배치 */
+      gap: 10px;
+      padding: 20px;
+      text-align: center;
+    }
 
-.language-switch button {
-  background-color: transparent;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 1rem;
-  transition: 0.3s;
-}
+    /* ===== Club Slides ===== */
+    .club-slide img {
+      height: 180px; /* 동아리 로고 or 이미지 크기 고정, 예: 250px */
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .club-name {
+      font-size: 1.4em;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .club-univ {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .club-year, .club-links {
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+    .club-desc {
+      font-size: 0.95em;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      padding: 0 10px; /* 좌우 패딩 */
+    }
 
-.language-switch button:hover {
-  color: var(--color-secondary);
-}
-
-/* ------------------ SECTION 내용 ------------------ */
-section h2 {
-  font-size: 2rem;
-  color: var(--color-primary);
-  margin-bottom: 20px;
-  border-bottom: 3px solid var(--color-primary-light);
-  padding-bottom: 5px;
-  display: inline-block;
-}
-
-/* 인터섹션 옵저버용 transition */
-.transition-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.transition-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ------------------ FOOTER ------------------ */
-footer {
-  background-color: var(--color-footer);
-  color: var(--color-footer-text);
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  position: relative;
-}
-
-/* ------------------ RESPONSIVE ------------------ */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.2rem;
-  }
-  section h2 {
-    font-size: 1.6rem;
-  }
-}
+    /* ===== Leadership Slides ===== */
+    .member-slide img {
+      height: 240px; /* 인물 사진 고정 높이(합리적인 예시) */
+      object-fit: cover;
+    }
+    .member-name {
+      font-size: 1.3em;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .member-position {
+      font-size: 1.1em;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .member-affiliation {
+      font-size: 1.0em;
+      font-weight: 400;
+      white-space: pre-line;  /* 줄분리 */
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+    .member-intro {
+      font-size: 0.9em;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      padding: 0 10px;
+    }
+  
