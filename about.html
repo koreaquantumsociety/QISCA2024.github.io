@@ -8,19 +8,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <!-- fullPage.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.css">
-  
+
   <script src="common.js"></script>
-  
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body onload="initLanguage()">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand fp-external" href="index.html">
-      <img src="https://koreaquantumsociety.github.io/QISCA2024.github.io/images/qisca.png" alt="QISCA" height="40">
+      <img src="images/qisca.png" alt="QISCA" height="40">
     </a>
-    <button class="navbar-toggler" ...></button>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggle"></button>
     <div class="collapse navbar-collapse" id="navbarToggle">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -49,52 +48,69 @@
 </nav>
 
 <div id="fullpage">
-  <!-- 첫 섹션: intro -->
   <div class="section" data-anchor="intro">
-    <div class="section-content">
-      <h2 data-lang-ko>소개</h2>
+    <div class="section-content text-center">
+      <h2 data-lang-ko>소개 및 가입</h2>
       <h2 data-lang-en style="display:none;">About</h2>
       <p data-lang-ko>
-        QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로, 2024년 10월에 설립되었습니다<br>
-        다양한 학술 교류를 통해 전문성을 향상시키고 양자 컴퓨팅 이론의 접근성을 높이는 것을 목표로 합니다<br>
+        QISCA는 양자 정보 과학을 연구하는 학생 동아리들의 협회로, 2024년 10월에 설립되었습니다.<br>
+        다양한 학술 교류를 통해 전문성을 향상시키고 양자 컴퓨팅 이론의 접근성을 높이는 것을 목표로 합니다.
       </p>
       <p data-lang-en style="display:none;">
-        QISCA is an association for student clubs dedicated to quantum information science<br>
-        Founded in October 2024<br>
-        We aim to promote academic exchange and improve accessibility in quantum computing theory<br>
+        QISCA is an association for student clubs dedicated to quantum information science, founded in October 2024.<br>
+        We aim to promote academic exchange and improve accessibility in quantum computing theory.
+      </p>
+      <p class="mt-4">
+        <a href="https://forms.gle/T3CWxU7GAowpyiik6" class="btn btn-primary btn-sm d-inline-block" style="width: 120px; display:none;" target="_blank">Join Us</a>
       </p>
     </div>
   </div>
 
-  <!-- 두 번째 섹션: vision -->
+  <div class="section" data-anchor="youtube">
+    <div class="section-content text-center">
+      <h2>YouTube</h2>
+      <img src="images/youtube.png" alt="YouTube" class="img-fluid">
+      <p class="mt-3"><a href="https://www.youtube.com/@QuantumInformationScienceClubA" class="btn btn-danger btn-sm" target="_blank">Visit YouTube</a></p>
+    </div>
+  </div>
+
+  <div class="section" data-anchor="linkedin">
+    <div class="section-content text-center">
+      <h2>LinkedIn</h2>
+      <img src="images/linkedin.png" alt="LinkedIn" class="img-fluid">
+      <p class="mt-3"><a href="https://www.linkedin.com/company/qisca-quantum-information-science-club-association/" class="btn btn-primary btn-sm" target="_blank">Visit LinkedIn</a></p>
+    </div>
+  </div>
+
+  <div class="section" data-anchor="community">
+    <div class="section-content text-center">
+      <h2 data-lang-ko>Discord 및 KakaoTalk</h2>
+      <h2 data-lang-en style="display:none;">Discord & KakaoTalk</h2>
+      <img src="images/discord.png" alt="Discord" class="img-fluid">
+      <img src="images/kakaotalk.png" alt="KakaoTalk" class="img-fluid">
+      <p class="mt-3" data-lang-ko>현재 링크 없음</p>
+      <p class="mt-3" data-lang-en style="display:none;">No links available</p>
+    </div>
+  </div>
+
   <div class="section" data-anchor="vision">
-    <div class="section-content">
-      <h2 data-lang-ko>비전 & 목표</h2>
+    <div class="section-content text-center">
+      <h2 data-lang-ko>비전 및 미션</h2>
       <h2 data-lang-en style="display:none;">Vision & Mission</h2>
-      <p data-lang-ko>
-        - 양자 정보 분야의 선도적인 학생 공동체 구축<br>
-        - 산학협력 및 국제 교류 프로그램 확대
-      </p>
-      <p data-lang-en style="display:none;">
-        - Building a leading student community in quantum information<br>
-        - Expanding industry-academia collaboration and international exchanges
-      </p>
+      <p data-lang-ko>양자 정보 과학을 연구하는 학생들의 협력을 강화하고, 학술적 교류를 통해 발전을 도모합니다.</p>
+      <p data-lang-en style="display:none;">We foster collaboration among students studying quantum information science and aim for academic exchange.</p>
     </div>
   </div>
 </div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.13/fullpage.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function(){
   new fullpage('#fullpage', {
-    autoScrolling:true,
-    navigation:true,
-    anchors:['intro','vision'],
-    css3:true
+    anchors: ['intro', 'youtube', 'linkedin', 'community', 'vision'],
+    navigation: true,
+    navigationPosition: 'right',
   });
-});
 </script>
+
 </body>
 </html>
