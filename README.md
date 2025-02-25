@@ -3,6 +3,31 @@ This repository contains the source code for the **QISCA (Quantum Information Sc
 
 ---
 
+## Testing and Deploying Changes
+
+### Local Testing with Live Server
+You can test changes locally using Visual Studio Code and the **Live Server** extension:
+1. Open the project folder in **Visual Studio Code**.
+2. Install the **Live Server** extension if it is not already installed.
+3. Right-click on `index.html` and select **"Open with Live Server"**.
+4. The website will open in your browser using a local server.
+5. Any changes made to the code will be reflected immediately upon saving.
+
+> **Note:** Images will still be loaded from the GitHub repository unless changed locally.
+
+### Deploying Changes to GitHub
+Once your modifications are complete, upload the updated **code, images, or text files** to the GitHub repository. The deployment process will take approximately **one minute** to reflect the changes on the live website.
+
+### Verifying Changes on the Live Website
+After deployment, perform a **cache refresh** to ensure you see the latest updates:
+- **Windows/Linux:** Press `Shift + F5` or `Ctrl + Shift + R` in most browsers.
+- **Mac:** Press `Cmd + Shift + R`.
+
+This will ensure the browser loads the latest version of the website rather than cached files.
+
+
+---
+
 ## 1. HTML Files: Structure and Purpose
 
 Each HTML file represents a different page on the website. Below is an overview of their roles:
